@@ -148,13 +148,13 @@ const panelWidth = panels[0].offsetWidth + 40; // Panel width including margin
 const firstClone = panels[0].cloneNode(true);
 const lastClone = panels[panels.length - 1].cloneNode(true);
 
-adoptScroll.appendChild(firstClone); // Add first to end
-adoptScroll.insertBefore(lastClone, panels[0]); // Add last to start
+adoptScroll.appendChild(firstClone); // Clone first to end
+adoptScroll.insertBefore(lastClone, panels[0]); // Clone last to start
 
 // Update the panel list after cloning
 const allPanels = document.querySelectorAll('.adopt-panel');
 
-// Adjust scroll position to start at the first real panel
+// **Key Fix:** Start scrolled at first real panel
 adoptScroll.scrollLeft = panelWidth;
 
 // Click & Drag Scrolling
@@ -177,7 +177,7 @@ adoptScroll.addEventListener('mouseup', () => {
     isDragging = false;
     adoptScroll.style.cursor = 'grab';
     smoothScroll(); // Enable smooth inertia-like scrolling after release
-    setTimeout(checkLoop, 100); // Ensure seamless infinite scroll
+    checkLoop(); // Ensure seamless infinite scroll
 });
 
 adoptScroll.addEventListener('mousemove', (e) => {
@@ -200,18 +200,20 @@ function smoothScroll() {
     }
 }
 
-// **Key Fix: Check and Loop Seamlessly**
 function checkLoop() {
-    if (adoptScroll.scrollLeft <= 0) {
-        // If scrolled past the first clone (fake first panel), jump to the last real panel
-        adoptScroll.style.scrollBehavior = 'auto'; // Disable smooth scrolling for the jump
-        adoptScroll.scrollLeft = panels.length * panelWidth;
-    } else if (adoptScroll.scrollLeft >= (panels.length + 1) * panelWidth) {
-        // If scrolled past the last clone (fake last panel), jump to the first real panel
+    const maxScroll = panels.length * panelWidth; // Max scroll before looping
+
+    if (adoptScroll.scrollLeft <= panelWidth / 2) {
+        // **Jump to last REAL panel when scrolling left**
+        adoptScroll.style.scrollBehavior = 'auto'; // Disable smooth animation for jump
+        adoptScroll.scrollLeft = maxScroll - panelWidth;
+    } else if (adoptScroll.scrollLeft >= maxScroll - panelWidth / 2) {
+        // **Jump to first REAL panel when scrolling right**
         adoptScroll.style.scrollBehavior = 'auto';
         adoptScroll.scrollLeft = panelWidth;
     }
 }
+
 
 // Auto-scrolling for arrow buttons
 function scrollToPanel(direction) {
@@ -220,7 +222,7 @@ function scrollToPanel(direction) {
 
     setTimeout(() => {
         checkLoop(); // Ensure seamless infinite scroll
-    }, 500); // Give time for animation before correcting position
+    }, 300); // Give time for animation before correcting position
 }
 
 // Right Button Click
@@ -229,7 +231,7 @@ rightBtn.addEventListener('click', () => scrollToPanel(1));
 // Left Button Click
 leftBtn.addEventListener('click', () => scrollToPanel(-1));
 
-// Ensure seamless loop on page load
+// **Final Fix:** Ensure seamless loop on page load
 setTimeout(() => {
     adoptScroll.scrollLeft = panelWidth;
 }, 100);
