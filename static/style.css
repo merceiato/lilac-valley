@@ -903,16 +903,19 @@ button[type="submit"]:hover {
 .adopt-scroll {
     display: flex;
     gap: 20px;
-    width: calc(100% + 40px);
+    width: 100%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Hide scrollbar for cleaner look */
+    scrollbar-width: none; /* Hide scrollbar */
     cursor: grab;
     user-select: none; /* Prevent text selection */
+    transition: scroll-behavior 0.5s ease-in-out;
+    scroll-padding-left: 50%;
+    scroll-padding-right: 50%;
 }
 
 .adopt-scroll::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Webkit browsers */
+    display: none; /* Hide scrollbar */
 }
 
 .adopt-panel {
@@ -924,9 +927,10 @@ button[type="submit"]:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     text-align: center;
     scroll-snap-align: center;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     margin: 0 20px;
 }
+
 
 .adopt-panel img {
     width: 100%;

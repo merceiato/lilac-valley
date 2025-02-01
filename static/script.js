@@ -137,20 +137,69 @@ const panels = document.querySelectorAll('.adopt-panel');
 const leftBtn = document.querySelector('.carousel-btn.left');
 const rightBtn = document.querySelector('.carousel-btn.right');
 
-let currentIndex = 0;
+let isDragging = false;
+let startX;
+let scrollLeft;
+let velocity = 0;
+let animationFrame;
 
-function scrollRight() {
-    const firstPanel = adoptScroll.firstElementChild;
-    adoptScroll.appendChild(firstPanel.cloneNode(true)); // Clone first panel to end
-    adoptScroll.removeChild(firstPanel); // Remove the original first panel
+// Click & Drag Scrolling (Smooth Inertia)
+adoptScroll.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.pageX - adoptScroll.offsetLeft;
+    scrollLeft = adoptScroll.scrollLeft;
+    velocity = 0;
+    adoptScroll.style.cursor = 'grabbing';
+    adoptScroll.style.scrollBehavior = 'auto'; // Disable smooth scrolling for direct control
+    cancelAnimationFrame(animationFrame); // Stop any smooth scroll animation
+});
+
+adoptScroll.addEventListener('mouseleave', () => {
+    isDragging = false;
+    adoptScroll.style.cursor = 'grab';
+});
+
+adoptScroll.addEventListener('mouseup', () => {
+    isDragging = false;
+    adoptScroll.style.cursor = 'grab';
+    smoothScroll(); // Enable smooth inertia-like scrolling after release
+});
+
+adoptScroll.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - adoptScroll.offsetLeft;
+    const walk = (x - startX) * 2; // Adjust sensitivity
+    adoptScroll.scrollLeft = scrollLeft - walk;
+    velocity = walk * 0.1; // Capture velocity for inertia
+});
+
+// Smooth inertia effect after drag release
+function smoothScroll() {
+    if (Math.abs(velocity) > 0.1) {
+        adoptScroll.scrollLeft -= velocity;
+        velocity *= 0.95; // Gradually slow down (friction)
+        animationFrame = requestAnimationFrame(smoothScroll);
+    }
 }
 
-function scrollLeft() {
-    const lastPanel = adoptScroll.lastElementChild;
-    adoptScroll.insertBefore(lastPanel.cloneNode(true), adoptScroll.firstElementChild); // Clone last panel to start
-    adoptScroll.removeChild(lastPanel); // Remove the original last panel
+// Auto-scrolling for arrow buttons
+function scrollToPanel(index) {
+    const panelWidth = panels[0].offsetWidth + 40; // Include margin
+    adoptScroll.scrollTo({
+        left: index * panelWidth,
+        behavior: 'smooth',
+    });
 }
 
-// Attach event listeners to buttons
-rightBtn.addEventListener('click', scrollRight);
-leftBtn.addEventListener('click', scrollLeft);
+// Right Button Click
+rightBtn.addEventListener('click', () => {
+    let panelWidth = panels[0].offsetWidth + 40;
+    adoptScroll.scrollBy({ left: panelWidth, behavior: 'smooth' });
+});
+
+// Left Button Click
+leftBtn.addEventListener('click', () => {
+    let panelWidth = panels[0].offsetWidth + 40;
+    adoptScroll.scrollBy({ left: -panelWidth, behavior: 'smooth' });
+});
