@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const adoptScroll = document.querySelector('.adopt-scroll');
-const panels = document.querySelectorAll('.adopt-panel');
+const panels = Array.from(document.querySelectorAll('.adopt-panel'));
 const leftBtn = document.querySelector('.carousel-btn.left');
 const rightBtn = document.querySelector('.carousel-btn.right');
 
@@ -142,8 +142,22 @@ let startX;
 let scrollLeft;
 let velocity = 0;
 let animationFrame;
+const panelWidth = panels[0].offsetWidth + 40; // Panel width including margin
 
-// Click & Drag Scrolling (Smooth Inertia)
+// Clone first and last panels for seamless looping
+const firstClone = panels[0].cloneNode(true);
+const lastClone = panels[panels.length - 1].cloneNode(true);
+
+adoptScroll.appendChild(firstClone); // Add first to end
+adoptScroll.insertBefore(lastClone, panels[0]); // Add last to start
+
+// Update the panel list after cloning
+const allPanels = document.querySelectorAll('.adopt-panel');
+
+// Adjust scroll position to start at the first real panel
+adoptScroll.scrollLeft = panelWidth;
+
+// Click & Drag Scrolling
 adoptScroll.addEventListener('mousedown', (e) => {
     isDragging = true;
     startX = e.pageX - adoptScroll.offsetLeft;
@@ -163,6 +177,7 @@ adoptScroll.addEventListener('mouseup', () => {
     isDragging = false;
     adoptScroll.style.cursor = 'grab';
     smoothScroll(); // Enable smooth inertia-like scrolling after release
+    setTimeout(checkLoop, 100); // Ensure seamless infinite scroll
 });
 
 adoptScroll.addEventListener('mousemove', (e) => {
@@ -180,26 +195,41 @@ function smoothScroll() {
         adoptScroll.scrollLeft -= velocity;
         velocity *= 0.95; // Gradually slow down (friction)
         animationFrame = requestAnimationFrame(smoothScroll);
+    } else {
+        checkLoop(); // Ensure seamless loop after inertia stops
+    }
+}
+
+// **Key Fix: Check and Loop Seamlessly**
+function checkLoop() {
+    if (adoptScroll.scrollLeft <= 0) {
+        // If scrolled past the first clone (fake first panel), jump to the last real panel
+        adoptScroll.style.scrollBehavior = 'auto'; // Disable smooth scrolling for the jump
+        adoptScroll.scrollLeft = panels.length * panelWidth;
+    } else if (adoptScroll.scrollLeft >= (panels.length + 1) * panelWidth) {
+        // If scrolled past the last clone (fake last panel), jump to the first real panel
+        adoptScroll.style.scrollBehavior = 'auto';
+        adoptScroll.scrollLeft = panelWidth;
     }
 }
 
 // Auto-scrolling for arrow buttons
-function scrollToPanel(index) {
-    const panelWidth = panels[0].offsetWidth + 40; // Include margin
-    adoptScroll.scrollTo({
-        left: index * panelWidth,
-        behavior: 'smooth',
-    });
+function scrollToPanel(direction) {
+    adoptScroll.style.scrollBehavior = 'smooth'; // Enable smooth scrolling for buttons
+    adoptScroll.scrollBy({ left: panelWidth * direction, behavior: 'smooth' });
+
+    setTimeout(() => {
+        checkLoop(); // Ensure seamless infinite scroll
+    }, 500); // Give time for animation before correcting position
 }
 
 // Right Button Click
-rightBtn.addEventListener('click', () => {
-    let panelWidth = panels[0].offsetWidth + 40;
-    adoptScroll.scrollBy({ left: panelWidth, behavior: 'smooth' });
-});
+rightBtn.addEventListener('click', () => scrollToPanel(1));
 
 // Left Button Click
-leftBtn.addEventListener('click', () => {
-    let panelWidth = panels[0].offsetWidth + 40;
-    adoptScroll.scrollBy({ left: -panelWidth, behavior: 'smooth' });
-});
+leftBtn.addEventListener('click', () => scrollToPanel(-1));
+
+// Ensure seamless loop on page load
+setTimeout(() => {
+    adoptScroll.scrollLeft = panelWidth;
+}, 100);
