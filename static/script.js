@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Fetch the list of hero images from the server
     try {
-        const response = await fetch('http://ec2-98-80-76-94.compute-1.amazonaws.com:8080/hero-images'); // Update to Flask API
+        const response = await fetch('http://ec2-98-80-34-138.compute-1.amazonaws.com:8080/hero-images'); // Update to Flask API
         heroImages = await response.json();
 
         if (heroImages.length > 0) {
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let galleryImages = [];
 
     try {
-        const response = await fetch('http://ec2-98-80-76-94.compute-1.amazonaws.com:8080/gallery-images'); // Update to Flask API
+        const response = await fetch('http://ec2-98-80-34-138.compute-1.amazonaws.com:8080/gallery-images'); // Update to Flask API
         galleryImages = await response.json();
     } catch (error) {
         console.error("Error fetching gallery images:", error);

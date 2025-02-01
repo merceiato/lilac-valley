@@ -3,141 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lilac Valley Farm Stay offers a serene escape into nature. Experience luxury, comfort, and relaxation.">
-    <meta name="keywords" content="Farm Stay, Blue Mountains, Luxury Retreat, Nature Getaway">
+    <meta name="description" content="Good Dog - Pet Adoption and Rehabilitation. Find your perfect furry companion today!">
+    <meta name="keywords" content="Pet Adoption, Dog Rescue, Animal Welfare, Rehoming Dogs">
     <meta name="author" content="Thomas Lambert">
-    <title>Lilac Valley Farm Stay</title>
+    <title>Good Dog - Pet Adoption & Rehabilitation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="sticky-header">
         <div class="header-content">
-            <!-- Hamburger Menu -->
             <button id="menu-toggle" class="hamburger-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
     
-            <!-- Centered Logo -->
             <div class="logo-container">
                 <a href="/" class="logo-link">
-                    <img src="/images/branding/logo.gif" alt="Lilac Valley Farm Stay Logo" class="logo">
+                    <img src="/images/branding/logo.gif" alt="Good Dog Logo" class="logo">
                 </a>
-                <p class="logo-subtext">Good Dog Pet Adoption and Rehabilitation</p>
+                <p class="logo-subtext">Good Dog - Pet Adoption and Rehabilitation</p>
             </div>
-            
     
-            <!-- Navigation Links -->
             <nav class="navigation">
-                <a href="#gallery">Gallery</a>
+                <a href="#adopt">Adopt</a>
+                <a href="#about">About Us</a>
+                <a href="#donate">Donate</a>
                 <a href="#contact">Contact</a>
-                <a href="#bookings">Bookings</a>
             </nav>
     
-            <!-- Book Now Button -->
-            <button class="book-now">BOOK NOW</button>
+            <button class="book-now">Adopt Now</button>
         </div>
     </header>
 
     <section class="hero">
-        <h1>WHERE NATURE, RELAXATION, AND QUALITY TIME BRINGS PEOPLE TOGETHER</h1>
+        <h1>Find Your Perfect Companion Today</h1>
     </section>
 
     <section id="about" class="section-container about-section">
         <div class="section-content">
-            <h2>Welcome To Lilac Valley Farmstay</h2>
+            <h2>About Good Dog</h2>
             <p>
-                Nestled in the scenic Blue Mountains, Lilac Valley Farm Stay offers a rustic yet luxurious escape
-                on four acres of lush farmland. This restored barn combines vintage charm with modern comfort,
-                featuring open-plan living, cozy furnishings, and a back verandah with a plunge pool overlooking
-                stunning landscapes. Guests can gather fresh eggs, explore the cottage garden, and interact with
-                friendly animals like Rosie the goat. The surrounding area offers scenic trails, local markets, and
-                artisanal shops. Lilac Valley Farm Stay is a perfect retreat for those seeking peace, natural beauty,
-                and a taste of country life.
+                Good Dog is a nonprofit organization dedicated to the rehabilitation and rehoming of rescued dogs. 
+                We provide a safe and loving environment for pets in need, ensuring they receive the care, training, 
+                and medical attention necessary to transition into their forever homes.
             </p>
             <br>
         <p>
-            <strong>Property Highlights:</strong>
+            <strong>Why Choose Good Dog?</strong>
         </p>
         <ul>
-            <li>4 acres of lush farmland with scenic views</li>
-            <li>Private plunge pool on a spacious back verandah</li>
-            <li>Restored barn with open-plan living and cozy furnishings</li>
-            <li>Friendly farm animals, including Rosie the goat and free-range chickens</li>
-            <li>Walking trails, local markets, and artisanal shops nearby</li>
-        </ul>
-        <p>
-            <strong>Pricing:</strong>
-        </p>
-        <ul>
-            <li>Weekday Stays: $200 per night</li>
-            <li>Weekend Stays: $250 per night</li>
-            <li>Weekly Rate (7 nights): $1,200</li>
-            <li>Special Discounts: 10% off for bookings of 3 nights or more</li>
+            <li>Dedicated to ethical and compassionate pet adoption</li>
+            <li>All dogs are vaccinated, microchipped, and health-checked</li>
+            <li>Adoption support and post-adoption care available</li>
+            <li>We work with animal behaviorists to rehabilitate rescue dogs</li>
         </ul>
         </div>
     </section>
 
-    <section id="gallery" class="section-container gallery-section">
+    <section id="adopt" class="section-container adopt-section">
         <div class="section-content">
-            <div class="gallery-main"></div>
-            <div class="thumbnail-box">
-                <div class="gallery-thumbnails"></div>
+            <h2>Meet Your New Best Friend</h2>
+            <p>Scroll through our available pets and find your perfect companion.</p>
+            <div class="adopt-scroll">
+                <div class="adopt-panel" id="dog1">
+                    <img src="images/adopt/dog1.jpg" alt="Golden Retriever looking for a home">
+                    <h3>Bella</h3>
+                    <p>Friendly and energetic, Bella is looking for a family that loves outdoor adventures.</p>
+                    <button class="adopt-btn">Adopt Bella</button>
+                </div>
+                <div class="adopt-panel" id="dog2">
+                    <img src="images/adopt/dog2.jpg" alt="Small mixed breed puppy">
+                    <h3>Charlie</h3>
+                    <p>Charlie is a playful pup who loves cuddles and long walks in the park.</p>
+                    <button class="adopt-btn">Adopt Charlie</button>
+                </div>
+                <div class="adopt-panel" id="dog3">
+                    <img src="images/adopt/dog3.jpg" alt="Rescue dog ready for adoption">
+                    <h3>Luna</h3>
+                    <p>A gentle soul, Luna is looking for a calm and loving home.</p>
+                    <button class="adopt-btn">Adopt Luna</button>
+                </div>
+                <div class="adopt-panel" id="dog4">
+                    <img src="images/adopt/dog4.jpg" alt="Loyal and intelligent Shepherd mix">
+                    <h3>Duke</h3>
+                    <p>Duke is a loyal and intelligent dog who enjoys training and playtime.</p>
+                    <button class="adopt-btn">Adopt Duke</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="bookings" class="section-container booking-section">
+    <section id="donate" class="section-container booking-section">
         <div class="section-content">
-            <h2>Bookings</h2>
-            <form>
-                <div class="form-group">
-                    <label for="full-name">Full Name:</label>
-                    <input type="text" id="full-name" name="full-name" required placeholder="John Doe">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required placeholder="johndoe@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="02 5551234567">
-                </div>
-                <div class="form-group">
-                    <label for="address">Address:</label>
-                    <input type="text" id="address" name="address" required placeholder="123 Country Road, Greenfield Valley, State, post code">
-                </div>
-                <div class="form-group">
-                    <label for="checkin">Check-In Date:</label>
-                    <input type="date" id="checkin" name="checkin" required>
-                </div>
-                <div class="form-group">
-                    <label for="checkout">Check-Out Date:</label>
-                    <input type="date" id="checkout" name="checkout" required>
-                </div>
-                <div class="form-group">
-                    <label for="guests">Number of Guests:</label>
-                    <input type="number" id="guests" name="guests" min="1" max="10" required>
-                </div>
-                <div class="form-group">
-                    <label for="additional-requests">Additional Requests:</label>
-                    <textarea id="additional-requests" name="additional-requests" rows="3" placeholder="Special requests, dietary requirements, etc."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="card-number">Card Number:</label>
-                    <input type="tel" id="card-number" name="card-number" pattern="[0-9\s]{13,19}" maxlength="19" placeholder="1234 5678 9012 3456" required>
-                </div>
-                <div class="form-group">
-                    <label for="expiry-date">Expiry Date:</label>
-                    <input type="text" id="expiry-date" name="expiry-date" pattern="\d{2}/\d{2}" placeholder="MM/YY" required>
-                </div>
-                <div class="form-group">
-                    <label for="cvv">CVV:</label>
-                    <input type="text" id="cvv" name="cvv" pattern="\d{3,4}" maxlength="4" placeholder="123" required>
-                </div>
-                <button type="submit">Submit Booking</button>
-            </form>
+            <h2>Support Our Mission</h2>
+            <p>Your donations help us provide medical care, food, and shelter for dogs in need.</p>
+            <button type="submit">Donate Now</button>
         </div>
     </section>
 
@@ -145,28 +106,25 @@
         <div class="section-content">
             <h2>Contact Us</h2>
             <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <p>Email: <a href="mailto:contact@lilacvalleyfarmstay.com">contact@lilacvalleyfarmstay.com</a></p>
+                <p>Email: <a href="mailto:contact@gooddog.org">contact@gooddog.org</a></p>
             </div>
             <div class="contact-item">
-                <i class="fas fa-phone"></i>
                 <p>Phone: <a href="tel:02 5551234567">+02 5551234567</a></p>
             </div>
             <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <p>Address: 456 Scenic Road, Blue Mountains, NSW 2780, Australia</p>
+                <p>Address: 456 Rescue Lane, Sydney, NSW 2000, Australia</p>
             </div>
         </div>
     </section>
 
     <footer>
         <nav>
-            <a href="#about">About</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#bookings">Bookings</a>
+            <a href="#about">About Us</a>
+            <a href="#adopt">Adopt</a>
+            <a href="#donate">Donate</a>
             <a href="#contact">Contact</a>
         </nav>
-        <p>&copy; 2024 Lilac Valley Farm Stay. All rights reserved.</p>
+        <p>&copy; 2024 Good Dog. All rights reserved.</p>
         <p>
             This website has been created as part of an assignment in an approved course of study for Curtin University
             and contains copyright material not created by the author. All copyright material used remains copyright
@@ -179,3 +137,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
