@@ -902,8 +902,17 @@ button[type="submit"]:hover {
 
 .adopt-scroll {
     display: flex;
-    width: 300%;
-    transition: transform 0.5s ease-in-out;
+    gap: 20px;
+    width: calc(100% + 40px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Hide scrollbar for cleaner look */
+    cursor: grab;
+    user-select: none; /* Prevent text selection */
+}
+
+.adopt-scroll::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit browsers */
 }
 
 .adopt-panel {
@@ -914,6 +923,7 @@ button[type="submit"]:hover {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     text-align: center;
+    scroll-snap-align: center;
     transition: transform 0.5s ease-in-out;
     margin: 0 20px;
 }
@@ -938,7 +948,7 @@ button[type="submit"]:hover {
     background-color: #e06a2b;
 }
 
-/* Carousel buttons */
+/* Carousel Buttons */
 .carousel-btn {
     background: rgba(255, 255, 255, 0.8);
     border: none;
