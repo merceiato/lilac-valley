@@ -131,3 +131,26 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Book Now button not found.");
     }
 });
+
+const adoptScroll = document.querySelector('.adopt-scroll');
+const panels = document.querySelectorAll('.adopt-panel');
+const leftBtn = document.querySelector('.carousel-btn.left');
+const rightBtn = document.querySelector('.carousel-btn.right');
+
+let currentIndex = 0;
+
+function scrollRight() {
+    const firstPanel = adoptScroll.firstElementChild;
+    adoptScroll.appendChild(firstPanel.cloneNode(true)); // Clone first panel to end
+    adoptScroll.removeChild(firstPanel); // Remove the original first panel
+}
+
+function scrollLeft() {
+    const lastPanel = adoptScroll.lastElementChild;
+    adoptScroll.insertBefore(lastPanel.cloneNode(true), adoptScroll.firstElementChild); // Clone last panel to start
+    adoptScroll.removeChild(lastPanel); // Remove the original last panel
+}
+
+// Attach event listeners to buttons
+rightBtn.addEventListener('click', scrollRight);
+leftBtn.addEventListener('click', scrollLeft);

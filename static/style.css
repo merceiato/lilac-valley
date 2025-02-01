@@ -878,3 +878,88 @@ button[type="submit"]:hover {
     background-color: var(--wpeachy-orange);
 }
 
+.adopt-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f4c6c6;
+    position: relative;
+}
+
+.adopt-title {
+    font-size: 2rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.adopt-scroll {
+    display: flex;
+    width: 300%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.adopt-panel {
+    flex: 0 0 50%;
+    max-width: 50%;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+    margin: 0 20px;
+}
+
+.adopt-panel img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.adopt-btn {
+    background-color: #ff8243;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.adopt-btn:hover {
+    background-color: #e06a2b;
+}
+
+/* Carousel buttons */
+.carousel-btn {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    transition: background 0.3s ease;
+}
+
+.carousel-btn.left {
+    left: 10px;
+}
+
+.carousel-btn.right {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 1);
+}
