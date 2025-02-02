@@ -90,11 +90,109 @@
         </div>
     </section>
 
-    <section id="donate" class="section-container booking-section">
+    <section id="critter-cam" class="critter-cam-section">
+        <h2 class="critter-cam-title">Live Critter Cam</h2>
+        <div class="critter-cam-container">
+            <!-- Left Thumbnails -->
+            <div class="thumbnail-column left-thumbnails">
+                <img src="images/video-thumbnails/bowser.jpg" alt="Bowser" onclick="changeVideo('video1.mp4')">
+                <img src="images/video-thumbnails/toby.jpg" alt="Toby" onclick="changeVideo('video2.mp4')">
+                <img src="images/video-thumbnails/ziggy.jpg" alt="Ziggy" onclick="changeVideo('video3.mp4')">
+            </div>
+    
+            <!-- Main Video -->
+            <div class="video-container">
+                <video id="main-video" controls autoplay muted>
+                    <source src="video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+    
+            <!-- Right Thumbnails -->
+            <div class="thumbnail-column right-thumbnails">
+                <img src="images/video-thumbnails/felix.jpg" alt="Felix" onclick="changeVideo('video4.mp4')">
+                <img src="images/video-thumbnails/ralph.jpg" alt="Raplph" onclick="changeVideo('video5.mp4')">
+                <img src="images/video-thumbnails/hugo.jpg" alt="Hugo" onclick="changeVideo('video6.mp4')">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-container about-section">
         <div class="section-content">
-            <h2>Support Our Mission</h2>
-            <p>Your donations help us provide medical care, food, and shelter for dogs in need.</p>
-            <button type="submit">Donate Now</button>
+            <h2>About Good Dog</h2>
+            <p>
+                Good Dog is a nonprofit organization dedicated to the rehabilitation and rehoming of rescued dogs. 
+                We provide a safe and loving environment for pets in need, ensuring they receive the care, training, 
+                and medical attention necessary to transition into their forever homes.
+            </p>
+        </div>
+    </section>
+    
+
+    <section id="adopt" class="adopt-container">
+        <h2 class="adopt-title">Meet Your New Best Friend</h2>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn left" onclick="scrollLeft()">&#9664;</button>
+            <div class="adopt-scroll">
+                <div class="adopt-panel">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog1.png" alt="Golden Retriever looking for a home">
+                    <h3>Bella</h3>
+                    <p>Bella is a sweet and energetic 3-year-old Golden Retriever who loves outdoor adventures.</p>
+                    <button class="adopt-btn">Adopt Bella</button>
+                </div>
+                <div class="adopt-panel">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog2.png" alt="Small mixed breed puppy">
+                    <h3>Charlie</h3>
+                    <p>Charlie is a playful pup who loves cuddles and long walks in the park.</p>
+                    <button class="adopt-btn">Adopt Charlie</button>
+                </div>
+                <div class="adopt-panel">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog3.png" alt="Rescue dog ready for adoption">
+                    <h3>Luna</h3>
+                    <p>A gentle soul, Luna is looking for a calm and loving home.</p>
+                    <button class="adopt-btn">Adopt Luna</button>
+                </div>
+            </div>
+            <button class="carousel-btn right" onclick="scrollRight()">&#9654;</button>
+        </div>
+    </section>
+
+    <section id="about" class="section-container about-section">
+        <div class="section-content">
+            <h2>About Good Dog</h2>
+            <p>
+                Good Dog is a nonprofit organization dedicated to the rehabilitation and rehoming of rescued dogs. 
+                We provide a safe and loving environment for pets in need, ensuring they receive the care, training, 
+                and medical attention necessary to transition into their forever homes.
+            </p>
+        </div>
+    </section>
+
+    <section id="adopt" class="adopt-container">
+        <h2 class="adopt-title">Meet Your New Best Friend</h2>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn left" onclick="scrollLeft()">&#9664;</button>
+            <div class="adopt-scroll">
+                <div class="adopt-panel">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog1.png" alt="Golden Retriever looking for a home">
+                    <h3>Bella</h3>
+                    <p>Bella is a sweet and energetic 3-year-old Golden Retriever who loves outdoor adventures.</p>
+                    <button class="adopt-btn">Adopt Bella</button>
+                </div>
+                <div class="adopt-panel">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog2.png" alt="Small mixed breed puppy">
+                    <h3>Charlie</h3>
+                    <p>Charlie is a playful pup who loves cuddles and long walks in the park.</p>
+                    <button class="adopt-btn">Adopt Charlie</button>
+                </div>
+                <div class="adopt-panel">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog3.png" alt="Rescue dog ready for adoption">
+                    <h3>Luna</h3>
+                    <p>A gentle soul, Luna is looking for a calm and loving home.</p>
+                    <button class="adopt-btn">Adopt Luna</button>
+                </div>
+            </div>
+            <button class="carousel-btn right" onclick="scrollRight()">&#9654;</button>
         </div>
     </section>
 
