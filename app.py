@@ -43,7 +43,7 @@ def list_gallery_images():
 @app.route('/adoptee-images')
 def list_adoptee_images():
     """API endpoint to list adoptee images from S3."""
-    adoptee_prefix = "images/adoptees/"
+    adoptee_prefix = "images/adoptee/"
     adoptee_images = []
 
     try:
