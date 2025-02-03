@@ -235,3 +235,23 @@ leftBtn.addEventListener('click', () => scrollToPanel(-1));
 setTimeout(() => {
     adoptScroll.scrollLeft = panelWidth;
 }, 100);
+
+function changeVideo(videoSrc) {
+    const video = document.getElementById("main-video");
+    video.src = videoSrc;
+    video.play();
+}
+
+// Simulating progress bar increase
+let progress = 40;
+function updateDonationProgress(amount) {
+    progress += amount;
+    if (progress > 100) {
+        progress = 100;
+    }
+    document.getElementById("donation-progress").value = progress;
+}
+
+document.querySelector(".donate-btn").addEventListener("click", () => {
+    updateDonationProgress(20);
+});
