@@ -1084,9 +1084,8 @@ sl-progress-bar {
 /* Paw print container */
 .paw-print {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-image: url('paw-print.png'); /* Use your paw print image */
+    width: 100px;
+    height: 100px;
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0;
@@ -1101,18 +1100,19 @@ sl-progress-bar {
         transform: scale(0);
     }
     50% {
-        opacity: 0.5;
+        opacity: 0.1;
         transform: scale(1.1);
     }
     100% {
-        opacity: 1;
+        opacity: .3;
         transform: scale(1);
     }
 }
 
 .paw-print::before {
     content: "🐾"; /* Unicode paw print */
-    font-size: 40px;
+    font-size: 100px;
 }
+
 
 

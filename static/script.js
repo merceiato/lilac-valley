@@ -281,28 +281,44 @@ document.querySelector(".donate-btn").addEventListener("click", () => {
     updateDonationProgress(20);
 });
 
-document.addEventListener("scroll", () => {
-    if (Math.random() > 0.5) return; // Reduces the number of prints appearing
+let lastScrollY = 0; // Track last scroll position
+let ticking = false; // Prevent excessive function calls
+
+function addPawPrints() {
+    lastScrollY = window.scrollY; // Get current scroll position
+
+    // Random chance to reduce excessive prints
+    if (Math.random() > 0.6) {
+        ticking = false;
+        return;
+    }
 
     const pawPrint = document.createElement("div");
     pawPrint.classList.add("paw-print");
 
-    // Random X position
+    // Set random X position across the screen
     const xPosition = Math.random() * window.innerWidth;
 
-    // Y position based on scroll
-    const yPosition = window.scrollY + window.innerHeight * 0.3; // Slightly ahead of the scroll
+    // Y position set directly at the scroll position (prevents lag)
+    const yPosition = lastScrollY + Math.random() * window.innerHeight * 0.8;
 
-    // Set position and append to the body
     pawPrint.style.left = `${xPosition}px`;
     pawPrint.style.top = `${yPosition}px`;
+
     document.body.appendChild(pawPrint);
 
-    // Remove after animation completes to keep the DOM clean
+    // Remove paw print after animation to avoid clutter
     setTimeout(() => {
         pawPrint.remove();
-    }, 2000);
+    }, 2500);
+
+    ticking = false; // Allow the next requestAnimationFrame call
+}
+
+// Optimize scrolling event handling
+document.addEventListener("scroll", () => {
+    if (!ticking) {
+        requestAnimationFrame(addPawPrints);
+        ticking = true;
+    }
 });
-
-pawPrint.style.transform = `scale(${Math.random() * 0.5 + 0.5}) rotate(${Math.random() * 360}deg)`;
-
