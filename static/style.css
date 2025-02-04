@@ -32,6 +32,7 @@ html {
     scroll-behavior: smooth; /* Enables smooth scrolling globally */
 }
 
+
 body {
     font-family: Arial, sans-serif;
     color: var(--pastel-text-dark); /* Darker body text */
@@ -1116,3 +1117,8 @@ sl-progress-bar {
 
 
 
+html, body {
+    overflow-x: hidden; /* Prevents unwanted horizontal scroll */
+    position: relative;
+    width: 100%;
+}

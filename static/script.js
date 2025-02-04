@@ -138,7 +138,8 @@ const leftBtn = document.querySelector('.carousel-btn.left');
 const rightBtn = document.querySelector('.carousel-btn.right');
 
 let isDragging = false;
-let startX;
+let startX = 0;
+let startY = 0;
 let scrollLeft;
 let velocity = 0;
 let animationFrame;
@@ -322,3 +323,5 @@ document.addEventListener("scroll", () => {
         ticking = true;
     }
 });
+
+
