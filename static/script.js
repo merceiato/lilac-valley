@@ -160,33 +160,58 @@ adoptScroll.scrollLeft = panelWidth;
 // Click & Drag Scrolling
 adoptScroll.addEventListener('mousedown', (e) => {
     isDragging = true;
-    startX = e.pageX - adoptScroll.offsetLeft;
+    startX = e.pageX - adoptScroll.getBoundingClientRect().left;
     scrollLeft = adoptScroll.scrollLeft;
-    velocity = 0;
     adoptScroll.style.cursor = 'grabbing';
-    adoptScroll.style.scrollBehavior = 'auto'; // Disable smooth scrolling for direct control
-    cancelAnimationFrame(animationFrame); // Stop any smooth scroll animation
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
 });
 
-adoptScroll.addEventListener('mouseleave', () => {
+function onMouseMove(e) {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - adoptScroll.getBoundingClientRect().left;
+    const walk = (x - startX) * 2; // Adjust scrolling speed
+    adoptScroll.scrollLeft = scrollLeft - walk;
+}
+
+// Prevent text selection while dragging
+adoptScroll.addEventListener('dragstart', (e) => e.preventDefault());
+
+function onMouseUp() {
     isDragging = false;
     adoptScroll.style.cursor = 'grab';
+    document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', onMouseUp);
+}
+
+adoptScroll.addEventListener('mouseleave', () => {
+    if (isDragging) {
+        isDragging = false;
+        adoptScroll.style.cursor = 'grab';
+        adoptScroll.classList.remove('active');
+    }
 });
 
 adoptScroll.addEventListener('mouseup', () => {
     isDragging = false;
     adoptScroll.style.cursor = 'grab';
-    smoothScroll(); // Enable smooth inertia-like scrolling after release
-    checkLoop(); // Ensure seamless infinite scroll
+    adoptScroll.classList.remove('active');
 });
 
 adoptScroll.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - adoptScroll.offsetLeft;
-    const walk = (x - startX) * 2; // Adjust sensitivity
+    const walk = (x - startX) * 2; // Adjust scrolling speed
     adoptScroll.scrollLeft = scrollLeft - walk;
-    velocity = walk * 0.1; // Capture velocity for inertia
+});
+
+// Ensure release on global mouseup to prevent the stuck state
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+    adoptScroll.style.cursor = 'grab';
+    adoptScroll.classList.remove('active');
 });
 
 // Smooth inertia effect after drag release
@@ -255,3 +280,29 @@ function updateDonationProgress(amount) {
 document.querySelector(".donate-btn").addEventListener("click", () => {
     updateDonationProgress(20);
 });
+
+document.addEventListener("scroll", () => {
+    if (Math.random() > 0.5) return; // Reduces the number of prints appearing
+
+    const pawPrint = document.createElement("div");
+    pawPrint.classList.add("paw-print");
+
+    // Random X position
+    const xPosition = Math.random() * window.innerWidth;
+
+    // Y position based on scroll
+    const yPosition = window.scrollY + window.innerHeight * 0.3; // Slightly ahead of the scroll
+
+    // Set position and append to the body
+    pawPrint.style.left = `${xPosition}px`;
+    pawPrint.style.top = `${yPosition}px`;
+    document.body.appendChild(pawPrint);
+
+    // Remove after animation completes to keep the DOM clean
+    setTimeout(() => {
+        pawPrint.remove();
+    }, 2000);
+});
+
+pawPrint.style.transform = `scale(${Math.random() * 0.5 + 0.5}) rotate(${Math.random() * 360}deg)`;
+
