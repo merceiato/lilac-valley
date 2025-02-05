@@ -35,6 +35,27 @@ html {
 
 body {
     padding-top: 80px; /* Prevents content from being hidden under the fixed header */
+    .h2 {
+        font-size: 6vh; 
+    }
+    
+    .h3 {
+        font-family: 'Poppins', sans-serif; /* Friendly & readable */
+        font-size: 4vh; /* Slightly larger */
+        font-weight: 700; /* Bold */
+        color: #444; /* Darker text for contrast */
+        margin-bottom: 8px;
+    }
+    
+    .p {
+        font-family: 'Quicksand', sans-serif; /* Soft, readable font */
+        font-size: 2vh;
+        font-weight: 500; /* Medium weight for readability */
+        color: #555;
+        line-height: 1.6; /* Better spacing */
+        text-align: center;
+        margin: 0 10px; /* Prevents text from touching edges */
+    }
 }
 
 /* Prevent unwanted horizontal scrolling */
@@ -164,6 +185,28 @@ html, body {
         background-color: rgba(227, 168, 87, 1);
         transform: translate(2px, 2px);
         box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .adopt-pannel h2 {
+        font-size: 8vw; 
+    }
+    
+    .adopt-panel h3 {
+        font-family: 'Poppins', sans-serif; /* Friendly & readable */
+        font-size: 6vw; /* Slightly larger */
+        font-weight: 700; /* Bold */
+        color: #444; /* Darker text for contrast */
+        margin-bottom: 8px;
+    }
+    
+    .adopt-panel p {
+        font-family: 'Quicksand', sans-serif; /* Soft, readable font */
+        font-size: 4vw;
+        font-weight: 500; /* Medium weight for readability */
+        color: #555;
+        line-height: 1.6; /* Better spacing */
+        text-align: center;
+        margin: 0 10px; /* Prevents text from touching edges */
     }
 }
 
@@ -928,20 +971,44 @@ button[type="submit"]:hover {
     border-radius: 10px;
 }
 
+.adopt-pannel h2 {
+    font-size: 6vh; 
+}
+
+.adopt-panel h3 {
+    font-family: 'Poppins', sans-serif; /* Friendly & readable */
+    font-size: 4vh; /* Slightly larger */
+    font-weight: 700; /* Bold */
+    color: #444; /* Darker text for contrast */
+    margin-bottom: 8px;
+}
+
+.adopt-panel p {
+    font-family: 'Quicksand', sans-serif; /* Soft, readable font */
+    font-size: 2vh;
+    font-weight: 500; /* Medium weight for readability */
+    color: #555;
+    line-height: 1.6; /* Better spacing */
+    text-align: center;
+    margin: 0 10px; /* Prevents text from touching edges */
+}
+
 .adopt-btn {
-    background-color: #ff8243;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #ff8243; /* Keep it vibrant */
     color: white;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 .adopt-btn:hover {
     background-color: #e06a2b;
+    transform: scale(1.1); /* Subtle effect on hover */
 }
+
 
 /* Carousel Buttons */
 .carousel-btn {
