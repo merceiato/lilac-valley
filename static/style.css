@@ -230,7 +230,7 @@ html, body {
 
 .section-content {
     transition: transform 0.3s ease-in-out;
-    cursor: grab;
+    cursor: pointer;
     filter: invert(1);
 }
 
