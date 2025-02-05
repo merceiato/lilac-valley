@@ -50,7 +50,6 @@ body {
     padding-top: 80px; /* Prevents content from being hidden under the fixed header */
 }
 
-
 /* Header content styling */
 .header-content {
     display: flex;
@@ -187,81 +186,58 @@ body {
     width: 80%;
 }
 
-/* Gallery section styling */
-.gallery-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    width: 100%; /* Stretch to parent width */
-    background-color: var(--sky-blue);
+/* section animations */
+.section-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.section-content p {
+    font-size: 1.5rem;  /* Increase font size */
+    font-family: 'Patrick Hand', cursive; /* Handwriting font */
+    line-height: 1.6; /* Improve spacing */
+    word-spacing: 2px; /* Adds slight gap between words */
+    display: inline-block;
     overflow: hidden;
-    padding: 20px;
-}
-
-/* Container for the main gallery and thumbnails */
-.gallery-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr; /* Main image and thumbnails */
-    gap: 20px;
-    width: 90%;
-    max-width: 1200px;
-}
-
-/* Main gallery image styling */
-.gallery-main {
-    background-size: contain; /* Change from cover to contain */
-    background-repeat: no-repeat; 
-    background-position: center; /* Keep the image centered */
-    border-radius: 10px;
-    width: 100%;
-    height: 500px; /* Maintain the same height */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    position: relative;
-    margin-bottom: 20px;
+    white-space: normal;
 }
 
 
-.gallery-main img {
-    width: 100%; /* Fit the container's width */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Ensure the image is fully visible without cropping */
-    border-radius: 10px;
+.section-content p span {
+    opacity: 0;
+    display: inline-block;
+    transform: translateY(10px);
+    min-width: 0.3rem; /* Ensures spaces aren't collapsed */
 }
 
-
-/* Thumbnail box styling */
-.thumbnail-box {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: var(--sky-blue);
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
-/* Thumbnail grid styling */
-.gallery-thumbnails {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusted for scaling */
-    gap: 10px;
-    width: 100%;
-    padding: 10px;
+.section-content {
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Thumbnail images */
-.gallery-thumbnails img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+/* Bounce effect on hover */
+.section-content:hover {
+    transform: scale(1.05); /* Slight bounce effect */
 }
 
-.gallery-thumbnails img:hover {
-    transform: scale(1.05);
+/* Enlarged state */
+.section-content.enlarged {
+    transform: scale(1.25) !important; /* Keep enlarged state */
 }
+
+/* Prevent hover effect from overriding enlarged state */
+.section-content.enlarged:hover {
+    transform: scale(1.25) !important;
+}
+
 
 
 /* Footer styling */
@@ -1113,15 +1089,6 @@ sl-progress-bar {
     font-size: 10vw;
 }
 
-
-
-html, body {
-    overflow-x: hidden; /* Prevents unwanted horizontal scroll */
-    position: relative;
-    width: 100%;
-}
-
-
 /* Typewriter effect */
 @keyframes typewriter {
     from {
@@ -1133,25 +1100,6 @@ html, body {
         opacity: 1; /* Fully visible */
     }
 }
-
-.section-content {
-    opacity: 1;
-    visibility: visible;
-}
-
-.section-content p {
-    display: inline-block;
-    overflow: hidden;
-    white-space: normal;
-}
-
-.section-content p span {
-    opacity: 0;
-    display: inline-block;
-    transform: translateY(10px);
-    min-width: 0.3rem; /* Ensures spaces aren't collapsed */
-}
-
 
 @keyframes fadeIn {
     from {

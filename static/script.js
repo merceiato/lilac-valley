@@ -323,3 +323,27 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+//enlarged sections
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".section-content");
+
+    sections.forEach(section => {
+        section.addEventListener("click", (event) => {
+            // Remove "enlarged" class from all sections
+            sections.forEach(sec => sec.classList.remove("enlarged"));
+
+            // Apply "enlarged" class to the clicked section
+            section.classList.add("enlarged");
+
+            // Stop click from propagating to the document
+            event.stopPropagation();
+        });
+    });
+
+    // Click anywhere outside to reset
+    document.addEventListener("click", () => {
+        sections.forEach(section => section.classList.remove("enlarged"));
+    });
+});
+
+
