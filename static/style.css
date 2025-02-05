@@ -1181,4 +1181,9 @@ sl-progress-bar {
         font-size: 5vw;
         margin: 10px 0;
     }
+
+    .paw-print::before {
+        content: "🐾"; /* Unicode paw print */
+        font-size: 10vh;
+    }
 }
