@@ -1,281 +1,260 @@
-// Wait until the DOM content is fully loaded before running the script
-document.addEventListener("DOMContentLoaded", async () => {
-    let slideIndex = 0; // Initialize the slide index 
-    let heroImages = []; // Array to hold the URLs of hero images
+document.addEventListener("DOMContentLoaded", () => {
+    initHeroSlider();
+    initGallery();
+    initNavigation();
+    initBookNow();
+    initCarousel();
+    initVideoPlayer();
+    initDonationProgress();
+    initPawPrints();
+});
 
-    // Helper function to shuffle the array for random image order
+/** -------------------------------
+ *  HERO SLIDER: Fetch and cycle hero images
+ *  -------------------------------- */
+function initHeroSlider() {
+    let slideIndex = 0;
+    let heroImages = [];
+
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+            [array[i], array[j]] = [array[j], array[i]];
         }
     }
 
-    // Fetch the list of hero images from the server
-    try {
-        const response = await fetch('http://ec2-98-80-34-138.compute-1.amazonaws.com:8080/hero-images'); // Update to Flask API
-        heroImages = await response.json();
-
-        if (heroImages.length > 0) {
-            shuffleArray(heroImages);
-            document.querySelector('.hero').style.backgroundImage = `url(${heroImages[0]})`;
+    async function fetchHeroImages() {
+        try {
+            const response = await fetch('http://ec2-98-80-34-138.compute-1.amazonaws.com:8080/hero-images');
+            heroImages = await response.json();
+            if (heroImages.length > 0) {
+                shuffleArray(heroImages);
+                updateHeroImage(0);
+            }
+        } catch (error) {
+            console.error("Error fetching hero images:", error);
         }
-    } catch (error) {
-        console.error("Error fetching hero images:", error);
     }
 
-    // Change the hero image every 5 seconds
+    function updateHeroImage(index) {
+        document.querySelector('.hero').style.backgroundImage = `url(${heroImages[index]})`;
+    }
+
     setInterval(() => {
         if (heroImages.length > 0) {
             slideIndex = (slideIndex + 1) % heroImages.length;
-            document.querySelector('.hero').style.backgroundImage = `url(${heroImages[slideIndex]})`;
+            updateHeroImage(slideIndex);
         }
     }, 5000);
-});
 
-// Toggle red border for debugging
-function toggleDebugOutline() {
-    document.body.classList.toggle('debug-outline');
+    fetchHeroImages();
 }
 
-// Set main gallery image when a thumbnail is clicked
-function setMainImage(imagePath) {
-    document.querySelector('.gallery-main').style.backgroundImage = `url(${imagePath})`;
-}
-
-// Load gallery images and thumbnails dynamically
-document.addEventListener("DOMContentLoaded", async () => {
-    let galleryImages = [];
-
-    try {
-        const response = await fetch('http://ec2-98-80-34-138.compute-1.amazonaws.com:8080/gallery-images'); // Update to Flask API
-        galleryImages = await response.json();
-    } catch (error) {
-        console.error("Error fetching gallery images:", error);
-        return;
+/** -------------------------------
+ *  GALLERY: Load thumbnails dynamically
+ *  -------------------------------- */
+function initGallery() {
+    async function fetchGalleryImages() {
+        try {
+            const response = await fetch('http://ec2-98-80-34-138.compute-1.amazonaws.com:8080/gallery-images');
+            return await response.json();
+        } catch (error) {
+            console.error("Error fetching gallery images:", error);
+            return [];
+        }
     }
 
-    const mainGallery = document.querySelector('.gallery-main');
-    const thumbnailContainer = document.querySelector('.gallery-thumbnails');
+    function populateGallery(images) {
+        const mainGallery = document.querySelector('.gallery-main');
+        const thumbnailContainer = document.querySelector('.gallery-thumbnails');
 
-    if (galleryImages.length > 0) {
-        mainGallery.style.backgroundImage = `url(${galleryImages[0]})`;
+        if (images.length > 0) {
+            mainGallery.style.backgroundImage = `url(${images[0]})`;
 
-        galleryImages.forEach((imageUrl) => {
-            const thumbnail = document.createElement('img');
-            thumbnail.src = imageUrl;
-            thumbnail.alt = "Thumbnail";
-            thumbnail.classList.add('thumbnail-image');
-
-            thumbnail.addEventListener('click', () => {
-                mainGallery.style.backgroundImage = `url(${imageUrl})`;
+            images.forEach((imageUrl) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = imageUrl;
+                thumbnail.alt = "Thumbnail";
+                thumbnail.classList.add('thumbnail-image');
+                thumbnail.addEventListener('click', () => mainGallery.style.backgroundImage = `url(${imageUrl})`);
+                thumbnailContainer.appendChild(thumbnail);
             });
-
-            thumbnailContainer.appendChild(thumbnail);
-        });
+        }
     }
-});
 
-// Toggle navigation menu visibility
-document.addEventListener("DOMContentLoaded", () => {
+    fetchGalleryImages().then(populateGallery);
+}
+
+/** -------------------------------
+ *  NAVIGATION MENU: Toggle visibility
+ *  -------------------------------- */
+function initNavigation() {
     const menuToggle = document.getElementById("menu-toggle");
     const navigation = document.querySelector(".navigation");
     const overlay = document.createElement("div");
-    const navigationLinks = document.querySelectorAll(".navigation a"); // Select all navigation links
 
-    // Add overlay to the body
     overlay.classList.add("overlay");
     document.body.appendChild(overlay);
 
-    if (menuToggle && navigation) {
-        // Toggle the menu and overlay visibility
-        menuToggle.addEventListener("click", () => {
-            navigation.classList.toggle("show");
-            overlay.classList.toggle("show");
-            menuToggle.classList.toggle("active");
-        });
-
-        // Close menu when clicking on the overlay
-        overlay.addEventListener("click", () => {
-            navigation.classList.remove("show");
-            overlay.classList.remove("show");
-            menuToggle.classList.remove("active");
-        });
-
-        // Close menu when clicking on any navigation link
-        navigationLinks.forEach(link => {
-            link.addEventListener("click", () => {
-                navigation.classList.remove("show");
-                overlay.classList.remove("show");
-                menuToggle.classList.remove("active");
-            });
-        });
-    } else {
-        console.error("Menu toggle button or navigation element not found.");
+    function toggleMenu() {
+        navigation.classList.toggle("show");
+        overlay.classList.toggle("show");
+        menuToggle.classList.toggle("active");
     }
-});
 
-// Book now click handler
-document.addEventListener("DOMContentLoaded", () => {
+    if (menuToggle && navigation) {
+        menuToggle.addEventListener("click", toggleMenu);
+        overlay.addEventListener("click", toggleMenu);
+        document.querySelectorAll(".navigation a").forEach(link =>
+            link.addEventListener("click", toggleMenu)
+        );
+    }
+}
+
+/** -------------------------------
+ *  BOOK NOW BUTTON: Scroll to booking section
+ *  -------------------------------- */
+function initBookNow() {
     const bookNowButton = document.querySelector(".book-now");
-
     if (bookNowButton) {
         bookNowButton.addEventListener("click", () => {
-            // Example action: Scroll to the bookings section
-            const bookingSection = document.getElementById("bookings");
-            if (bookingSection) {
-                bookingSection.scrollIntoView({ behavior: "smooth" });
-            }
+            document.getElementById("bookings")?.scrollIntoView({ behavior: "smooth" });
         });
-    } else {
-        console.error("Book Now button not found.");
     }
-});
-
-
-// Horizontal scrolling
-const adoptScroll = document.querySelector('.adopt-scroll');
-const panels = Array.from(document.querySelectorAll('.adopt-panel'));
-const leftBtn = document.querySelector('.carousel-btn.left');
-const rightBtn = document.querySelector('.carousel-btn.right');
-
-let isDragging = false;
-let startX = 0;
-let scrollLeft;
-const panelWidth = panels[0].offsetWidth + 40; // Panel width including margin
-
-// Click & Drag Scrolling
-adoptScroll.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startX = e.pageX - adoptScroll.getBoundingClientRect().left;
-    scrollLeft = adoptScroll.scrollLeft;
-    adoptScroll.style.cursor = 'grabbing';
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
-});
-
-function onMouseMove(e) {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - adoptScroll.getBoundingClientRect().left;
-    const walk = (x - startX) * 2; // Adjust scrolling speed
-    adoptScroll.scrollLeft = scrollLeft - walk;
 }
 
-// Release mouse event
-function onMouseUp() {
-    isDragging = false;
-    adoptScroll.style.cursor = 'grab';
-    document.removeEventListener('mousemove', onMouseMove);
-    document.removeEventListener('mouseup', onMouseUp);
-}
-
-// Prevent text selection while dragging
-adoptScroll.addEventListener('dragstart', (e) => e.preventDefault());
-
-// Prevent over-scrolling when dragging
-adoptScroll.addEventListener('scroll', () => {
-    if (adoptScroll.scrollLeft <= 0) {
-        leftBtn.disabled = true; // Disable left button at first panel
-    } else {
-        leftBtn.disabled = false;
-    }
-
-    const maxScrollLeft = adoptScroll.scrollWidth - adoptScroll.clientWidth;
-    if (adoptScroll.scrollLeft >= maxScrollLeft) {
-        rightBtn.disabled = true; // Disable right button at last panel
-    } else {
-        rightBtn.disabled = false;
-    }
+/** -------------------------------
+ *  CAROUSEL: Horizontal scrolling
+ *  -------------------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+    initCarousel(".adopt-scroll", ".adopt-panel", ".carousel-btn.left", ".carousel-btn.right");
 });
 
-// Arrow Button Clicks - Prevent Over-scrolling
-rightBtn.addEventListener('click', () => {
-    adoptScroll.scrollBy({ left: panelWidth, behavior: 'smooth' });
+/**
+ * Initializes a horizontal scrolling carousel with drag support and arrow navigation.
+ * @param {string} scrollContainerSelector - Selector for the scrollable container.
+ * @param {string} panelSelector - Selector for the individual panels inside the carousel.
+ * @param {string} leftBtnSelector - Selector for the left scroll button.
+ * @param {string} rightBtnSelector - Selector for the right scroll button.
+ */
+function initCarousel(scrollContainerSelector, panelSelector, leftBtnSelector, rightBtnSelector) {
+    const scrollContainer = document.querySelector(scrollContainerSelector);
+    const panels = Array.from(document.querySelectorAll(panelSelector));
+    const leftBtn = document.querySelector(leftBtnSelector);
+    const rightBtn = document.querySelector(rightBtnSelector);
 
-    // Disable right button when reaching the last item
-    setTimeout(() => {
-        if (adoptScroll.scrollLeft + adoptScroll.clientWidth >= adoptScroll.scrollWidth) {
-            rightBtn.disabled = true;
-        }
-        leftBtn.disabled = false;
-    }, 300);
-});
-
-leftBtn.addEventListener('click', () => {
-    adoptScroll.scrollBy({ left: -panelWidth, behavior: 'smooth' });
-
-    // Disable left button when reaching the first item
-    setTimeout(() => {
-        if (adoptScroll.scrollLeft <= 0) {
-            leftBtn.disabled = true;
-        }
-        rightBtn.disabled = false;
-    }, 300);
-});
-
-
-//video features
-function changeVideo(videoSrc) {
-    const video = document.getElementById("main-video");
-    video.src = videoSrc;
-    video.play();
-}
-
-// Simulating progress bar increase
-let progress = 40;
-function updateDonationProgress(amount) {
-    progress += amount;
-    if (progress > 100) {
-        progress = 100;
-    }
-    document.getElementById("donation-progress").value = progress;
-}
-
-document.querySelector(".donate-btn").addEventListener("click", () => {
-    updateDonationProgress(20);
-});
-
-let lastScrollY = 0; // Track last scroll position
-let ticking = false; // Prevent excessive function calls
-
-function addPawPrints() {
-    lastScrollY = window.scrollY; // Get current scroll position
-
-    // Random chance to reduce excessive prints
-    if (Math.random() > 0.6) {
-        ticking = false;
+    if (!scrollContainer || panels.length === 0 || !leftBtn || !rightBtn) {
+        console.error("Carousel elements not found. Initialization failed.");
         return;
     }
 
-    const pawPrint = document.createElement("div");
-    pawPrint.classList.add("paw-print");
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft;
+    const panelWidth = panels[0].offsetWidth + 40; // Panel width including margin
 
-    // Set random X position across the screen
-    const xPosition = Math.random() * window.innerWidth;
+    // Click & Drag Scrolling
+    scrollContainer.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.pageX - scrollContainer.getBoundingClientRect().left;
+        scrollLeft = scrollContainer.scrollLeft;
+        scrollContainer.style.cursor = "grabbing";
+        document.addEventListener("mousemove", onMouseMove);
+        document.addEventListener("mouseup", onMouseUp);
+    });
 
-    // Y position set directly at the scroll position (prevents lag)
-    const yPosition = lastScrollY + Math.random() * window.innerHeight * 0.8;
+    function onMouseMove(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - scrollContainer.getBoundingClientRect().left;
+        const walk = (x - startX) * 2; // Adjust scrolling speed
+        scrollContainer.scrollLeft = scrollLeft - walk;
+    }
 
-    pawPrint.style.left = `${xPosition}px`;
-    pawPrint.style.top = `${yPosition}px`;
+    function onMouseUp() {
+        isDragging = false;
+        scrollContainer.style.cursor = "grab";
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+    }
 
-    document.body.appendChild(pawPrint);
+    // Prevent text selection while dragging
+    scrollContainer.addEventListener("dragstart", (e) => e.preventDefault());
 
-    // Remove paw print after animation to avoid clutter
-    setTimeout(() => {
-        pawPrint.remove();
-    }, 2500);
+    // Update button states based on scroll position
+    function updateButtonState() {
+        leftBtn.disabled = scrollContainer.scrollLeft <= 0;
+        rightBtn.disabled = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth;
+    }
 
-    ticking = false; // Allow the next requestAnimationFrame call
+    // Listen for scroll changes to update button states
+    scrollContainer.addEventListener("scroll", updateButtonState);
+
+    // Arrow Button Clicks - Prevent Over-scrolling
+    rightBtn.addEventListener("click", () => scrollByPanel(1));
+    leftBtn.addEventListener("click", () => scrollByPanel(-1));
+
+    function scrollByPanel(direction) {
+        scrollContainer.scrollBy({ left: panelWidth * direction, behavior: "smooth" });
+
+        // Delay update to ensure accurate state
+        setTimeout(updateButtonState, 300);
+    }
+
+    // Initialize button states on load
+    updateButtonState();
 }
 
-// Optimize scrolling event handling
-document.addEventListener("scroll", () => {
-    if (!ticking) {
-        requestAnimationFrame(addPawPrints);
-        ticking = true;
+/** -------------------------------
+ *  VIDEO PLAYER: Change video source
+ *  -------------------------------- */
+function initVideoPlayer() {
+    document.querySelectorAll(".video-thumbnail").forEach(thumbnail => {
+        thumbnail.addEventListener("click", () => {
+            const video = document.getElementById("main-video");
+            video.src = thumbnail.dataset.video;
+            video.play();
+        });
+    });
+}
+
+/** -------------------------------
+ *  DONATION PROGRESS: Update on click
+ *  -------------------------------- */
+function initDonationProgress() {
+    let progress = 40;
+    document.querySelector(".donate-btn")?.addEventListener("click", () => {
+        progress = Math.min(progress + 20, 100);
+        document.getElementById("donation-progress").value = progress;
+    });
+}
+
+/** -------------------------------
+ *  PAW PRINTS: Appear randomly on scroll
+ *  -------------------------------- */
+function initPawPrints() {
+    let ticking = false;
+
+    function addPawPrints() {
+        if (Math.random() > 0.6) {
+            ticking = false;
+            return;
+        }
+
+        const pawPrint = document.createElement("div");
+        pawPrint.classList.add("paw-print");
+        pawPrint.style.left = `${Math.random() * window.innerWidth}px`;
+        pawPrint.style.top = `${window.scrollY + Math.random() * window.innerHeight * 0.8}px`;
+
+        document.body.appendChild(pawPrint);
+        setTimeout(() => pawPrint.remove(), 2500);
+        ticking = false;
     }
-});
 
-
+    document.addEventListener("scroll", () => {
+        if (!ticking) {
+            requestAnimationFrame(addPawPrints);
+            ticking = true;
+        }
+    });
+}
