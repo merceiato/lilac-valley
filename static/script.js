@@ -115,7 +115,7 @@ function initNavigation() {
  *  BOOK NOW BUTTON: Scroll to booking section
  *  -------------------------------- */
 function initBookNow() {
-    const bookNowButton = document.querySelector(".book-now");
+    const bookNowButton = document.querySelector(".adopt-now");
     if (bookNowButton) {
         bookNowButton.addEventListener("click", () => {
             document.getElementById("bookings")?.scrollIntoView({ behavior: "smooth" });

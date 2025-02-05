@@ -65,6 +65,18 @@ html, body {
     position: relative;
 }
 
+button {
+    margin-top: 3px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #ff8243; /* Keep it vibrant */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
 /* Ensure header is fixed properly */
 .sticky-header {
     position: fixed;  /* Stays fixed at the top */
@@ -143,7 +155,7 @@ html, body {
 
 
 /* Book Now button styling */
-.book-now {
+.adopt-now {
     position: absolute;
     top: 20px;
     right: 10px; /* Align symmetrically with hamburger menu */
@@ -166,49 +178,13 @@ html, body {
     text-align: center;
 }
 
-.book-now:hover {
+.adopt-now:hover {
     background-color: #ff8243; /* Slightly darker shade */
     transform: translate(2px, 2px);
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    .book-now {
-        width: 70px; /* Set a fixed width to stack text */
-        white-space: normal; /* Allow text to wrap and stack */
-        padding: 10px; /* Adjust padding for smaller button size */
-        font-size: 0.9rem; /* Slightly smaller font */
-    }
 
-    .book-now:hover {
-        background-color: rgba(227, 168, 87, 1);
-        transform: translate(2px, 2px);
-        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    .adopt-pannel h2 {
-        font-size: 8vw; 
-    }
-    
-    .adopt-panel h3 {
-        font-family: 'Poppins', sans-serif; /* Friendly & readable */
-        font-size: 6vw; /* Slightly larger */
-        font-weight: 700; /* Bold */
-        color: #444; /* Darker text for contrast */
-        margin-bottom: 8px;
-    }
-    
-    .adopt-panel p {
-        font-family: 'Quicksand', sans-serif; /* Soft, readable font */
-        font-size: 4vw;
-        font-weight: 500; /* Medium weight for readability */
-        color: #555;
-        line-height: 1.6; /* Better spacing */
-        text-align: center;
-        margin: 0 10px; /* Prevents text from touching edges */
-    }
-}
 
 /* Hero section styling */
 .hero {
@@ -519,22 +495,6 @@ button[type="submit"]:hover {
     transform: translateY(-2px);
 }
 
-/* Responsive Form Adjustment */
-@media (max-width: 768px) {
-    form {
-        grid-template-columns: 1fr; /* Stack all fields vertically */
-    }
-
-    textarea {
-        grid-column: span 1; /* Adjust textarea to match new grid layout */
-    }
-
-    button[type="submit"] {
-        grid-column: span 1; /* Center-align the submit button */
-    }
-}
-
-
 /* Main gallery container */
 .gallery-container {
     display: flex;
@@ -821,6 +781,7 @@ button[type="submit"]:hover {
     top: 50%; /* Center vertically in the header */
     transform: translateY(-50%);
     padding: 0; /* Remove any padding */
+    margin-left: 0.5vw;
 }
 
 /* Hamburger Menu Spans (Dashes) */
@@ -969,6 +930,9 @@ button[type="submit"]:hover {
 .adopt-panel img {
     width: 100%;
     border-radius: 10px;
+    height: 25vw; /* Set a fixed height for consistency */
+    object-fit: cover; /* Ensures images maintain aspect ratio while filling the container */
+    border-radius: 10px; /* Keeps rounded corners */
 }
 
 .adopt-pannel h2 {
@@ -991,17 +955,6 @@ button[type="submit"]:hover {
     line-height: 1.6; /* Better spacing */
     text-align: center;
     margin: 0 10px; /* Prevents text from touching edges */
-}
-
-.adopt-btn {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    background-color: #ff8243; /* Keep it vibrant */
-    color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 .adopt-btn:hover {
@@ -1090,23 +1043,12 @@ button[type="submit"]:hover {
     opacity: 0.8;
 }
 
-.donate-btn {
-    background: #ff8243;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
 .donate-btn:hover {
     background: #e06a2b;
 }
 
 .progress-text {
-    font-size: 1.2rem;
+    font-size: 3vh;
     margin: 10px 0;
 }
 
@@ -1114,24 +1056,6 @@ sl-progress-bar {
     width: 50%;
     margin: auto;
 }
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .critter-cam-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .thumbnail-column {
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .thumbnail-column img {
-        width: 60px;
-    }
-}
-
 
 /* Paw print container */
 .paw-print {
@@ -1186,5 +1110,75 @@ sl-progress-bar {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .adopt-now {
+        width: 70px; /* Set a fixed width to stack text */
+        white-space: normal; /* Allow text to wrap and stack */
+        padding: 10px; /* Adjust padding for smaller button size */
+        font-size: 0.9rem; /* Slightly smaller font */
+    }
+
+    .adopt-now:hover {
+        background-color: rgba(227, 168, 87, 1);
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .adopt-pannel h2 {
+        font-size: 8vw; 
+    }
+    
+    .adopt-panel h3 {
+        font-family: 'Poppins', sans-serif; /* Friendly & readable */
+        font-size: 6vw; /* Slightly larger */
+        font-weight: 700; /* Bold */
+        color: #444; /* Darker text for contrast */
+        margin-bottom: 8px;
+    }
+    
+    .adopt-panel p {
+        font-family: 'Quicksand', sans-serif; /* Soft, readable font */
+        font-size: 4vw;
+        font-weight: 500; /* Medium weight for readability */
+        color: #555;
+        line-height: 1.6; /* Better spacing */
+        text-align: center;
+        margin: 0 10px; /* Prevents text from touching edges */
+    }
+
+    form {
+        grid-template-columns: 1fr; /* Stack all fields vertically */
+    }
+
+    textarea {
+        grid-column: span 1; /* Adjust textarea to match new grid layout */
+    }
+
+    button[type="submit"] {
+        grid-column: span 1; /* Center-align the submit button */
+    }
+
+    .critter-cam-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .thumbnail-column {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .thumbnail-column img {
+        width: 60px;
+    }
+
+    .progress-text {
+        font-size: 5vw;
+        margin: 10px 0;
     }
 }
