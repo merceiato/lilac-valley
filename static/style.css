@@ -867,7 +867,7 @@ button[type="submit"]:hover {
     background-color: var(--wpeachy-orange);
 }
 
-.adopt-container {
+.card-carousell-container {
     text-align: center;
     padding: 20px;
     background-color: #f4c6c6;
@@ -880,7 +880,7 @@ button[type="submit"]:hover {
     margin-bottom: 20px;
 }
 
-.carousel-wrapper {
+.card-carousel-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -913,7 +913,7 @@ button[type="submit"]:hover {
     display: none; /* Hide scrollbar */
 }
 
-.adopt-panel {
+.carousell-card {
     flex: 0 0 50%;
     max-width: 50%;
     background: #fff;
@@ -927,7 +927,7 @@ button[type="submit"]:hover {
 }
 
 
-.adopt-panel img {
+.carousell-card img {
     width: 100%;
     border-radius: 10px;
     height: 25vw; /* Set a fixed height for consistency */
@@ -939,7 +939,7 @@ button[type="submit"]:hover {
     font-size: 6vh; 
 }
 
-.adopt-panel h3 {
+.carousell-card h3 {
     font-family: 'Poppins', sans-serif; /* Friendly & readable */
     font-size: 4vh; /* Slightly larger */
     font-weight: 700; /* Bold */
@@ -947,7 +947,7 @@ button[type="submit"]:hover {
     margin-bottom: 8px;
 }
 
-.adopt-panel p {
+.carousell-card p {
     font-family: 'Quicksand', sans-serif; /* Soft, readable font */
     font-size: 2vh;
     font-weight: 500; /* Medium weight for readability */
@@ -957,7 +957,7 @@ button[type="submit"]:hover {
     margin: 0 10px; /* Prevents text from touching edges */
 }
 
-.adopt-btn:hover {
+.card-carousell-btn:hover {
     background-color: #e06a2b;
     transform: scale(1.1); /* Subtle effect on hover */
 }
@@ -1133,7 +1133,7 @@ sl-progress-bar {
         font-size: 8vw; 
     }
     
-    .adopt-panel h3 {
+    .carousell-card h3 {
         font-family: 'Poppins', sans-serif; /* Friendly & readable */
         font-size: 6vw; /* Slightly larger */
         font-weight: 700; /* Bold */
@@ -1141,7 +1141,7 @@ sl-progress-bar {
         margin-bottom: 8px;
     }
     
-    .adopt-panel p {
+    .carousell-card p {
         font-family: 'Quicksand', sans-serif; /* Soft, readable font */
         font-size: 4vw;
         font-weight: 500; /* Medium weight for readability */
@@ -1181,4 +1181,10 @@ sl-progress-bar {
         font-size: 5vw;
         margin: 10px 0;
     }
+
+    .paw-print::before {
+        content: "🐾"; /* Unicode paw print */
+        font-size: 10vh;
+    }
+    
 }
