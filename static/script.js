@@ -346,4 +346,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+//prevent JS functions from affecting sticky header
+document.addEventListener("DOMContentLoaded", () => {
+    const header = document.querySelector(".sticky-header");
+
+    // Prevent unwanted transforms or animations
+    if (header) {
+        header.style.transform = "none";
+        header.style.willChange = "unset";
+    }
+});
+
+window.addEventListener("scroll", () => {
+    const header = document.querySelector(".sticky-header");
+    if (header) {
+        header.style.position = "fixed";  // Ensure it stays fixed
+        header.style.transform = "none";  // Override transformations
+        header.style.top = "0";           // Prevent jumping
+    }
+});
+
 

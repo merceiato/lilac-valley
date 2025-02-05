@@ -33,21 +33,30 @@ html {
 }
 
 
-.sticky-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255, 211, 165, 0.95); /* Peachy Orange with transparency */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    padding: 10px 20px;
-    backdrop-filter: blur(5px);
-    transition: all 0.3s ease-in-out;
-}
-
 body {
     padding-top: 80px; /* Prevents content from being hidden under the fixed header */
+}
+
+/* Prevent unwanted horizontal scrolling */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;  /* Stops sideways scrolling */
+    position: relative;
+}
+
+/* Ensure header is fixed properly */
+.sticky-header {
+    position: fixed;  /* Stays fixed at the top */
+    top: 0;
+    left: 0;
+    width: 100%;  /* Ensures it does not stretch */
+    height: auto;
+    z-index: 1000;
+    background-color: rgba(255, 211, 165, 0.95); /* Slight transparency */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    will-change: transform; /* Improves rendering stability */
+    overflow: hidden; /* Prevents accidental stretching */
 }
 
 /* Header content styling */
