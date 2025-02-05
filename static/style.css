@@ -230,6 +230,8 @@ html, body {
 
 .section-content {
     transition: transform 0.3s ease-in-out;
+    cursor: grab;
+    filter: invert(1);
 }
 
 /* Bounce effect on hover */
@@ -246,7 +248,6 @@ html, body {
 .section-content.enlarged:hover {
     transform: scale(1.25) !important;
 }
-
 
 
 /* Footer styling */
