@@ -132,6 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+// Horizontal scrolling
 const adoptScroll = document.querySelector('.adopt-scroll');
 const panels = Array.from(document.querySelectorAll('.adopt-panel'));
 const leftBtn = document.querySelector('.carousel-btn.left');
@@ -139,24 +141,8 @@ const rightBtn = document.querySelector('.carousel-btn.right');
 
 let isDragging = false;
 let startX = 0;
-let startY = 0;
 let scrollLeft;
-let velocity = 0;
-let animationFrame;
 const panelWidth = panels[0].offsetWidth + 40; // Panel width including margin
-
-// Clone first and last panels for seamless looping
-const firstClone = panels[0].cloneNode(true);
-const lastClone = panels[panels.length - 1].cloneNode(true);
-
-adoptScroll.appendChild(firstClone); // Clone first to end
-adoptScroll.insertBefore(lastClone, panels[0]); // Clone last to start
-
-// Update the panel list after cloning
-const allPanels = document.querySelectorAll('.adopt-panel');
-
-// **Key Fix:** Start scrolled at first real panel
-adoptScroll.scrollLeft = panelWidth;
 
 // Click & Drag Scrolling
 adoptScroll.addEventListener('mousedown', (e) => {
@@ -176,9 +162,7 @@ function onMouseMove(e) {
     adoptScroll.scrollLeft = scrollLeft - walk;
 }
 
-// Prevent text selection while dragging
-adoptScroll.addEventListener('dragstart', (e) => e.preventDefault());
-
+// Release mouse event
 function onMouseUp() {
     isDragging = false;
     adoptScroll.style.cursor = 'grab';
@@ -186,82 +170,52 @@ function onMouseUp() {
     document.removeEventListener('mouseup', onMouseUp);
 }
 
-adoptScroll.addEventListener('mouseleave', () => {
-    if (isDragging) {
-        isDragging = false;
-        adoptScroll.style.cursor = 'grab';
-        adoptScroll.classList.remove('active');
-    }
-});
+// Prevent text selection while dragging
+adoptScroll.addEventListener('dragstart', (e) => e.preventDefault());
 
-adoptScroll.addEventListener('mouseup', () => {
-    isDragging = false;
-    adoptScroll.style.cursor = 'grab';
-    adoptScroll.classList.remove('active');
-});
-
-adoptScroll.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - adoptScroll.offsetLeft;
-    const walk = (x - startX) * 2; // Adjust scrolling speed
-    adoptScroll.scrollLeft = scrollLeft - walk;
-});
-
-// Ensure release on global mouseup to prevent the stuck state
-document.addEventListener('mouseup', () => {
-    isDragging = false;
-    adoptScroll.style.cursor = 'grab';
-    adoptScroll.classList.remove('active');
-});
-
-// Smooth inertia effect after drag release
-function smoothScroll() {
-    if (Math.abs(velocity) > 0.1) {
-        adoptScroll.scrollLeft -= velocity;
-        velocity *= 0.95; // Gradually slow down (friction)
-        animationFrame = requestAnimationFrame(smoothScroll);
+// Prevent over-scrolling when dragging
+adoptScroll.addEventListener('scroll', () => {
+    if (adoptScroll.scrollLeft <= 0) {
+        leftBtn.disabled = true; // Disable left button at first panel
     } else {
-        checkLoop(); // Ensure seamless loop after inertia stops
+        leftBtn.disabled = false;
     }
-}
 
-function checkLoop() {
-    const maxScroll = panels.length * panelWidth; // Max scroll before looping
-
-    if (adoptScroll.scrollLeft <= panelWidth / 2) {
-        // **Jump to last REAL panel when scrolling left**
-        adoptScroll.style.scrollBehavior = 'auto'; // Disable smooth animation for jump
-        adoptScroll.scrollLeft = maxScroll - panelWidth;
-    } else if (adoptScroll.scrollLeft >= maxScroll - panelWidth / 2) {
-        // **Jump to first REAL panel when scrolling right**
-        adoptScroll.style.scrollBehavior = 'auto';
-        adoptScroll.scrollLeft = panelWidth;
+    const maxScrollLeft = adoptScroll.scrollWidth - adoptScroll.clientWidth;
+    if (adoptScroll.scrollLeft >= maxScrollLeft) {
+        rightBtn.disabled = true; // Disable right button at last panel
+    } else {
+        rightBtn.disabled = false;
     }
-}
+});
 
+// Arrow Button Clicks - Prevent Over-scrolling
+rightBtn.addEventListener('click', () => {
+    adoptScroll.scrollBy({ left: panelWidth, behavior: 'smooth' });
 
-// Auto-scrolling for arrow buttons
-function scrollToPanel(direction) {
-    adoptScroll.style.scrollBehavior = 'smooth'; // Enable smooth scrolling for buttons
-    adoptScroll.scrollBy({ left: panelWidth * direction, behavior: 'smooth' });
-
+    // Disable right button when reaching the last item
     setTimeout(() => {
-        checkLoop(); // Ensure seamless infinite scroll
-    }, 300); // Give time for animation before correcting position
-}
+        if (adoptScroll.scrollLeft + adoptScroll.clientWidth >= adoptScroll.scrollWidth) {
+            rightBtn.disabled = true;
+        }
+        leftBtn.disabled = false;
+    }, 300);
+});
 
-// Right Button Click
-rightBtn.addEventListener('click', () => scrollToPanel(1));
+leftBtn.addEventListener('click', () => {
+    adoptScroll.scrollBy({ left: -panelWidth, behavior: 'smooth' });
 
-// Left Button Click
-leftBtn.addEventListener('click', () => scrollToPanel(-1));
+    // Disable left button when reaching the first item
+    setTimeout(() => {
+        if (adoptScroll.scrollLeft <= 0) {
+            leftBtn.disabled = true;
+        }
+        rightBtn.disabled = false;
+    }, 300);
+});
 
-// **Final Fix:** Ensure seamless loop on page load
-setTimeout(() => {
-    adoptScroll.scrollLeft = panelWidth;
-}, 100);
 
+//video features
 function changeVideo(videoSrc) {
     const video = document.getElementById("main-video");
     video.src = videoSrc;
