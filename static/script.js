@@ -274,5 +274,52 @@ document.addEventListener("scroll", () => {
     }
 });
 
+// Typewriter effect when section-content scrolls into view
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".section-content");
+
+    sections.forEach(section => {
+        const paragraphs = section.querySelectorAll("p");
+
+        paragraphs.forEach(paragraph => {
+            if (paragraph.innerText.trim() !== "") {
+                const text = paragraph.innerText;
+                paragraph.innerHTML = ""; // Clear original text but keep structure
+
+                text.split("").forEach((char, index) => {
+                    const span = document.createElement("span");
+                    span.textContent = char;
+                    span.style.opacity = "0";
+                    span.style.display = "inline-block";
+                    span.style.transform = "translateY(10px)";
+                    span.style.transition = `opacity 0.3s ease-in-out ${index * 50}ms, transform 0.4s ease-out ${index * 50}ms`;
+
+                    // Preserve spaces by using a non-breaking space
+                    if (char === " ") {
+                        span.innerHTML = "&nbsp;";
+                    }
+
+                    paragraph.appendChild(span);
+                });
+            }
+        });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const spans = entry.target.querySelectorAll("p span");
+                spans.forEach(span => {
+                    span.style.opacity = "1";
+                    span.style.transform = "translateY(0)";
+                });
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+});
 
 
