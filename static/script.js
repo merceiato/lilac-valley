@@ -367,3 +367,5 @@ window.addEventListener("scroll", () => {
 });
 
 
+// Function to change main gallery image
+document.querySelector('.gallery-main img').src = "path/to/image.jpg";
