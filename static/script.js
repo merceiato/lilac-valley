@@ -232,29 +232,47 @@ function initDonationProgress() {
 /** -------------------------------
  *  PAW PRINTS: Appear randomly on scroll
  *  -------------------------------- */
-function initPawPrints() {
-    let ticking = false;
+let lastScrollY = 0; // Track last scroll position
+let ticking = false; // Prevent excessive function calls
 
-    function addPawPrints() {
-        if (Math.random() > 0.6) {
-            ticking = false;
-            return;
-        }
+function addPawPrints() {
+    lastScrollY = window.scrollY; // Get current scroll position
 
-        const pawPrint = document.createElement("div");
-        pawPrint.classList.add("paw-print");
-        pawPrint.style.left = `${Math.random() * window.innerWidth}px`;
-        pawPrint.style.top = `${window.scrollY + Math.random() * window.innerHeight * 0.8}px`;
-
-        document.body.appendChild(pawPrint);
-        setTimeout(() => pawPrint.remove(), 2500);
+    // Random chance to reduce excessive prints
+    if (Math.random() > 0.1) {
         ticking = false;
+        return;
     }
 
-    document.addEventListener("scroll", () => {
-        if (!ticking) {
-            requestAnimationFrame(addPawPrints);
-            ticking = true;
-        }
-    });
+    const pawPrint = document.createElement("div");
+    pawPrint.classList.add("paw-print");
+
+    // Set random X position across the screen
+    const xPosition = Math.random() * window.innerWidth;
+
+    // Y position set directly at the scroll position (prevents lag)
+    const yPosition = lastScrollY + Math.random() * window.innerHeight * 0.8;
+
+    pawPrint.style.left = `${xPosition}px`;
+    pawPrint.style.top = `${yPosition}px`;
+
+    document.body.appendChild(pawPrint);
+
+    // Remove paw print after animation to avoid clutter
+    setTimeout(() => {
+        pawPrint.remove();
+    }, 2500);
+
+    ticking = false; // Allow the next requestAnimationFrame call
 }
+
+// Optimize scrolling event handling
+document.addEventListener("scroll", () => {
+    if (!ticking) {
+        requestAnimationFrame(addPawPrints);
+        ticking = true;
+    }
+});
+
+
+
