@@ -474,5 +474,26 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("theme", "light");
         }
     });
+
+    //default tab
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("sl-tab[panel='adoption']").click();
+    });
+    
+    document.addEventListener("DOMContentLoaded", async () => {
+        const videoElement = document.getElementById("s3-video");
+    
+        try {
+            const response = await fetch("https://good-dog-images.s3.us-east-1.amazonaws.com/videos/donate-videos/video1.mp4");
+            const videoURL = await response.text(); // Assuming API returns the S3 video URL
+    
+            videoElement.src = videoURL;
+            videoElement.load();
+        } catch (error) {
+            console.error("Error fetching S3 video:", error);
+        }
+    });
+    
+
 });
 

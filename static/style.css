@@ -23,6 +23,17 @@
     color: var(--lilac-purple);
 }
 
+.dark-mode .section-content h2 {
+    color: #e0e0e0; /* Brighter but not too harsh */
+}
+
+.dark-mode .section-content p {
+    color: #c4c4c4; /* Medium-light gray for readability */
+}
+
+
+
+
 /* Adjust header */
 .dark-mode .sticky-header {
     background-color: rgba(18, 18, 18, 0.95); /* Darker header */
@@ -41,7 +52,19 @@
 /* Dark Mode for Adopt Panel */
 .dark-mode .adopt-panel {
     background-color: #222; /* Darkened panel background */
-    color: var(--pastel-text-dark);
+    color: var(--lilac-purple);
+    border-color: var(--peachy-orange);
+}
+
+.dark-mode .adopt-panel p{
+    background-color: #222; /* Darkened panel background */
+    color: var(--peachy-orange);
+    border-color: var(--peachy-orange);
+}
+
+.dark-mode .adopt-panel h3{
+    background-color: #222; /* Darkened panel background */
+    color: var(---);
     border-color: var(--peachy-orange);
 }
 
@@ -78,12 +101,6 @@
     color: var(--butter-yellow);
 }
 
-.dark-mode .adopt-panel {
-    background-color: #333;
-    color: var(--pastel-text-dark);
-    border: 1px solid var(--peachy-orange);
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
-}
 
 .dark-mode .adopt-btn {
     background-color: var(--pastel-highlight);
@@ -1087,10 +1104,13 @@ button[type="submit"]:hover {
     max-width: 60vw;
     height: 70%;
     position: relative;
+    min-width: 50vw;
 }
 
 .video-container video {
     width: 100%;
+    max-height: 40vh;
+
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -1370,4 +1390,113 @@ sl-progress-bar {
         grid-template-columns: repeat(4, 1fr); /* Adjusts the number of columns on smaller screens */
         height:100%;
     }
+
+    /* Form Container */
+form {
+    background: rgba(255, 255, 255, 0.95); /* Light but slightly softened */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    border: 2px solid var(--sky-blue);
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Input Fields */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--minty-green); /* Soft green border */
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    color: var(--pastel-text-dark);
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Input Focus Effect */
+input:focus, select:focus, textarea:focus {
+    border-color: var(--peachy-orange); /* Warm highlight */
+    box-shadow: 0px 0px 8px rgba(255, 165, 0, 0.3);
+    outline: none;
+}
+
+/* Labels */
+label {
+    font-size: 1rem;
+    color: var(--pastel-heading-dark);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    background: var(--butter-yellow);
+    color: var(--pastel-heading-dark);
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background: var(--pastel-highlight);
+}
+
+.video-container {
+    max-width: 800px; /* Limits max width */
+    margin: auto;
+    text-align: center;
+}
+
+#s3-video {
+    width: 100%; /* Ensures it scales to container width */
+    height: 30vh; /* Limits video height to 30% of viewport */
+    object-fit: cover; /* Ensures video fills the space nicely */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Forms */
+.dark-mode form {
+    background: rgba(40, 40, 40, 0.95); /* Dark but slightly soft */
+    border: 2px solid var(--lilac-purple); /* Purple border */
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Mode Input Fields */
+.dark-mode input, 
+.dark-mode select, 
+.dark-mode textarea {
+    background: rgba(50, 50, 50, 0.9); /* Soft dark background */
+    border: 2px solid var(--minty-green); /* Green border */
+    color: #ddd;
+}
+
+/* Dark Mode Focus Effect */
+.dark-mode input:focus, 
+.dark-mode select:focus, 
+.dark-mode textarea:focus {
+    border-color: var(--pastel-highlight);
+    box-shadow: 0px 0px 8px rgba(255, 165, 0, 0.3);
+}
+
+/* Dark Mode Labels */
+.dark-mode label {
+    color: var(--butter-yellow); /* Softer, warm yellow */
+}
+
+/* Dark Mode Submit Button */
+.dark-mode button[type="submit"] {
+    background: var(--lilac-purple);
+    color: #222;
+}
+
+.dark-mode button[type="submit"]:hover {
+    background: var(--peachy-orange);
+}
+
 }
