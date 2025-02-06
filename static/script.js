@@ -453,3 +453,26 @@ function initGallery() {
 
     fetchGalleryImages().then(populateGallery);
 }
+
+
+//darkmode logic
+document.addEventListener("DOMContentLoaded", () => {
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    
+    // Check if user has a preference stored
+    if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark-mode");
+        darkModeToggle.checked = true;
+    }
+
+    darkModeToggle.addEventListener("sl-change", () => {
+        if (darkModeToggle.checked) {
+            document.documentElement.classList.add("dark-mode");
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.documentElement.classList.remove("dark-mode");
+            localStorage.setItem("theme", "light");
+        }
+    });
+});
+
