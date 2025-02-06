@@ -1,3 +1,145 @@
+/* Dark Mode Theme */
+.dark-mode {
+    --playful-pink: #602f3f; /* Darker muted pink */
+    --peachy-orange: #8c4f24; /* Dark warm orange */
+    --minty-green: #295c2f; /* Darker mint green */
+    --sky-blue: #1f3f5b; /* Muted deep sky blue */
+    --lilac-purple: #50255d; /* Dark lilac */
+    --butter-yellow: #b58b2e; /* Rich golden tone */
+    --pastel-text-dark: #e6e6e6; /* Light gray for contrast */
+    --pastel-heading-dark: #f5f5f5; /* Slightly brighter for headings */
+    --pastel-highlight: #ff8243; /* Warm orange for emphasis */
+    background-color: #121212; /* Main dark background */
+    color: var(--pastel-text-dark);
+}
+
+.dark-mode body {
+    background-color: #121212;
+    color: var(--pastel-text-dark);
+}
+
+/* Adjust header */
+.dark-mode .sticky-header {
+    background-color: rgba(18, 18, 18, 0.95); /* Darker header */
+    color: var(--pastel-text-dark);
+}
+
+/* Adjust links */
+.dark-mode a {
+    color: var(--butter-yellow);
+}
+
+.dark-mode a:hover {
+    color: var(--pastel-highlight);
+}
+
+/* Dark Mode for Adopt Panel */
+.dark-mode .adopt-panel {
+    background-color: #222; /* Darkened panel background */
+    color: var(--pastel-text-dark);
+    border-color: var(--peachy-orange);
+}
+
+/* Dark Mode for Content Sections */
+.dark-mode .section-content {
+    background-color: rgba(34, 34, 34, 0.9);
+    color: var(--pastel-text-dark);
+}
+
+/* Dark Mode for Footer */
+.dark-mode footer {
+    background: linear-gradient(to top, #1c1c1c, #2a2a2a);
+    color: var(--pastel-text-dark);
+}
+
+/* Dark Mode for Navbar */
+.dark-mode .navigation {
+    background-color: #222;
+}
+
+.dark-mode .navigation a {
+    color: var(--pastel-text-dark);
+}
+
+.dark-mode .navigation a:hover {
+    color: var(--pastel-highlight);
+}
+
+.dark-mode .adopt-container {
+    background-color: #252525;
+}
+
+.dark-mode .adopt-title {
+    color: var(--butter-yellow);
+}
+
+.dark-mode .adopt-panel {
+    background-color: #333;
+    color: var(--pastel-text-dark);
+    border: 1px solid var(--peachy-orange);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode .adopt-btn {
+    background-color: var(--pastel-highlight);
+    color: #fff;
+}
+
+.dark-mode .adopt-btn:hover {
+    background-color: #ff6b2f;
+}
+
+
+.dark-mode .critter-cam-section {
+    background-color: #202020;
+    color: var(--pastel-text-dark);
+}
+
+.dark-mode .critter-cam-title {
+    color: var(--butter-yellow);
+}
+
+.dark-mode .video-container {
+    background-color: #292929;
+    border: 1px solid var(--lilac-purple);
+}
+
+.dark-mode .thumbnail-column img {
+    filter: brightness(80%);
+}
+
+.dark-mode .thumbnail-column img:hover {
+    filter: brightness(100%);
+}
+
+
+.dark-mode .gallery-section {
+    background-color: #222;
+    color: var(--pastel-text-dark);
+}
+
+.dark-mode .gallery-title {
+    color: var(--butter-yellow);
+}
+
+.dark-mode .gallery-panel {
+    background-color: #2c2c2c;
+    color: var(--pastel-text-dark);
+    border: 1px solid var(--peachy-orange);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode .gallery-btn {
+    background-color: var(--pastel-highlight);
+    color: #fff;
+}
+
+.dark-mode .gallery-btn:hover {
+    background-color: #ff6b2f;
+}
+
+
+
 :root {
     --playful-pink: #FFB6C1; /* Playful soft pink */
     --peachy-orange: #FFD3A5; /* Warm, inviting peach-orange */
