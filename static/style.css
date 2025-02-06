@@ -1042,7 +1042,7 @@ sl-progress-bar {
 .gallery-section {
     text-align: center;
     padding: 40px 20px;
-    background-color: var(--sky-blue);
+    background-color: var(--butter-yellow);
     
 }
 
@@ -1075,8 +1075,6 @@ sl-progress-bar {
 
 .gallery-main p {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
     background-color: rgba(75, 61, 48, 0.7);
     color: var(--playful-pink);
     padding: 10px;
@@ -1114,6 +1112,35 @@ sl-progress-bar {
     transform: scale(1.05);
 }
 
+/* gallery captions */
+
+
+.gallery-caption {
+    position: absolute;
+    bottom: 10px; /* Keeps it near the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Centers it horizontally */
+    width: 80%; /* Restrict width so it doesn't flow off the image */
+    background-color: rgba(0, 0, 0, 0.7); /* Darker, more opaque background */
+    color: white;
+    font-size: 1rem; /* Adjust text size */
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    line-height: 1.4; /* Improves readability */
+    word-wrap: break-word; /* Ensures text wraps properly */
+    white-space: normal; /* Allows text to wrap */
+}
+
+
+.gallery-caption span {
+    opacity: 0;
+    display: inline-block;
+    transform: translateY(10px);
+    min-width: 0.3rem;
+    transition: opacity 0.3s ease-in-out, transform 0.4s ease-out;
+}
 
 
 /* Responsive adjustments for smaller screens */

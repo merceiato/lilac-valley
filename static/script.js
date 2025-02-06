@@ -3,10 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
     initGallery();
     initNavigation();
     initBookNow();
-    initCarousel();
+    //not sure why I had to add an additional event listern in for this
+    document.addEventListener("DOMContentLoaded", () => {
+        initCarousel();
+    });
+    
     initVideoPlayer();
     initDonationProgress();
-    initPawPrints();
 });
 
 /** -------------------------------
@@ -137,6 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
  * @param {string} leftBtnSelector - Selector for the left scroll button.
  * @param {string} rightBtnSelector - Selector for the right scroll button.
  */
+
 function initCarousel(scrollContainerSelector, panelSelector, leftBtnSelector, rightBtnSelector) {
     const scrollContainer = document.querySelector(scrollContainerSelector);
     const panels = Array.from(document.querySelectorAll(panelSelector));
@@ -367,5 +371,85 @@ window.addEventListener("scroll", () => {
 });
 
 
-// Function to change main gallery image
-document.querySelector('.gallery-main img').src = "path/to/image.jpg";
+
+
+//gallery caption
+function initGallery() {
+    async function fetchGalleryImages() {
+        try {
+            const response = await fetch('http://ec2-98-80-34-138.compute-1.amazonaws.com:8080/gallery-images');
+            return await response.json();
+        } catch (error) {
+            console.error("Error fetching gallery images:", error);
+            return [];
+        }
+    }
+
+    function populateGallery(images) {
+        const mainGallery = document.querySelector('.gallery-main');
+        const caption = document.querySelector('.gallery-caption');
+        const thumbnailContainer = document.querySelector('.gallery-thumbnails');
+
+        // Predefined captions for each image - needs to be modified to create image association
+        const captions = [
+            "John, age: 37, Software Engineer - Fido, age: 8, Whippet x - together 5 years",
+            "Stephany, age: 31, Architect - Dozer, age: 6, Staffy x - together 4 years",
+            "Lillian, age: 42, Business Consultant - Donny, age: 4, Beagle x - together 2 years",
+            "Corey, age: 45, Accountant - Radix, age: 6, Shepherd x - together 3 years",
+            "Sarah, age: 24, Student - Zara, age: 4, Cheshire - together 2 years",
+            "Malcom, age: 62, Retiree - Pepe, age: 5, Tabby - together 3 years",
+            "Rose, age: 74, Retiree - Tukker, age: 7, Labrador x - together 4 years"
+        ];
+        
+        
+
+        if (images.length > 0) {
+            updateGallery(images[0], captions[0]);
+
+            images.forEach((imageUrl, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = imageUrl;
+                thumbnail.alt = `Gallery image ${index + 1}`;
+                thumbnail.classList.add('thumbnail-image');
+
+                // Change main image and caption on thumbnail click
+                thumbnail.addEventListener('click', () => updateGallery(imageUrl, captions[index]));
+                thumbnailContainer.appendChild(thumbnail);
+            });
+        }
+    }
+
+    function updateGallery(imageUrl, text) {
+        const mainGallery = document.querySelector('.gallery-main');
+        const caption = document.querySelector('.gallery-caption');
+
+        mainGallery.style.backgroundImage = `url(${imageUrl})`;
+
+        // Clear previous text and apply animation
+        caption.innerHTML = "";
+        text.split("").forEach((char, index) => {
+            const span = document.createElement("span");
+            span.textContent = char;
+            span.style.transitionDelay = `${index * 50}ms`; // Staggered fade-in effect
+
+            if (char === " ") {
+                span.innerHTML = "&nbsp;";
+            }
+
+            caption.appendChild(span);
+        });
+
+        // Make caption visible
+        caption.style.opacity = "1";
+
+        // Animate each letter appearing
+        setTimeout(() => {
+            caption.querySelectorAll("span").forEach(span => {
+                span.style.opacity = "1";
+                span.style.transform = "translateY(0)";
+            });
+        }, 200);
+    }
+
+    fetchGalleryImages().then(populateGallery);
+}
