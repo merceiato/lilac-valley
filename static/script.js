@@ -3,10 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
     initGallery();
     initNavigation();
     initBookNow();
-    initCarousel();
+    //not sure why I had to add an additional event listern in for this
+    document.addEventListener("DOMContentLoaded", () => {
+        initCarousel();
+    });
+    
     initVideoPlayer();
     initDonationProgress();
-    initPawPrints();
 });
 
 /** -------------------------------
@@ -137,6 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
  * @param {string} leftBtnSelector - Selector for the left scroll button.
  * @param {string} rightBtnSelector - Selector for the right scroll button.
  */
+
 function initCarousel(scrollContainerSelector, panelSelector, leftBtnSelector, rightBtnSelector) {
     const scrollContainer = document.querySelector(scrollContainerSelector);
     const panels = Array.from(document.querySelectorAll(panelSelector));
@@ -366,4 +370,243 @@ window.addEventListener("scroll", () => {
     }
 });
 
+
+
+
+//gallery caption
+function initGallery() {
+    async function fetchGalleryImages() {
+        try {
+            const response = await fetch('http://ec2-98-80-34-138.compute-1.amazonaws.com:8080/gallery-images');
+            return await response.json();
+        } catch (error) {
+            console.error("Error fetching gallery images:", error);
+            return [];
+        }
+    }
+
+    function populateGallery(images) {
+        const mainGallery = document.querySelector('.gallery-main');
+        const caption = document.querySelector('.gallery-caption');
+        const thumbnailContainer = document.querySelector('.gallery-thumbnails');
+
+        // Predefined captions for each image - needs to be modified to create image association
+        const captions = [
+            "John, age: 37, Software Engineer - Fido, age: 8, Whippet x - together 5 years",
+            "Stephany, age: 31, Architect - Dozer, age: 6, Staffy x - together 4 years",
+            "Lillian, age: 42, Business Consultant - Donny, age: 4, Beagle x - together 2 years",
+            "Corey, age: 45, Accountant - Radix, age: 6, Shepherd x - together 3 years",
+            "Sarah, age: 24, Student - Zara, age: 4, Cheshire - together 2 years",
+            "Malcom, age: 62, Retiree - Pepe, age: 5, Tabby - together 3 years",
+            "Rose, age: 74, Retiree - Tukker, age: 7, Labrador x - together 4 years"
+        ];
+        
+        
+
+        if (images.length > 0) {
+            updateGallery(images[0], captions[0]);
+
+            images.forEach((imageUrl, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = imageUrl;
+                thumbnail.alt = `Gallery image ${index + 1}`;
+                thumbnail.classList.add('thumbnail-image');
+
+                // Change main image and caption on thumbnail click
+                thumbnail.addEventListener('click', () => updateGallery(imageUrl, captions[index]));
+                thumbnailContainer.appendChild(thumbnail);
+            });
+        }
+    }
+
+    function updateGallery(imageUrl, text) {
+        const mainGallery = document.querySelector('.gallery-main');
+        const caption = document.querySelector('.gallery-caption');
+
+        mainGallery.style.backgroundImage = `url(${imageUrl})`;
+
+        // Clear previous text and apply animation
+        caption.innerHTML = "";
+        text.split("").forEach((char, index) => {
+            const span = document.createElement("span");
+            span.textContent = char;
+            span.style.transitionDelay = `${index * 50}ms`; // Staggered fade-in effect
+
+            if (char === " ") {
+                span.innerHTML = "&nbsp;";
+            }
+
+            caption.appendChild(span);
+        });
+
+        // Make caption visible
+        caption.style.opacity = "1";
+
+        // Animate each letter appearing
+        setTimeout(() => {
+            caption.querySelectorAll("span").forEach(span => {
+                span.style.opacity = "1";
+                span.style.transform = "translateY(0)";
+            });
+        }, 200);
+    }
+
+    fetchGalleryImages().then(populateGallery);
+}
+
+
+//darkmode logic
+document.addEventListener("DOMContentLoaded", () => {
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    
+    // Check if user has a preference stored
+    if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark-mode");
+        darkModeToggle.checked = true;
+    }
+
+    darkModeToggle.addEventListener("sl-change", () => {
+        if (darkModeToggle.checked) {
+            document.documentElement.classList.add("dark-mode");
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.documentElement.classList.remove("dark-mode");
+            localStorage.setItem("theme", "light");
+        }
+    });
+
+    //default tab
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("sl-tab[panel='adoption']").click();
+    });
+    
+    document.addEventListener("DOMContentLoaded", async () => {
+        const videoElement = document.getElementById("s3-video");
+    
+        try {
+            const response = await fetch("https://good-dog-images.s3.us-east-1.amazonaws.com/videos/donate-videos/video1.mp4");
+            const videoURL = await response.text(); // Assuming API returns the S3 video URL
+    
+            videoElement.src = videoURL;
+            videoElement.load();
+        } catch (error) {
+            console.error("Error fetching S3 video:", error);
+        }
+    });
+    
+
+});
+
+
+function initDonationProgress() {
+    let progress = 40; // Initial progress value
+
+    document.querySelector("#donation-form")?.addEventListener("submit", (event) => {
+        event.preventDefault(); // Prevent actual form submission
+
+        if (progress >= 100) {
+            // Reset the progress bar if it's full
+            progress = 0;
+        } else {
+            // Otherwise, increase progress normally
+            progress = Math.min(progress + 20, 100);
+        }
+
+        document.getElementById("donation-progress").value = progress;
+    });
+}
+
+// Ensure the Donate Now button only scrolls and switches tabs, not affecting progress
+function initDonateNowButton() {
+    document.querySelector(".donate-btn")?.addEventListener("click", () => {
+        document.getElementById("enquire").scrollIntoView({ behavior: "smooth" });
+        document.querySelector('sl-tab[panel="donation"]').click();
+    });
+}
+
+// Initialize both functions when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+    initDonationProgress();
+    initDonateNowButton();
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const volunteerButtons = document.querySelectorAll(".volunteer-btn");
+
+    volunteerButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const enquirySection = document.getElementById("enquire");
+            const formTabs = document.querySelector("sl-tab-group");
+
+            if (enquirySection) {
+                enquirySection.scrollIntoView({ behavior: "smooth" });
+
+                // Ensure tab group exists before switching
+                if (formTabs) {
+                    formTabs.show("volunteer");
+                }
+            } else {
+                console.error("Error: #enquiry-forms not found in the DOM.");
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    initCarousel("#volunteers .adopt-scroll", "#volunteers .adopt-panel", "#volunteers .carousel-btn.left", "#volunteers .carousel-btn.right");
+});
+
+
+function scrollLeft(selector) {
+    const scrollContainer = document.querySelector(selector);
+    scrollContainer.scrollBy({ left: -300, behavior: "smooth" });
+}
+
+function scrollRight(selector) {
+    const scrollContainer = document.querySelector(selector);
+    scrollContainer.scrollBy({ left: 300, behavior: "smooth" });
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Select all adopt buttons in the adoptees carousel
+    const adoptButtons = document.querySelectorAll("#adoptees .adopt-btn");
+    
+    // Function to switch to the adoption tab and scroll to enquiry section
+    function handleAdoptClick() {
+        const enquirySection = document.getElementById("enquire");
+        const tabPanel = document.querySelector("sl-tab-group");
+
+        if (tabPanel) {
+            // Set active tab to 'adoption'
+            tabPanel.show("adoption-form");
+        }
+
+        if (enquirySection) {
+            // Scroll to enquiry section smoothly
+            enquirySection.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+
+    // Attach event listeners to all adopt buttons
+    adoptButtons.forEach((button) => {
+        button.addEventListener("click", handleAdoptClick);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Select the "Adopt Now" button
+    const adoptNowButton = document.querySelector(".adopt-now"); // Ensure this matches the button's class
+    
+    if (adoptNowButton) {
+        adoptNowButton.addEventListener("click", () => {
+            const adopteeSection = document.getElementById("adoptees"); // Ensure the ID matches your section
+
+            if (adopteeSection) {
+                adopteeSection.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    }
+});
 

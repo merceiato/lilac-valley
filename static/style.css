@@ -1,3 +1,185 @@
+/* Dark Mode Theme */
+.dark-mode {
+    --playful-pink: #602f3f; /* Darker muted pink */
+    --peachy-orange: #8c4f24; /* Dark warm orange */
+    --minty-green: #295c2f; /* Darker mint green */
+    --sky-blue: #1f3f5b; /* Muted deep sky blue */
+    --lilac-purple: #50255d; /* Dark lilac */
+    --butter-yellow: #b58b2e; /* Rich golden tone */
+    --pastel-text-dark: #e6e6e6; /* Light gray for contrast */
+    --pastel-heading-dark: #f5f5f5; /* Slightly brighter for headings */
+    --pastel-highlight: #ff8243; /* Warm orange for emphasis */
+    background-color: #121212; /* Main dark background */
+    color: var(--pastel-text-dark);
+    /* Update text color variables */
+    --pastel-text-dark: #c4c4c4;  /* Softer gray instead of pure white */
+    --pastel-heading-dark: #d9d9d9; /* Lighter but not full white */
+
+}
+.section-content
+
+.dark-mode body {
+    background-color: #121212;
+    color: var(--lilac-purple);
+}
+
+.dark-mode .section-content h2 {
+    color: #e0e0e0; /* Brighter but not too harsh */
+}
+
+.dark-mode .section-content p {
+    color: #c4c4c4; /* Medium-light gray for readability */
+}
+
+
+
+
+/* Adjust header */
+.dark-mode .sticky-header {
+    background-color: rgba(18, 18, 18, 0.95); /* Darker header */
+    color: var(--pastel-text-dark);
+}
+
+/* Adjust links */
+.dark-mode a {
+    color: var(--butter-yellow);
+}
+
+.dark-mode a:hover {
+    color: var(--pastel-highlight);
+}
+
+/* Dark Mode for Adopt Panel */
+.dark-mode .adopt-panel {
+    background-color: #222; /* Darkened panel background */
+    color: var(--lilac-purple);
+    border-color: var(--peachy-orange);
+}
+
+.dark-mode .adopt-panel p{
+    background-color: #222; /* Darkened panel background */
+    color: var(--peachy-orange);
+    border-color: var(--peachy-orange);
+}
+
+.dark-mode .adopt-panel h3{
+    background-color: #222; /* Darkened panel background */
+    color: var(---);
+    border-color: var(--peachy-orange);
+}
+
+/* Dark Mode for Content Sections */
+.dark-mode .section-content {
+    background-color: rgba(34, 34, 34, 0.9);
+    color: var(--pastel-text-dark);
+}
+
+/* Dark Mode for Footer */
+.dark-mode footer {
+    background: linear-gradient(to top, #1c1c1c, #2a2a2a);
+    color: var(--pastel-text-dark);
+}
+
+/* Dark Mode for Navbar */
+.dark-mode .navigation {
+    background-color: #222;
+}
+
+.dark-mode .navigation a {
+    color: var(--pastel-text-dark);
+}
+
+.dark-mode .navigation a:hover {
+    color: var(--pastel-highlight);
+}
+
+.dark-mode .adopt-container {
+    background-color: #252525;
+}
+
+.dark-mode .adopt-title {
+    color: var(--butter-yellow);
+}
+
+
+.dark-mode .adopt-btn {
+    background-color: var(--pastel-highlight);
+    color: #fff;
+}
+
+.dark-mode .adopt-btn:hover {
+    background-color: #ff6b2f;
+}
+
+
+.dark-mode .critter-cam-section {
+    background-color: #202020;
+    color: var(--pastel-text-dark);
+}
+
+.dark-mode .critter-cam-title {
+    color: var(--butter-yellow);
+}
+
+.dark-mode .video-container {
+    background-color: #292929;
+    border: 1px solid var(--lilac-purple);
+}
+
+.dark-mode .thumbnail-column img {
+    filter: brightness(80%);
+}
+
+.dark-mode .thumbnail-column img:hover {
+    filter: brightness(100%);
+}
+
+
+.dark-mode .gallery-section {
+    background-color: #222;
+    color: var(--pastel-text-dark);
+}
+
+.dark-mode .gallery-title {
+    color: var(--butter-yellow);
+}
+
+.dark-mode .gallery-panel {
+    background-color: #2c2c2c;
+    color: var(--pastel-text-dark);
+    border: 1px solid var(--peachy-orange);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode .gallery-btn {
+    background-color: var(--pastel-highlight);
+    color: #fff;
+}
+
+.dark-mode .gallery-btn:hover {
+    background-color: #ff6b2f;
+}
+
+.dark-mode footer {
+    background-color: #2c2c2c;
+
+}
+
+.dark-mode .booking-section {
+    background-color: #2c2c2c;
+
+}
+
+.dark-mode .about-section {
+    background-color: #2c2c2c;
+
+}
+
+.dark-mode .contact-section {
+    background-color: #2c2c2c;
+
+}
+
 :root {
     --playful-pink: #FFB6C1; /* Playful soft pink */
     --peachy-orange: #FFD3A5; /* Warm, inviting peach-orange */
@@ -408,25 +590,6 @@ footer p:last-of-type {
     text-decoration: underline;
 }
 
-/* Booking Section */
-.booking-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--sky-blue);
-    padding: 60px 20px;
-}
-
-.booking-content {
-    width: 100%;
-    max-width: 800px;
-    background-color: var(--playful-pink);
-    color: var(--sky-blue);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: left;
-}
 
 /* Form Layout */
 form {
@@ -493,81 +656,6 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: var(--sky-blue);
     transform: translateY(-2px);
-}
-
-/* Main gallery container */
-.gallery-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Main image styling */
-.gallery-main {
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    width: 100%;
-    height: 500px; /* Set a consistent height for the main image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.gallery-main p {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background-color: rgba(75, 61, 48, 0.7);
-    color: var(--playful-pink);
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-}
-
-/* Thumbnail box styling */
-.thumbnail-box {
-    background-color: var(--sky-blue);
-    padding: 10px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 800px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Thumbnail grid styling */
-.gallery-thumbnails {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 10px;
-    padding: 10px;
-}
-
-/* Thumbnail images */
-.gallery-thumbnails img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.gallery-thumbnails img:hover {
-    transform: scale(1.05);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .gallery-main {
-        height: 400px;
-    }
-
-    .gallery-thumbnails {
-        grid-template-columns: repeat(4, 1fr); /* Adjusts the number of columns on smaller screens */
-    }
 }
 
 /* General section styling for consistent width */
@@ -663,10 +751,10 @@ button[type="submit"]:hover {
 
 /* Bookings Section Styling */
 .booking-section {
+    background-color: #f4c6c6;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--sky-blue);
     padding: 60px 20px;
 }
 
@@ -1016,10 +1104,13 @@ button[type="submit"]:hover {
     max-width: 60vw;
     height: 70%;
     position: relative;
+    min-width: 50vw;
 }
 
 .video-container video {
     width: 100%;
+    max-height: 40vh;
+
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -1113,6 +1204,110 @@ sl-progress-bar {
     }
 }
 
+/* Gallery Section */
+.gallery-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--butter-yellow);
+    
+}
+
+.gallery-title {
+    font-size: 2rem;
+    color: var(--pastel-heading-dark);
+    margin-bottom: 20px;
+}
+
+/* Main gallery container */
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Main image styling */
+.gallery-main {
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    width: 100%;
+    height: 500px; /* Set a consistent height for the main image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.gallery-main p {
+    position: absolute;
+    background-color: rgba(75, 61, 48, 0.7);
+    color: var(--playful-pink);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+/* Thumbnail box styling */
+.thumbnail-box {
+    background-color: var(--sky-blue);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Thumbnail grid styling */
+.gallery-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Thumbnail images */
+.gallery-thumbnails img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gallery-thumbnails img:hover {
+    transform: scale(1.05);
+}
+
+/* gallery captions */
+
+
+.gallery-caption {
+    position: absolute;
+    bottom: 10px; /* Keeps it near the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Centers it horizontally */
+    width: 80%; /* Restrict width so it doesn't flow off the image */
+    background-color: rgba(0, 0, 0, 0.7); /* Darker, more opaque background */
+    color: white;
+    font-size: 1rem; /* Adjust text size */
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    line-height: 1.4; /* Improves readability */
+    word-wrap: break-word; /* Ensures text wraps properly */
+    white-space: normal; /* Allows text to wrap */
+}
+
+
+.gallery-caption span {
+    opacity: 0;
+    display: inline-block;
+    transform: translateY(10px);
+    min-width: 0.3rem;
+    transition: opacity 0.3s ease-in-out, transform 0.4s ease-out;
+}
+
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
@@ -1186,5 +1381,145 @@ sl-progress-bar {
         content: "🐾"; /* Unicode paw print */
         font-size: 10vh;
     }
-    
+
+    .gallery-main {
+        height: 400px;
+    }
+
+    .gallery-thumbnails {
+        grid-template-columns: repeat(4, 1fr); /* Adjusts the number of columns on smaller screens */
+        height:100%;
+    }
+
+    /* Form Container */
+form {
+    background: rgba(255, 255, 255, 0.95); /* Light but slightly softened */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    border: 2px solid var(--sky-blue);
+    max-width: 700px;
+    margin: auto;
 }
+
+/* Input Fields */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--minty-green); /* Soft green border */
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    color: var(--pastel-text-dark);
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Input Focus Effect */
+input:focus, select:focus, textarea:focus {
+    border-color: var(--peachy-orange); /* Warm highlight */
+    box-shadow: 0px 0px 8px rgba(255, 165, 0, 0.3);
+    outline: none;
+}
+
+/* Labels */
+label {
+    font-size: 1rem;
+    color: var(--pastel-heading-dark);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    background: var(--butter-yellow);
+    color: var(--pastel-heading-dark);
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background: var(--pastel-highlight);
+}
+
+.video-container {
+    max-width: 800px; /* Limits max width */
+    margin: auto;
+    text-align: center;
+}
+
+#s3-video {
+    width: 100%; /* Ensures it scales to container width */
+    height: 30vh; /* Limits video height to 30% of viewport */
+    object-fit: cover; /* Ensures video fills the space nicely */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Forms */
+.dark-mode form {
+    background: rgba(40, 40, 40, 0.95); /* Dark but slightly soft */
+    border: 2px solid var(--lilac-purple); /* Purple border */
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Mode Input Fields */
+.dark-mode input, 
+.dark-mode select, 
+.dark-mode textarea {
+    background: rgba(50, 50, 50, 0.9); /* Soft dark background */
+    border: 2px solid var(--minty-green); /* Green border */
+    color: #ddd;
+}
+
+/* Dark Mode Focus Effect */
+.dark-mode input:focus, 
+.dark-mode select:focus, 
+.dark-mode textarea:focus {
+    border-color: var(--pastel-highlight);
+    box-shadow: 0px 0px 8px rgba(255, 165, 0, 0.3);
+}
+
+/* Dark Mode Labels */
+.dark-mode label {
+    color: var(--butter-yellow); /* Softer, warm yellow */
+}
+
+/* Dark Mode Submit Button */
+.dark-mode button[type="submit"] {
+    background: var(--lilac-purple);
+    color: #222;
+}
+
+.dark-mode button[type="submit"]:hover {
+    background: var(--peachy-orange);
+}
+
+}
+
+.adopt-panel img {
+    width: 100%; /* Stretch image to fit container */
+    height: 250px; /* Fixed height for consistency */
+    object-fit: cover; /* Maintain aspect ratio while covering */
+    border-radius: 10px;
+}
+
+.volunteer-btn {
+    background-color: #FF8243; /* Warm pastel orange */
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.volunteer-btn:hover {
+    background-color: #E06A2B;
+}
+
