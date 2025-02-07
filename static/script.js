@@ -497,3 +497,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const donateButton = document.querySelector(".donate-btn");
+    const enquirySection = document.getElementById("enquire");
+    const tabGroup = document.querySelector("sl-tab-group");
+    const donateTab = document.querySelector('sl-tab[panel="donation"]');
+
+    if (donateButton && enquirySection && tabGroup && donateTab) {
+        donateButton.addEventListener("click", () => {
+            enquirySection.scrollIntoView({ behavior: "smooth" });
+
+            // Delay activating the tab to ensure smooth scrolling finishes
+            setTimeout(() => {
+                tabGroup.show("donation"); // Switch to Donate tab
+            }, 500);
+        });
+    }
+});
+
+
