@@ -595,4 +595,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    // Select the "Adopt Now" button
+    const adoptNowButton = document.querySelector(".adopt-now"); // Ensure this matches the button's class
+    
+    if (adoptNowButton) {
+        adoptNowButton.addEventListener("click", () => {
+            const adopteeSection = document.getElementById("adoptees"); // Ensure the ID matches your section
+
+            if (adopteeSection) {
+                adopteeSection.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    }
+});
 
