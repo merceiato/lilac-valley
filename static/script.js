@@ -498,23 +498,38 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+function initDonationProgress() {
+    let progress = 40; // Initial progress value
+
+    document.querySelector("#donation-form")?.addEventListener("submit", (event) => {
+        event.preventDefault(); // Prevent actual form submission
+
+        if (progress >= 100) {
+            // Reset the progress bar if it's full
+            progress = 0;
+        } else {
+            // Otherwise, increase progress normally
+            progress = Math.min(progress + 20, 100);
+        }
+
+        document.getElementById("donation-progress").value = progress;
+    });
+}
+
+// Ensure the Donate Now button only scrolls and switches tabs, not affecting progress
+function initDonateNowButton() {
+    document.querySelector(".donate-btn")?.addEventListener("click", () => {
+        document.getElementById("enquire").scrollIntoView({ behavior: "smooth" });
+        document.querySelector('sl-tab[panel="donation"]').click();
+    });
+}
+
+// Initialize both functions when the page loads
 document.addEventListener("DOMContentLoaded", () => {
-    const donateButton = document.querySelector(".donate-btn");
-    const enquirySection = document.getElementById("enquire");
-    const tabGroup = document.querySelector("sl-tab-group");
-    const donateTab = document.querySelector('sl-tab[panel="donation"]');
-
-    if (donateButton && enquirySection && tabGroup && donateTab) {
-        donateButton.addEventListener("click", () => {
-            enquirySection.scrollIntoView({ behavior: "smooth" });
-
-            // Delay activating the tab to ensure smooth scrolling finishes
-            setTimeout(() => {
-                tabGroup.show("donation"); // Switch to Donate tab
-            }, 500);
-        });
-    }
+    initDonationProgress();
+    initDonateNowButton();
 });
+
 
 
 
