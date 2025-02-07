@@ -1500,3 +1500,25 @@ button[type="submit"]:hover {
 }
 
 }
+
+.adopt-panel img {
+    width: 100%; /* Stretch image to fit container */
+    height: 250px; /* Fixed height for consistency */
+    object-fit: cover; /* Maintain aspect ratio while covering */
+    border-radius: 10px;
+}
+
+.volunteer-btn {
+    background-color: #FF8243; /* Warm pastel orange */
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.volunteer-btn:hover {
+    background-color: #E06A2B;
+}

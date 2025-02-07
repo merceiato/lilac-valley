@@ -531,6 +531,27 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const volunteerButtons = document.querySelectorAll(".volunteer-btn");
+
+    volunteerButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const enquirySection = document.getElementById("enquire");
+            const formTabs = document.querySelector("sl-tab-group");
+
+            if (enquirySection) {
+                enquirySection.scrollIntoView({ behavior: "smooth" });
+
+                // Ensure tab group exists before switching
+                if (formTabs) {
+                    formTabs.show("volunteer");
+                }
+            } else {
+                console.error("Error: #enquiry-forms not found in the DOM.");
+            }
+        });
+    });
+});
 
 
 
