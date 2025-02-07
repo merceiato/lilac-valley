@@ -569,3 +569,30 @@ function scrollRight(selector) {
 }
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    // Select all adopt buttons in the adoptees carousel
+    const adoptButtons = document.querySelectorAll("#adoptees .adopt-btn");
+    
+    // Function to switch to the adoption tab and scroll to enquiry section
+    function handleAdoptClick() {
+        const enquirySection = document.getElementById("enquire");
+        const tabPanel = document.querySelector("sl-tab-group");
+
+        if (tabPanel) {
+            // Set active tab to 'adoption'
+            tabPanel.show("adoption-form");
+        }
+
+        if (enquirySection) {
+            // Scroll to enquiry section smoothly
+            enquirySection.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+
+    // Attach event listeners to all adopt buttons
+    adoptButtons.forEach((button) => {
+        button.addEventListener("click", handleAdoptClick);
+    });
+});
+
+
