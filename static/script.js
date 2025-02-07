@@ -553,5 +553,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    initCarousel("#volunteers .adopt-scroll", "#volunteers .adopt-panel", "#volunteers .carousel-btn.left", "#volunteers .carousel-btn.right");
+});
+
+
+function scrollLeft(selector) {
+    const scrollContainer = document.querySelector(selector);
+    scrollContainer.scrollBy({ left: -300, behavior: "smooth" });
+}
+
+function scrollRight(selector) {
+    const scrollContainer = document.querySelector(selector);
+    scrollContainer.scrollBy({ left: 300, behavior: "smooth" });
+}
 
 
