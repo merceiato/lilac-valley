@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Good Dog - Pet Adoption and Rehabilitation. Find your perfect furry companion today!">
+    <meta name="description"
+        content="Good Dog - Pet Adoption and Rehabilitation. Find your perfect furry companion today!">
     <meta name="keywords" content="Pet Adoption, Dog Rescue, Animal Welfare, Rehoming Dogs">
     <meta name="author" content="Thomas Lambert">
     <title>Good~Dog</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/themes/light.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/shoelace-autoloader.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/shoelace-autoloader.js"></script>
 </head>
+
 <body>
     <header class="sticky-header">
         <div class="header-content">
@@ -19,14 +23,14 @@
                 <span></span>
                 <span></span>
             </button>
-    
+
             <div class="logo-container">
                 <a href="/" class="logo-link">
                     <img src="/images/branding/logo.gif" alt="Good Dog Logo" class="logo">
                 </a>
                 <p class="logo-subtext"></p>
             </div>
-    
+
             <nav class="navigation">
                 <a href="#adoptees">Meet Your New Best Friend</a>
                 <a href="#critter-cam">Critter Cam</a>
@@ -35,9 +39,9 @@
                 <a href="#enquire">Enquire</a>
                 <sl-switch id="dark-mode-toggle" class="dark-mode-switch">
                     Dark Mode
-                </sl-switch>                
+                </sl-switch>
             </nav>
-    
+
             <button class="adopt-now">Adopt Now</button>
         </div>
     </header>
@@ -50,64 +54,72 @@
         <div class="section-content">
             <h2>About Good Dog</h2>
             <p>
-                "Good Dog is a nonprofit dedicated to rehabilitating and rehoming rescued dogs, providing them with care, training, and medical attention to ensure a smooth transition into their forever homes."
+                "Good Dog is a nonprofit dedicated to rehabilitating and rehoming rescued dogs, providing them with
+                care, training, and medical attention to ensure a smooth transition into their forever homes."
             </p>
         </div>
     </section>
 
     <section id="adoptees" class="card-carousell-container">
-        <h2 class="adopt-title">Meet Your New Best Friend</h2>
+        <h2 class="carousel-title">Meet Your New Best Friend</h2>
         <div class="carousel-wrapper">
-            <div class="adopt-scroll">
-                <div class="carousell-card">
-                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog1.png" alt="Golden Retriever looking for a home">
+            <div class="card-carousel-scroll">
+                <div class="carousel-card">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog1.png"
+                        alt="Golden Retriever looking for a home">
                     <h3>Bella</h3>
                     <p>Bella is a sweet and energetic 3-year-old Golden Retriever who loves outdoor adventures.</p>
                     <button class="card-carousell-btn">Adopt Bella</button>
                 </div>
-                
-                <div class="carousell-card">
-                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog2.png" alt="Small mixed breed puppy">
+
+                <div class="carousel-card">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog2.png"
+                        alt="Small mixed breed puppy">
                     <h3>Charlie</h3>
                     <p>Charlie is a playful pup who loves cuddles and long walks in the park.</p>
                     <button class="card-carousell-btn">Adopt Charlie</button>
                 </div>
-                
-                <div class="carousell-card">
-                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog3.png" alt="Rescue dog ready for adoption">
+
+                <div class="carousel-card">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog3.png"
+                        alt="Rescue dog ready for adoption">
                     <h3>Luna</h3>
                     <p>A gentle soul, Luna is looking for a calm and loving home.</p>
                     <button class="card-carousell-btn">Adopt Luna</button>
                 </div>
-                
+
                 <!-- Dog 4 -->
-                <div class="carousell-card">
-                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog4.png" alt="Friendly Labrador available for adoption">
+                <div class="carousel-card">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog4.png"
+                        alt="Friendly Labrador available for adoption">
                     <h3>Max</h3>
                     <p>Max is a loyal and affectionate Labrador who enjoys playing fetch and being around people.</p>
                     <button class="card-carousell-btn">Adopt Max</button>
                 </div>
-                
+
                 <!-- Dog 5 -->
-                <div class="carousell-card">
-                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog5.png" alt="Energetic Border Collie looking for a home">
+                <div class="carousel-card">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog5.png"
+                        alt="Energetic Border Collie looking for a home">
                     <h3>Daisy</h3>
                     <p>Daisy is an intelligent and energetic Border Collie who would thrive in an active home.</p>
                     <button class="card-carousell-btn">Adopt Daisy</button>
                 </div>
-                
+
             </div>
         </div>
     </section>
-    
+
     <section id="adopt-info" class="section-container about-section">
         <div class="section-content">
-        <p>
-            <strong>Why Choose Good Dog?</strong>
-        </p>
-        <ul>
-            <p>We are committed to ethical and compassionate pet adoption, ensuring all dogs are vaccinated, microchipped, and health-checked. Our support extends beyond adoption, offering post-adoption care and working with animal behaviorists to rehabilitate rescue dogs.</p>
-        </ul>
+            <p>
+                <strong>Why Choose Good Dog?</strong>
+            </p>
+            <ul>
+                <p>We are committed to ethical and compassionate pet adoption, ensuring all dogs are vaccinated,
+                    microchipped, and health-checked. Our support extends beyond adoption, offering post-adoption care
+                    and working with animal behaviorists to rehabilitate rescue dogs.</p>
+            </ul>
         </div>
     </section>
 
@@ -120,20 +132,21 @@
                 <img src="images/video-thumbnails/toby.jpg" alt="Toby" onclick="changeVideo('video2.mp4')">
                 <img src="images/video-thumbnails/ziggy.jpg" alt="Ziggy" onclick="changeVideo('video3.mp4')">
             </div>
-    
+
             <!-- Main Video -->
             <section id="critter-cam" class="critter-cam-section">
-            
+
                 <!-- Video Container -->
                 <div class="video-container">
                     <video id="s3-video" controls autoplay muted>
-                        <source src="https://good-dog-images.s3.us-east-1.amazonaws.com/videos/donate-videos/video1.mp4" type="video/mp4">
+                        <source src="https://good-dog-images.s3.us-east-1.amazonaws.com/videos/donate-videos/video1.mp4"
+                            type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
             </section>
-            
-    
+
+
             <!-- Right Thumbnails -->
             <div class="thumbnail-column right-thumbnails">
                 <img src="images/video-thumbnails/felix.jpg" alt="Felix" onclick="changeVideo('video4.mp4')">
@@ -141,15 +154,15 @@
                 <img src="images/video-thumbnails/hugo.jpg" alt="Hugo" onclick="changeVideo('video6.mp4')">
             </div>
         </div>
-        
-    
+
+
         <!-- Donation Progress Section -->
         <div class="donation-section">
-            
+
             <button class="donate-btn">Donate Now</button>
 
             <p class="progress-text">Obedience Training Fund</p>
-            
+
         </div>
         <!-- Progress Bar Section -->
         <div class="donation-progress-container">
@@ -160,12 +173,13 @@
     <section id="about-critter-cam" class="section-container about-section">
         <div class="section-content">
             <h2>About Critter cam</h2>
-            <p>    
-            "Experience the joy of rescued pets in real time with Good Dog’s Critter Cam, where you can watch adoptable animals play, learn, and prepare for their forever homes!"
+            <p>
+                "Experience the joy of rescued pets in real time with Good Dog’s Critter Cam, where you can watch
+                adoptable animals play, learn, and prepare for their forever homes!"
             </p>
         </div>
     </section>
-    
+
 
     <section id="success-stories" class="gallery-section">
         <h2 class="gallery-title">Our Happy Adoptions</h2>
@@ -174,7 +188,7 @@
             <div class="gallery-main">
                 <p class="gallery-caption"></p>
             </div>
-    
+
             <!-- Thumbnails -->
             <div class="thumbnail-box">
                 <div class="gallery-thumbnails">
@@ -182,47 +196,55 @@
             </div>
         </div>
     </section>
-    
+
 
     <section id="about-success-stories" class="section-container about-section">
         <div class="section-content">
             <h2>Forever Homes</h2>
             <p>
-                "Join the countless families who have given rescue pets a second chance, adopt today and become part of Good Dog’s success stories, where every pet finds a loving forever home!"*
+                "Join the countless families who have given rescue pets a second chance, adopt today and become part of
+                Good Dog’s success stories, where every pet finds a loving forever home!"*
             </p>
         </div>
     </section>
 
-    <section id="volunteers" class="adopt-container">
-        <h2 class="adopt-title">Our Volunteers</h2>
+    <section id="volunteers" class="card-carousell-container
+        <h2 class=" carousel-title">Our Volunteers</h2>
         <div class="carousel-wrapper">
             <button class="carousel-btn left" onclick="scrollLeft()">&#9664;</button>
-            <div class="adopt-scroll">
-                <div class="adopt-panel">
-                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/trainer.jpg" alt="Pet Trainer">
+            <div class="card-carousel-scroll">
+                <div class="carousel-card">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/trainer.jpg"
+                        alt="Pet Trainer">
                     <h3>Jamie - Pet Trainer</h3>
-                    <p>Jamie works with rescued dogs to teach them obedience and help them transition into new homes.</p>
+                    <p>Jamie works with rescued dogs to teach them obedience and help them transition into new homes.
+                    </p>
                     <button class="volunteer-btn">Volunteer</button>
                 </div>
-                <div class="adopt-panel">
-                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/walker.jpg" alt="Dog Walker">
+                <div class="carousel-card">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/walker.jpg"
+                        alt="Dog Walker">
                     <h3>Alex - Dog Walker</h3>
-                    <p>Alex ensures that every dog gets regular exercise and socialization while waiting for adoption.</p>
+                    <p>Alex ensures that every dog gets regular exercise and socialization while waiting for adoption.
+                    </p>
                     <button class="volunteer-btn">Volunteer</button>
                 </div>
-                <div class="adopt-panel">
-                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/kennel.jpg" alt="Kennel Attendant">
+                <div class="carousel-card">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/kennel.jpg"
+                        alt="Kennel Attendant">
                     <h3>Jordan - Kennel Attendant</h3>
-                    <p>Jordan keeps the shelters clean and comfortable for our furry friends while they await a new home.</p>
+                    <p>Jordan keeps the shelters clean and comfortable for our furry friends while they await a new
+                        home.</p>
                     <button class="volunteer-btn">Volunteer</button>
                 </div>
-                <div class="adopt-panel">
-                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/nurse.jpg" alt="Vet Nurse">
+                <div class="carousel-card">
+                    <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/nurse.jpg"
+                        alt="Vet Nurse">
                     <h3>Sam - Vet Nurse</h3>
                     <p>Sam provides medical care and assists with vaccinations and checkups for all rescued animals.</p>
                     <button class="volunteer-btn">Volunteer</button>
                 </div>
-                <div class="adopt-panel">
+                <div class="carousel-card">
                     <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/vet.jpg" alt="Vet">
                     <h3>Dr. Taylor - Vet</h3>
                     <p>Dr. Taylor ensures that every pet is in good health and ready for their forever home.</p>
@@ -232,14 +254,15 @@
             <button class="carousel-btn right" onclick="scrollRight()">&#9654;</button>
         </div>
     </section>
-    
-    
+
+
 
     <section id="about-volunteering" class="section-container about-section">
         <div class="section-content">
             <h2>Volunteering</h2>
             <p>
-            *"Make a difference in a rescue pet’s journey, become a foster carer, trainer, walker, or shelter volunteer with Good Dog and help give them the love and skills they need for a forever home!"*
+                *"Make a difference in a rescue pet’s journey, become a foster carer, trainer, walker, or shelter
+                volunteer with Good Dog and help give them the love and skills they need for a forever home!"*
             </p>
         </div>
     </section>
@@ -247,14 +270,14 @@
     <section id="enquire" class="section-container booking-section">
         <div class="section-content">
             <h2>Enquire</h2>
-    
+
             <!-- Shoelace Tab Group -->
             <sl-tab-group id="booking-tabs">
                 <!-- Tabs -->
                 <sl-tab slot="nav" panel="adoption">Adoption Booking</sl-tab>
                 <sl-tab slot="nav" panel="volunteer">Volunteer Signup</sl-tab>
                 <sl-tab slot="nav" panel="donation">Donation Pledge</sl-tab>
-    
+
                 <!-- Adoption Booking Form -->
                 <sl-tab-panel name="adoption">
                     <form id="adoption-form">
@@ -264,7 +287,8 @@
                         </div>
                         <div class="form-group">
                             <label for="adopter-email">Email:</label>
-                            <input type="email" id="adopter-email" name="adopter-email" required placeholder="john@example.com">
+                            <input type="email" id="adopter-email" name="adopter-email" required
+                                placeholder="john@example.com">
                         </div>
                         <div class="form-group">
                             <label for="pet-choice">Preferred Pet:</label>
@@ -275,22 +299,25 @@
                         </div>
                         <div class="form-group">
                             <label for="reason">Why do you want to adopt?</label>
-                            <textarea id="reason" name="reason" rows="3" placeholder="Tell us about your home, lifestyle, and why you want to adopt."></textarea>
+                            <textarea id="reason" name="reason" rows="3"
+                                placeholder="Tell us about your home, lifestyle, and why you want to adopt."></textarea>
                         </div>
                         <button type="submit">Submit Adoption Request</button>
                     </form>
                 </sl-tab-panel>
-    
+
                 <!-- Volunteer Signup Form -->
                 <sl-tab-panel name="volunteer">
                     <form id="volunteer-form">
                         <div class="form-group">
                             <label for="volunteer-name">Full Name:</label>
-                            <input type="text" id="volunteer-name" name="volunteer-name" required placeholder="Jane Doe">
+                            <input type="text" id="volunteer-name" name="volunteer-name" required
+                                placeholder="Jane Doe">
                         </div>
                         <div class="form-group">
                             <label for="volunteer-email">Email:</label>
-                            <input type="email" id="volunteer-email" name="volunteer-email" required placeholder="jane@example.com">
+                            <input type="email" id="volunteer-email" name="volunteer-email" required
+                                placeholder="jane@example.com">
                         </div>
                         <div class="form-group">
                             <label for="volunteer-role">Preferred Volunteer Role:</label>
@@ -303,12 +330,13 @@
                         </div>
                         <div class="form-group">
                             <label for="availability">Availability:</label>
-                            <input type="text" id="availability" name="availability" required placeholder="e.g., Weekends, Evenings, Flexible">
+                            <input type="text" id="availability" name="availability" required
+                                placeholder="e.g., Weekends, Evenings, Flexible">
                         </div>
                         <button type="submit">Submit Volunteer Application</button>
                     </form>
                 </sl-tab-panel>
-    
+
                 <!-- Donation Pledge Form -->
                 <sl-tab-panel name="donation">
                     <form id="donation-form">
@@ -334,8 +362,8 @@
             </sl-tab-group>
         </div>
     </section>
-    
-    
+
+
 
     <section id="contact" class="section-container contact-section">
         <div class="section-content">
@@ -371,5 +399,5 @@
 
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>

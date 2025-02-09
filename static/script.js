@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("DOMContentLoaded", () => {
         initCarousel();
     });
-    
+
     initVideoPlayer();
     initDonationProgress();
 });
@@ -130,7 +130,7 @@ function initBookNow() {
  *  CAROUSEL: Horizontal scrolling
  *  -------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
-    initCarousel(".adopt-scroll", ".adopt-panel", ".carousel-btn.left", ".carousel-btn.right");
+    initCarousel(".card-carousel-scroll", ".carousel-card", ".carousel-btn.left", ".carousel-btn.right");
 });
 
 /**
@@ -400,8 +400,8 @@ function initGallery() {
             "Malcom, age: 62, Retiree - Pepe, age: 5, Tabby - together 3 years",
             "Rose, age: 74, Retiree - Tukker, age: 7, Labrador x - together 4 years"
         ];
-        
-        
+
+
 
         if (images.length > 0) {
             updateGallery(images[0], captions[0]);
@@ -458,7 +458,7 @@ function initGallery() {
 //darkmode logic
 document.addEventListener("DOMContentLoaded", () => {
     const darkModeToggle = document.getElementById("dark-mode-toggle");
-    
+
     // Check if user has a preference stored
     if (localStorage.getItem("theme") === "dark") {
         document.documentElement.classList.add("dark-mode");
@@ -479,21 +479,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("sl-tab[panel='adoption']").click();
     });
-    
+
     document.addEventListener("DOMContentLoaded", async () => {
         const videoElement = document.getElementById("s3-video");
-    
+
         try {
             const response = await fetch("https://good-dog-images.s3.us-east-1.amazonaws.com/videos/donate-videos/video1.mp4");
             const videoURL = await response.text(); // Assuming API returns the S3 video URL
-    
+
             videoElement.src = videoURL;
             videoElement.load();
         } catch (error) {
             console.error("Error fetching S3 video:", error);
         }
     });
-    
+
 
 });
 
@@ -554,7 +554,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    initCarousel("#volunteers .adopt-scroll", "#volunteers .adopt-panel", "#volunteers .carousel-btn.left", "#volunteers .carousel-btn.right");
+    initCarousel("#volunteers .card-carousel-scroll", "#volunteers .carousel-card", "#volunteers .carousel-btn.left", "#volunteers .carousel-btn.right");
 });
 
 
@@ -572,7 +572,7 @@ function scrollRight(selector) {
 document.addEventListener("DOMContentLoaded", () => {
     // Select all adopt buttons in the adoptees carousel
     const adoptButtons = document.querySelectorAll("#adoptees .adopt-btn");
-    
+
     // Function to switch to the adoption tab and scroll to enquiry section
     function handleAdoptClick() {
         const enquirySection = document.getElementById("enquire");
@@ -598,7 +598,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     // Select the "Adopt Now" button
     const adoptNowButton = document.querySelector(".adopt-now"); // Ensure this matches the button's class
-    
+
     if (adoptNowButton) {
         adoptNowButton.addEventListener("click", () => {
             const adopteeSection = document.getElementById("adoptees"); // Ensure the ID matches your section

@@ -1,34 +1,47 @@
 /* Dark Mode Theme */
 .dark-mode {
-    --playful-pink: #602f3f; /* Darker muted pink */
-    --peachy-orange: #8c4f24; /* Dark warm orange */
-    --minty-green: #295c2f; /* Darker mint green */
-    --sky-blue: #1f3f5b; /* Muted deep sky blue */
-    --lilac-purple: #50255d; /* Dark lilac */
-    --butter-yellow: #b58b2e; /* Rich golden tone */
-    --pastel-text-dark: #e6e6e6; /* Light gray for contrast */
-    --pastel-heading-dark: #f5f5f5; /* Slightly brighter for headings */
-    --pastel-highlight: #ff8243; /* Warm orange for emphasis */
-    background-color: #121212; /* Main dark background */
+    --playful-pink: #602f3f;
+    /* Darker muted pink */
+    --peachy-orange: #8c4f24;
+    /* Dark warm orange */
+    --minty-green: #295c2f;
+    /* Darker mint green */
+    --sky-blue: #1f3f5b;
+    /* Muted deep sky blue */
+    --lilac-purple: #50255d;
+    /* Dark lilac */
+    --butter-yellow: #b58b2e;
+    /* Rich golden tone */
+    --pastel-text-dark: #e6e6e6;
+    /* Light gray for contrast */
+    --pastel-heading-dark: #f5f5f5;
+    /* Slightly brighter for headings */
+    --pastel-highlight: #ff8243;
+    /* Warm orange for emphasis */
+    background-color: #121212;
+    /* Main dark background */
     color: var(--pastel-text-dark);
     /* Update text color variables */
-    --pastel-text-dark: #c4c4c4;  /* Softer gray instead of pure white */
-    --pastel-heading-dark: #d9d9d9; /* Lighter but not full white */
+    --pastel-text-dark: #c4c4c4;
+    /* Softer gray instead of pure white */
+    --pastel-heading-dark: #d9d9d9;
+    /* Lighter but not full white */
 
 }
-.section-content
 
-.dark-mode body {
+.section-content .dark-mode body {
     background-color: #121212;
     color: var(--lilac-purple);
 }
 
 .dark-mode .section-content h2 {
-    color: #e0e0e0; /* Brighter but not too harsh */
+    color: #e0e0e0;
+    /* Brighter but not too harsh */
 }
 
 .dark-mode .section-content p {
-    color: #c4c4c4; /* Medium-light gray for readability */
+    color: #c4c4c4;
+    /* Medium-light gray for readability */
 }
 
 
@@ -36,7 +49,8 @@
 
 /* Adjust header */
 .dark-mode .sticky-header {
-    background-color: rgba(18, 18, 18, 0.95); /* Darker header */
+    background-color: rgba(18, 18, 18, 0.95);
+    /* Darker header */
     color: var(--pastel-text-dark);
 }
 
@@ -47,25 +61,6 @@
 
 .dark-mode a:hover {
     color: var(--pastel-highlight);
-}
-
-/* Dark Mode for Adopt Panel */
-.dark-mode .adopt-panel {
-    background-color: #222; /* Darkened panel background */
-    color: var(--lilac-purple);
-    border-color: var(--peachy-orange);
-}
-
-.dark-mode .adopt-panel p{
-    background-color: #222; /* Darkened panel background */
-    color: var(--peachy-orange);
-    border-color: var(--peachy-orange);
-}
-
-.dark-mode .adopt-panel h3{
-    background-color: #222; /* Darkened panel background */
-    color: var(---);
-    border-color: var(--peachy-orange);
 }
 
 /* Dark Mode for Content Sections */
@@ -97,7 +92,7 @@
     background-color: #252525;
 }
 
-.dark-mode .adopt-title {
+.dark-mode .carousel-title {
     color: var(--butter-yellow);
 }
 
@@ -181,15 +176,24 @@
 }
 
 :root {
-    --playful-pink: #FFB6C1; /* Playful soft pink */
-    --peachy-orange: #FFD3A5; /* Warm, inviting peach-orange */
-    --minty-green: #B4E197; /* Fresh, soft mint green */
-    --sky-blue: #A7D8F2; /* Bright but gentle sky blue */
-    --lilac-purple: #D5A6E6; /* Soft, friendly lilac */
-    --butter-yellow: #FFEE93; /* Cheerful yet soothing yellow */
-    --pastel-text-dark: #5a5a5a; /* Dark gray for better contrast */
-    --pastel-heading-dark: #404040; /* Slightly darker gray for headings */
-    --pastel-highlight: #ff9f68; /* A warm pastel orange for emphasis */
+    --playful-pink: #FFB6C1;
+    /* Playful soft pink */
+    --peachy-orange: #FFD3A5;
+    /* Warm, inviting peach-orange */
+    --minty-green: #B4E197;
+    /* Fresh, soft mint green */
+    --sky-blue: #A7D8F2;
+    /* Bright but gentle sky blue */
+    --lilac-purple: #D5A6E6;
+    /* Soft, friendly lilac */
+    --butter-yellow: #FFEE93;
+    /* Cheerful yet soothing yellow */
+    --pastel-text-dark: #5a5a5a;
+    /* Dark gray for better contrast */
+    --pastel-heading-dark: #404040;
+    /* Slightly darker gray for headings */
+    --pastel-highlight: #ff9f68;
+    /* A warm pastel orange for emphasis */
 }
 
 * {
@@ -199,51 +203,66 @@
 }
 
 p a {
-    color: var(--lilac-purple) !important; /* Softer, more coordinated */
+    color: var(--lilac-purple) !important;
+    /* Softer, more coordinated */
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
 }
 
 p a:hover {
-    color: var(--pastel-highlight) !important; /* Warm pastel orange pop */
+    color: var(--pastel-highlight) !important;
+    /* Warm pastel orange pop */
     text-decoration: underline;
 }
 
 html {
-    scroll-behavior: smooth; /* Enables smooth scrolling globally */
+    scroll-behavior: smooth;
+    /* Enables smooth scrolling globally */
 }
 
 
 body {
-    padding-top: 80px; /* Prevents content from being hidden under the fixed header */
+    padding-top: 80px;
+
+    /* Prevents content from being hidden under the fixed header */
     .h2 {
-        font-size: 6vh; 
+        font-size: 6vh;
     }
-    
+
     .h3 {
-        font-family: 'Poppins', sans-serif; /* Friendly & readable */
-        font-size: 4vh; /* Slightly larger */
-        font-weight: 700; /* Bold */
-        color: #444; /* Darker text for contrast */
+        font-family: 'Poppins', sans-serif;
+        /* Friendly & readable */
+        font-size: 4vh;
+        /* Slightly larger */
+        font-weight: 700;
+        /* Bold */
+        color: #444;
+        /* Darker text for contrast */
         margin-bottom: 8px;
     }
-    
+
     .p {
-        font-family: 'Quicksand', sans-serif; /* Soft, readable font */
+        font-family: 'Quicksand', sans-serif;
+        /* Soft, readable font */
         font-size: 2vh;
-        font-weight: 500; /* Medium weight for readability */
+        font-weight: 500;
+        /* Medium weight for readability */
         color: #555;
-        line-height: 1.6; /* Better spacing */
+        line-height: 1.6;
+        /* Better spacing */
         text-align: center;
-        margin: 0 10px; /* Prevents text from touching edges */
+        margin: 0 10px;
+        /* Prevents text from touching edges */
     }
 }
 
 /* Prevent unwanted horizontal scrolling */
-html, body {
+html,
+body {
     max-width: 100%;
-    overflow-x: hidden;  /* Stops sideways scrolling */
+    overflow-x: hidden;
+    /* Stops sideways scrolling */
     position: relative;
 }
 
@@ -252,7 +271,8 @@ button {
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    background-color: #ff8243; /* Keep it vibrant */
+    background-color: #ff8243;
+    /* Keep it vibrant */
     color: white;
     padding: 10px 15px;
     border-radius: 8px;
@@ -261,31 +281,39 @@ button {
 
 /* Ensure header is fixed properly */
 .sticky-header {
-    position: fixed;  /* Stays fixed at the top */
+    position: fixed;
+    /* Stays fixed at the top */
     top: 0;
     left: 0;
-    width: 100%;  /* Ensures it does not stretch */
+    width: 100%;
+    /* Ensures it does not stretch */
     height: auto;
     z-index: 1000;
-    background-color: rgba(255, 211, 165, 0.95); /* Slight transparency */
+    background-color: rgba(255, 211, 165, 0.95);
+    /* Slight transparency */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
-    will-change: transform; /* Improves rendering stability */
-    overflow: hidden; /* Prevents accidental stretching */
+    transition: transform 0.3s ease-in-out;
+    /* Smooth transition */
+    will-change: transform;
+    /* Improves rendering stability */
+    overflow: hidden;
+    /* Prevents accidental stretching */
 }
 
 /* Header content styling */
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center align items horizontally */
-    position: relative; /* For positioning child elements like the hamburger menu */
+    justify-content: center;
+    /* Center align items horizontally */
+    position: relative;
+    /* For positioning child elements like the hamburger menu */
     width: 100%;
 }
 
 /* Logo styling */
 .logo {
-    height: 80px; 
+    height: 80px;
     width: auto;
     opacity: 0.6;
 }
@@ -293,7 +321,8 @@ button {
 /* Centering the logo and text */
 .logo-container {
     display: flex;
-    flex-direction: column; /* Stack logo and text */
+    flex-direction: column;
+    /* Stack logo and text */
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -301,24 +330,34 @@ button {
 
 /* Improve font styling for the logo subtext */
 .logo-subtext {
-    font-size: 1.2rem; /* Slightly larger for readability */
-    font-weight: 600; /* Medium boldness */
-    color: var(--pastel-heading-dark); /* Matches the theme */
-    margin-top: 8px; /* Space between logo and text */
-    letter-spacing: 0.5px; /* Improve letter spacing for clarity */
-    text-transform: uppercase; /* Optional: Capitalize for emphasis */
-    font-family: "Poppins", sans-serif; /* Modern and readable font */
+    font-size: 1.2rem;
+    /* Slightly larger for readability */
+    font-weight: 600;
+    /* Medium boldness */
+    color: var(--pastel-heading-dark);
+    /* Matches the theme */
+    margin-top: 8px;
+    /* Space between logo and text */
+    letter-spacing: 0.5px;
+    /* Improve letter spacing for clarity */
+    text-transform: uppercase;
+    /* Optional: Capitalize for emphasis */
+    font-family: "Poppins", sans-serif;
+    /* Modern and readable font */
 }
 
 
 /* Style for the logo link */
 .logo-link {
-    display: inline-block; /* Ensure link wraps around the image */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation for the hover effect */
+    display: inline-block;
+    /* Ensure link wraps around the image */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth animation for the hover effect */
 }
 
 .logo-link:hover {
-    transform: translateY(-5px) scale(1.05); /* Moves up and slightly enlarges */
+    transform: translateY(-5px) scale(1.05);
+    /* Moves up and slightly enlarges */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -340,10 +379,14 @@ button {
 .adopt-now {
     position: absolute;
     top: 20px;
-    right: 10px; /* Align symmetrically with hamburger menu */
-    background-color: var(--pastel-highlight); /* More vibrant, stands out */
-    color: #fff; /* White text for readability */
-    padding: 10px 15px; /* Adjust padding to balance the vertical layout */
+    right: 10px;
+    /* Align symmetrically with hamburger menu */
+    background-color: var(--pastel-highlight);
+    /* More vibrant, stands out */
+    color: #fff;
+    /* White text for readability */
+    padding: 10px 15px;
+    /* Adjust padding to balance the vertical layout */
     border: none;
     font-size: 1rem;
     cursor: pointer;
@@ -353,15 +396,18 @@ button {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     outline: none;
     display: flex;
-    flex-direction: column; /* Stack the text vertically */
+    flex-direction: column;
+    /* Stack the text vertically */
     justify-content: center;
     align-items: center;
-    line-height: 1.2; /* Add some spacing between the stacked text */
+    line-height: 1.2;
+    /* Add some spacing between the stacked text */
     text-align: center;
 }
 
 .adopt-now:hover {
-    background-color: #ff8243; /* Slightly darker shade */
+    background-color: #ff8243;
+    /* Slightly darker shade */
     transform: translate(2px, 2px);
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
@@ -372,7 +418,8 @@ button {
 .hero {
     position: relative;
     width: 100%;
-    height: 75vh; /* Full viewport height */
+    height: 75vh;
+    /* Full viewport height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -380,13 +427,16 @@ button {
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
-    overflow: hidden; /* Prevents image overflow */
+    overflow: hidden;
+    /* Prevents image overflow */
 }
 
 
 .hero h1 {
-    color: var(--pastel-heading-dark); /* Darker heading color */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Soft text shadow for extra clarity */
+    color: var(--pastel-heading-dark);
+    /* Darker heading color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    /* Soft text shadow for extra clarity */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -403,10 +453,14 @@ button {
 }
 
 .section-content p {
-    font-size: 1.5rem;  /* Increase font size */
-    font-family: 'Patrick Hand', cursive; /* Handwriting font */
-    line-height: 1.6; /* Improve spacing */
-    word-spacing: 2px; /* Adds slight gap between words */
+    font-size: 1.5rem;
+    /* Increase font size */
+    font-family: 'Patrick Hand', cursive;
+    /* Handwriting font */
+    line-height: 1.6;
+    /* Improve spacing */
+    word-spacing: 2px;
+    /* Adds slight gap between words */
     display: inline-block;
     overflow: hidden;
     white-space: normal;
@@ -417,13 +471,17 @@ button {
     opacity: 0;
     display: inline-block;
     transform: translateY(10px);
-    min-width: 0.3rem; /* Ensures spaces aren't collapsed */
+    min-width: 0.3rem;
+    /* Ensures spaces aren't collapsed */
 }
 
 @keyframes bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-8px);
     }
@@ -437,12 +495,14 @@ button {
 
 /* Bounce effect on hover */
 .section-content:hover {
-    transform: scale(1.05); /* Slight bounce effect */
+    transform: scale(1.05);
+    /* Slight bounce effect */
 }
 
 /* Enlarged state */
 .section-content.enlarged {
-    transform: scale(1.25) !important; /* Keep enlarged state */
+    transform: scale(1.25) !important;
+    /* Keep enlarged state */
 }
 
 /* Prevent hover effect from overriding enlarged state */
@@ -453,55 +513,69 @@ button {
 
 /* Footer styling */
 footer {
-    background: linear-gradient(to top, var(--playful-pink), var(--peachy-orange)); /* Soft fade */
+    background: linear-gradient(to top, var(--playful-pink), var(--peachy-orange));
+    /* Soft fade */
     color: var(--pastel-text-dark);
     padding: 20px;
     text-align: center;
-    border-top: 2px solid rgba(255, 255, 255, 0.1); /* Subtle divider */
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    /* Subtle divider */
 }
 
 footer nav {
-    margin-bottom: 20px; /* Space below navigation links */
+    margin-bottom: 20px;
+    /* Space below navigation links */
 }
 
 
 
 footer nav a {
-    color: var(--butter-yellow); /* Bright and friendly */
+    color: var(--butter-yellow);
+    /* Bright and friendly */
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 footer nav a:hover {
-    color: var(--lilac-purple); /* Matches contact section */
+    color: var(--lilac-purple);
+    /* Matches contact section */
 }
 
 footer p {
-    font-size: 0.9rem; /* Slightly smaller text for less prominence */
-    color: rgba(255, 255, 255, 0.8); /* Muted text for subtlety */
+    font-size: 0.9rem;
+    /* Slightly smaller text for less prominence */
+    color: rgba(255, 255, 255, 0.8);
+    /* Muted text for subtlety */
 }
 
 footer p:last-of-type {
-    margin-top: 20px; /* Separate the copyright disclaimer */
-    font-size: 0.8rem; /* Make the disclaimer even smaller */
-    color: rgba(255, 255, 255, 0.6); /* Subtle contrast for less focus */
+    margin-top: 20px;
+    /* Separate the copyright disclaimer */
+    font-size: 0.8rem;
+    /* Make the disclaimer even smaller */
+    color: rgba(255, 255, 255, 0.6);
+    /* Subtle contrast for less focus */
 }
 
 @media (max-width: 768px) {
     footer {
-        text-align: left; /* Align to left for smaller screens */
+        text-align: left;
+        /* Align to left for smaller screens */
     }
 
     footer nav {
         display: flex;
-        flex-wrap: wrap; /* Wrap links on smaller screens */
-        justify-content: center; /* Center align links */
+        flex-wrap: wrap;
+        /* Wrap links on smaller screens */
+        justify-content: center;
+        /* Center align links */
         gap: 10px;
     }
 
     footer p:last-of-type {
-        font-size: 0.7rem; /* Further reduce size on small screens */
+        font-size: 0.7rem;
+        /* Further reduce size on small screens */
     }
 }
 
@@ -526,8 +600,10 @@ footer p:last-of-type {
 }
 
 .about-content h2 {
-    color: var(--pastel-heading-dark); /* Darker heading color */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Soft text shadow for extra clarity */
+    color: var(--pastel-heading-dark);
+    /* Darker heading color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    /* Soft text shadow for extra clarity */
     font-size: 2rem;
     margin-bottom: 20px;
     color: var(--wpeachy-orange);
@@ -543,7 +619,7 @@ footer p:last-of-type {
 }
 
 .about-section li {
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
 
 
@@ -579,14 +655,16 @@ footer p:last-of-type {
 }
 
 .contact-content a {
-    color: var(--lilac-purple); /* Softer and elegant lilac */
+    color: var(--lilac-purple);
+    /* Softer and elegant lilac */
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease-in-out;
 }
 
 .contact-content a:hover {
-    color: var(--pastel-highlight); /* Warm pastel orange for a slight pop */
+    color: var(--pastel-highlight);
+    /* Warm pastel orange for a slight pop */
     text-decoration: underline;
 }
 
@@ -667,12 +745,18 @@ button[type="submit"]:hover {
 }
 
 .section-content {
-    width: 90%; /* Match gallery width */
-    max-width: 1200px; /* Match gallery max-width */
-    background-color: rgba(255, 255, 255, 0.8); /* Lightened background for contrast */
-    color: var(--pastel-heading-dark); /* Darker text for contrast */
-    font-size: 1.2rem; /* Slightly larger font size */
-    font-weight: 500; /* Improved readability */
+    width: 90%;
+    /* Match gallery width */
+    max-width: 1200px;
+    /* Match gallery max-width */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Lightened background for contrast */
+    color: var(--pastel-heading-dark);
+    /* Darker text for contrast */
+    font-size: 1.2rem;
+    /* Slightly larger font size */
+    font-weight: 500;
+    /* Improved readability */
     padding: 30px 40px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -680,8 +764,10 @@ button[type="submit"]:hover {
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Space between elements */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for better contrast */
+    gap: 15px;
+    /* Space between elements */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    /* Subtle shadow for better contrast */
 }
 
 /* Headings for Contact Us and Bookings */
@@ -690,11 +776,14 @@ button[type="submit"]:hover {
     margin-bottom: 20px;
     font-weight: bold;
     color: var(--pastel-heading-dark);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for emphasis */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for emphasis */
 }
 
-.section-content p, .section-content ul li {
-    color: var(--pastel-text-dark); /* Ensuring body text is readable */
+.section-content p,
+.section-content ul li {
+    color: var(--pastel-text-dark);
+    /* Ensuring body text is readable */
 }
 
 /* Contact Section Styling */
@@ -711,13 +800,17 @@ button[type="submit"]:hover {
     max-width: 800px;
     background-color: var(--playful-pink);
     color: var(--sky-blue);
-    padding: 40px; /* Added sufficient padding */
+    padding: 40px;
+    /* Added sufficient padding */
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center; /* Center align the text */
+    text-align: center;
+    /* Center align the text */
     line-height: 1.8;
-    box-sizing: border-box; /* Ensures padding is included in the width */
-    overflow-wrap: break-word; /* Prevents text overflow */
+    box-sizing: border-box;
+    /* Ensures padding is included in the width */
+    overflow-wrap: break-word;
+    /* Prevents text overflow */
 }
 
 .contact-content h2 {
@@ -728,23 +821,28 @@ button[type="submit"]:hover {
 
 .contact-content p {
     font-size: 1rem;
-    margin: 10px 0; /* Add margin between elements */
-    word-wrap: break-word; /* Prevent long words from overflowing */
+    margin: 10px 0;
+    /* Add margin between elements */
+    word-wrap: break-word;
+    /* Prevent long words from overflowing */
     text-align: center;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .contact-content {
-        padding: 20px; /* Reduce padding for smaller screens */
+        padding: 20px;
+        /* Reduce padding for smaller screens */
     }
 
     .contact-content h2 {
-        font-size: 1.8rem; /* Adjust heading size for smaller screens */
+        font-size: 1.8rem;
+        /* Adjust heading size for smaller screens */
     }
 
     .contact-content p {
-        font-size: 0.9rem; /* Adjust text size for smaller screens */
+        font-size: 0.9rem;
+        /* Adjust text size for smaller screens */
     }
 }
 
@@ -802,7 +900,8 @@ button[type="submit"]:hover {
     padding: 10px;
     border: 1px solid var(--lilac-purple);
     border-radius: 5px;
-    background-color: rgba(217, 203, 180, 0.2); /* Light beige with slight transparency */
+    background-color: rgba(217, 203, 180, 0.2);
+    /* Light beige with slight transparency */
     font-size: 1rem;
     color: var(--sky-blue);
 }
@@ -858,52 +957,72 @@ button[type="submit"]:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px; /* Width of the hamburger button */
-    height: 20px; /* Height of the entire button */
+    width: 30px;
+    /* Width of the hamburger button */
+    height: 20px;
+    /* Height of the entire button */
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 1100; /* Higher than other elements */
-    position: absolute; /* Position it within the header */
-    left: 10px; /* Align to the far left */
-    top: 50%; /* Center vertically in the header */
+    z-index: 1100;
+    /* Higher than other elements */
+    position: absolute;
+    /* Position it within the header */
+    left: 10px;
+    /* Align to the far left */
+    top: 50%;
+    /* Center vertically in the header */
     transform: translateY(-50%);
-    padding: 0; /* Remove any padding */
+    padding: 0;
+    /* Remove any padding */
     margin-left: 0.5vw;
 }
 
 /* Hamburger Menu Spans (Dashes) */
 .hamburger-menu span {
     display: block;
-    height: 3px; /* Thickness of each dash */
-    width: 100%; /* Full width of the button */
-    background-color: var(--pastel-heading-dark); /* Color of the dashes */
-    border-radius: 2px; /* Slightly rounded edges for a modern look */
+    height: 3px;
+    /* Thickness of each dash */
+    width: 100%;
+    /* Full width of the button */
+    background-color: var(--pastel-heading-dark);
+    /* Color of the dashes */
+    border-radius: 2px;
+    /* Slightly rounded edges for a modern look */
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 /* Ensure spacing between the dashes */
-.hamburger-menu span + span {
-    margin-top: 4px; /* Space between each dash */
+.hamburger-menu span+span {
+    margin-top: 4px;
+    /* Space between each dash */
 }
 
 /* Hover Effect for Hamburger Menu */
 .hamburger-menu:hover span {
-    background-color: var(--pastel-highlight); /* Change color on hover */
+    background-color: var(--pastel-highlight);
+    /* Change color on hover */
 }
 
 /* Default hidden sidebar */
 .navigation {
-    display: flex; /* Ensure it can display flex items */
+    display: flex;
+    /* Ensure it can display flex items */
     flex-direction: column;
     background-color: var(--playful-pink);
-    position: fixed; /* Make it fixed to slide in/out */
-    left: -100%; /* Start off-screen to the left */
-    height: 100vh; /* Full height */
-    width: 300px; /* Sidebar width */
-    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    position: fixed;
+    /* Make it fixed to slide in/out */
+    left: -100%;
+    /* Start off-screen to the left */
+    height: 100vh;
+    /* Full height */
+    width: 300px;
+    /* Sidebar width */
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+    /* Optional shadow for depth */
     z-index: 1000;
-    transition: left 0.3s ease; /* Smooth slide-in effect */
+    transition: left 0.3s ease;
+    /* Smooth slide-in effect */
     padding: 20px;
     display: flex;
     justify-content: flex-end;
@@ -911,13 +1030,15 @@ button[type="submit"]:hover {
 }
 
 .navigation.show {
-    left: 0; /* Slide into view */
+    left: 0;
+    /* Slide into view */
 }
 
 
 /* Sidebar navigation links */
 .navigation a {
-    margin: 20px 0; /* Space between links */
+    margin: 20px 0;
+    /* Space between links */
     text-align: left;
     font-size: 1.2rem;
 }
@@ -925,14 +1046,19 @@ button[type="submit"]:hover {
 
 /* Overlay for dimming background */
 .overlay {
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-    z-index: 999; /* Below the menu but above content */
+    width: 100vw;
+    /* Full viewport width */
+    height: 100vh;
+    /* Full viewport height */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent black */
+    z-index: 999;
+    /* Below the menu but above content */
 }
 
 /* Show overlay when menu is open */
@@ -947,7 +1073,8 @@ button[type="submit"]:hover {
 }
 
 .hamburger-menu.active span:nth-child(2) {
-    opacity: 0; /* Hide the middle bar */
+    opacity: 0;
+    /* Hide the middle bar */
 }
 
 .hamburger-menu.active span:nth-child(3) {
@@ -962,7 +1089,7 @@ button[type="submit"]:hover {
     position: relative;
 }
 
-.adopt-title {
+.carousel-title {
     font-size: 2rem;
     color: #444;
     margin-bottom: 20px;
@@ -977,31 +1104,34 @@ button[type="submit"]:hover {
     width: 100%;
 }
 
-.adopt-scroll {
+.card-carousel-scroll {
     display: flex;
     gap: 20px;
     width: 100%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Hide scrollbar */
+    scrollbar-width: none;
+    /* Hide scrollbar */
     cursor: grab;
-    user-select: none; /* Prevent text selection */
+    user-select: none;
+    /* Prevent text selection */
     transition: scroll-behavior 0.5s ease-in-out;
     scroll-padding-left: 50%;
     scroll-padding-right: 50%;
 }
 
-.adopt-scroll.active {
+.card-carousel-scroll.active {
     cursor: grabbing;
     user-select: none;
 }
 
 
-.adopt-scroll::-webkit-scrollbar {
-    display: none; /* Hide scrollbar */
+.card-carousel-scroll::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar */
 }
 
-.carousell-card {
+.carousel-card {
     flex: 0 0 50%;
     max-width: 50%;
     background: #fff;
@@ -1015,39 +1145,51 @@ button[type="submit"]:hover {
 }
 
 
-.carousell-card img {
+.carousel-card img {
     width: 100%;
     border-radius: 10px;
-    height: 25vw; /* Set a fixed height for consistency */
-    object-fit: cover; /* Ensures images maintain aspect ratio while filling the container */
-    border-radius: 10px; /* Keeps rounded corners */
+    height: 25vw;
+    /* Set a fixed height for consistency */
+    object-fit: cover;
+    /* Ensures images maintain aspect ratio while filling the container */
+    border-radius: 10px;
+    /* Keeps rounded corners */
 }
 
 .adopt-pannel h2 {
-    font-size: 6vh; 
+    font-size: 6vh;
 }
 
-.carousell-card h3 {
-    font-family: 'Poppins', sans-serif; /* Friendly & readable */
-    font-size: 4vh; /* Slightly larger */
-    font-weight: 700; /* Bold */
-    color: #444; /* Darker text for contrast */
+.carousel-card h3 {
+    font-family: 'Poppins', sans-serif;
+    /* Friendly & readable */
+    font-size: 4vh;
+    /* Slightly larger */
+    font-weight: 700;
+    /* Bold */
+    color: #444;
+    /* Darker text for contrast */
     margin-bottom: 8px;
 }
 
-.carousell-card p {
-    font-family: 'Quicksand', sans-serif; /* Soft, readable font */
+.carousel-card p {
+    font-family: 'Quicksand', sans-serif;
+    /* Soft, readable font */
     font-size: 2vh;
-    font-weight: 500; /* Medium weight for readability */
+    font-weight: 500;
+    /* Medium weight for readability */
     color: #555;
-    line-height: 1.6; /* Better spacing */
+    line-height: 1.6;
+    /* Better spacing */
     text-align: center;
-    margin: 0 10px; /* Prevents text from touching edges */
+    margin: 0 10px;
+    /* Prevents text from touching edges */
 }
 
 .card-carousell-btn:hover {
     background-color: #e06a2b;
-    transform: scale(1.1); /* Subtle effect on hover */
+    transform: scale(1.1);
+    /* Subtle effect on hover */
 }
 
 
@@ -1079,11 +1221,11 @@ button[type="submit"]:hover {
 
 
 .critter-cam-section {
-        text-align: center;
-        background: #e6f2e6;
-        padding: 30px 20px;
-        border-radius: 10px;
-    }
+    text-align: center;
+    background: #e6f2e6;
+    padding: 30px 20px;
+    border-radius: 10px;
+}
 
 .critter-cam-title {
     font-size: 2rem;
@@ -1166,10 +1308,12 @@ sl-progress-bar {
         opacity: 0;
         transform: scale(0);
     }
+
     50% {
         opacity: 0.1;
         transform: scale(1.1);
     }
+
     100% {
         opacity: .3;
         transform: scale(1);
@@ -1177,7 +1321,8 @@ sl-progress-bar {
 }
 
 .paw-print::before {
-    content: "🐾"; /* Unicode paw print */
+    content: "🐾";
+    /* Unicode paw print */
     font-size: 10vw;
 }
 
@@ -1185,19 +1330,24 @@ sl-progress-bar {
 @keyframes typewriter {
     from {
         width: 0;
-        opacity: 0; /* Start hidden */
+        opacity: 0;
+        /* Start hidden */
     }
+
     to {
         width: 100%;
-        opacity: 1; /* Fully visible */
+        opacity: 1;
+        /* Fully visible */
     }
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(30px); /* Slight slide-up */
+        transform: translateY(30px);
+        /* Slight slide-up */
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1209,7 +1359,7 @@ sl-progress-bar {
     text-align: center;
     padding: 40px 20px;
     background-color: var(--butter-yellow);
-    
+
 }
 
 .gallery-title {
@@ -1233,7 +1383,8 @@ sl-progress-bar {
     background-position: center;
     border-radius: 10px;
     width: 100%;
-    height: 500px; /* Set a consistent height for the main image */
+    height: 500px;
+    /* Set a consistent height for the main image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     position: relative;
     margin-bottom: 20px;
@@ -1283,20 +1434,28 @@ sl-progress-bar {
 
 .gallery-caption {
     position: absolute;
-    bottom: 10px; /* Keeps it near the bottom */
+    bottom: 10px;
+    /* Keeps it near the bottom */
     left: 50%;
-    transform: translateX(-50%); /* Centers it horizontally */
-    width: 80%; /* Restrict width so it doesn't flow off the image */
-    background-color: rgba(0, 0, 0, 0.7); /* Darker, more opaque background */
+    transform: translateX(-50%);
+    /* Centers it horizontally */
+    width: 80%;
+    /* Restrict width so it doesn't flow off the image */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Darker, more opaque background */
     color: white;
-    font-size: 1rem; /* Adjust text size */
+    font-size: 1rem;
+    /* Adjust text size */
     font-weight: bold;
     text-align: center;
     padding: 10px;
     border-radius: 5px;
-    line-height: 1.4; /* Improves readability */
-    word-wrap: break-word; /* Ensures text wraps properly */
-    white-space: normal; /* Allows text to wrap */
+    line-height: 1.4;
+    /* Improves readability */
+    word-wrap: break-word;
+    /* Ensures text wraps properly */
+    white-space: normal;
+    /* Allows text to wrap */
 }
 
 
@@ -1312,10 +1471,14 @@ sl-progress-bar {
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     .adopt-now {
-        width: 70px; /* Set a fixed width to stack text */
-        white-space: normal; /* Allow text to wrap and stack */
-        padding: 10px; /* Adjust padding for smaller button size */
-        font-size: 0.9rem; /* Slightly smaller font */
+        width: 70px;
+        /* Set a fixed width to stack text */
+        white-space: normal;
+        /* Allow text to wrap and stack */
+        padding: 10px;
+        /* Adjust padding for smaller button size */
+        font-size: 0.9rem;
+        /* Slightly smaller font */
     }
 
     .adopt-now:hover {
@@ -1325,37 +1488,48 @@ sl-progress-bar {
     }
 
     .adopt-pannel h2 {
-        font-size: 8vw; 
+        font-size: 8vw;
     }
-    
-    .carousell-card h3 {
-        font-family: 'Poppins', sans-serif; /* Friendly & readable */
-        font-size: 6vw; /* Slightly larger */
-        font-weight: 700; /* Bold */
-        color: #444; /* Darker text for contrast */
+
+    .carousel-card h3 {
+        font-family: 'Poppins', sans-serif;
+        /* Friendly & readable */
+        font-size: 6vw;
+        /* Slightly larger */
+        font-weight: 700;
+        /* Bold */
+        color: #444;
+        /* Darker text for contrast */
         margin-bottom: 8px;
     }
-    
-    .carousell-card p {
-        font-family: 'Quicksand', sans-serif; /* Soft, readable font */
+
+    .carousel-card p {
+        font-family: 'Quicksand', sans-serif;
+        /* Soft, readable font */
         font-size: 4vw;
-        font-weight: 500; /* Medium weight for readability */
+        font-weight: 500;
+        /* Medium weight for readability */
         color: #555;
-        line-height: 1.6; /* Better spacing */
+        line-height: 1.6;
+        /* Better spacing */
         text-align: center;
-        margin: 0 10px; /* Prevents text from touching edges */
+        margin: 0 10px;
+        /* Prevents text from touching edges */
     }
 
     form {
-        grid-template-columns: 1fr; /* Stack all fields vertically */
+        grid-template-columns: 1fr;
+        /* Stack all fields vertically */
     }
 
     textarea {
-        grid-column: span 1; /* Adjust textarea to match new grid layout */
+        grid-column: span 1;
+        /* Adjust textarea to match new grid layout */
     }
 
     button[type="submit"] {
-        grid-column: span 1; /* Center-align the submit button */
+        grid-column: span 1;
+        /* Center-align the submit button */
     }
 
     .critter-cam-container {
@@ -1378,7 +1552,8 @@ sl-progress-bar {
     }
 
     .paw-print::before {
-        content: "🐾"; /* Unicode paw print */
+        content: "🐾";
+        /* Unicode paw print */
         font-size: 10vh;
     }
 
@@ -1387,139 +1562,133 @@ sl-progress-bar {
     }
 
     .gallery-thumbnails {
-        grid-template-columns: repeat(4, 1fr); /* Adjusts the number of columns on smaller screens */
-        height:100%;
+        grid-template-columns: repeat(4, 1fr);
+        /* Adjusts the number of columns on smaller screens */
+        height: 100%;
     }
 
     /* Form Container */
-form {
-    background: rgba(255, 255, 255, 0.95); /* Light but slightly softened */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
-    border: 2px solid var(--sky-blue);
-    max-width: 700px;
-    margin: auto;
-}
+    form {
+        background: rgba(255, 255, 255, 0.95);
+        /* Light but slightly softened */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+        border: 2px solid var(--sky-blue);
+        max-width: 700px;
+        margin: auto;
+    }
 
-/* Input Fields */
-input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid var(--minty-green); /* Soft green border */
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
-    color: var(--pastel-text-dark);
-    transition: border-color 0.3s ease-in-out;
-}
+    /* Input Fields */
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid var(--minty-green);
+        /* Soft green border */
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        color: var(--pastel-text-dark);
+        transition: border-color 0.3s ease-in-out;
+    }
 
-/* Input Focus Effect */
-input:focus, select:focus, textarea:focus {
-    border-color: var(--peachy-orange); /* Warm highlight */
-    box-shadow: 0px 0px 8px rgba(255, 165, 0, 0.3);
-    outline: none;
-}
+    /* Input Focus Effect */
+    input:focus,
+    select:focus,
+    textarea:focus {
+        border-color: var(--peachy-orange);
+        /* Warm highlight */
+        box-shadow: 0px 0px 8px rgba(255, 165, 0, 0.3);
+        outline: none;
+    }
 
-/* Labels */
-label {
-    font-size: 1rem;
-    color: var(--pastel-heading-dark);
-    font-weight: bold;
-    margin-bottom: 5px;
-}
+    /* Labels */
+    label {
+        font-size: 1rem;
+        color: var(--pastel-heading-dark);
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
 
-/* Submit Button */
-button[type="submit"] {
-    background: var(--butter-yellow);
-    color: var(--pastel-heading-dark);
-    border: none;
-    padding: 12px 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
+    /* Submit Button */
+    button[type="submit"] {
+        background: var(--butter-yellow);
+        color: var(--pastel-heading-dark);
+        border: none;
+        padding: 12px 20px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
 
-button[type="submit"]:hover {
-    background: var(--pastel-highlight);
-}
+    button[type="submit"]:hover {
+        background: var(--pastel-highlight);
+    }
 
-.video-container {
-    max-width: 800px; /* Limits max width */
-    margin: auto;
-    text-align: center;
-}
+    .video-container {
+        max-width: 800px;
+        /* Limits max width */
+        margin: auto;
+        text-align: center;
+    }
 
-#s3-video {
-    width: 100%; /* Ensures it scales to container width */
-    height: 30vh; /* Limits video height to 30% of viewport */
-    object-fit: cover; /* Ensures video fills the space nicely */
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
+    #s3-video {
+        width: 100%;
+        /* Ensures it scales to container width */
+        height: 30vh;
+        /* Limits video height to 30% of viewport */
+        object-fit: cover;
+        /* Ensures video fills the space nicely */
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
 
-/* Dark Mode Forms */
-.dark-mode form {
-    background: rgba(40, 40, 40, 0.95); /* Dark but slightly soft */
-    border: 2px solid var(--lilac-purple); /* Purple border */
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-}
+    /* Dark Mode Forms */
+    .dark-mode form {
+        background: rgba(40, 40, 40, 0.95);
+        /* Dark but slightly soft */
+        border: 2px solid var(--lilac-purple);
+        /* Purple border */
+        box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    }
 
-/* Dark Mode Input Fields */
-.dark-mode input, 
-.dark-mode select, 
-.dark-mode textarea {
-    background: rgba(50, 50, 50, 0.9); /* Soft dark background */
-    border: 2px solid var(--minty-green); /* Green border */
-    color: #ddd;
-}
+    /* Dark Mode Input Fields */
+    .dark-mode input,
+    .dark-mode select,
+    .dark-mode textarea {
+        background: rgba(50, 50, 50, 0.9);
+        /* Soft dark background */
+        border: 2px solid var(--minty-green);
+        /* Green border */
+        color: #ddd;
+    }
 
-/* Dark Mode Focus Effect */
-.dark-mode input:focus, 
-.dark-mode select:focus, 
-.dark-mode textarea:focus {
-    border-color: var(--pastel-highlight);
-    box-shadow: 0px 0px 8px rgba(255, 165, 0, 0.3);
-}
+    /* Dark Mode Focus Effect */
+    .dark-mode input:focus,
+    .dark-mode select:focus,
+    .dark-mode textarea:focus {
+        border-color: var(--pastel-highlight);
+        box-shadow: 0px 0px 8px rgba(255, 165, 0, 0.3);
+    }
 
-/* Dark Mode Labels */
-.dark-mode label {
-    color: var(--butter-yellow); /* Softer, warm yellow */
-}
+    /* Dark Mode Labels */
+    .dark-mode label {
+        color: var(--butter-yellow);
+        /* Softer, warm yellow */
+    }
 
-/* Dark Mode Submit Button */
-.dark-mode button[type="submit"] {
-    background: var(--lilac-purple);
-    color: #222;
-}
+    /* Dark Mode Submit Button */
+    .dark-mode button[type="submit"] {
+        background: var(--lilac-purple);
+        color: #222;
+    }
 
-.dark-mode button[type="submit"]:hover {
-    background: var(--peachy-orange);
-}
+    .dark-mode button[type="submit"]:hover {
+        background: var(--peachy-orange);
+    }
 
 }
-
-.adopt-panel img {
-    width: 100%; /* Stretch image to fit container */
-    height: 250px; /* Fixed height for consistency */
-    object-fit: cover; /* Maintain aspect ratio while covering */
-    border-radius: 10px;
-}
-
-.volunteer-btn {
-    background-color: #FF8243; /* Warm pastel orange */
-    color: white;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.volunteer-btn:hover {
-    background-color: #E06A2B;
-}
-
