@@ -278,9 +278,9 @@ document.addEventListener("scroll", () => {
     }
 });
 
-// Typewriter effect when section-content scrolls into view
+// Typewriter effect when animated-text-section scrolls into view
 document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll(".section-content");
+    const sections = document.querySelectorAll(".animated-text-section");
 
     sections.forEach(section => {
         const paragraphs = section.querySelectorAll("p");
@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //enlarged sections
 document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll(".section-content");
+    const sections = document.querySelectorAll(".animated-text-section");
 
     sections.forEach(section => {
         section.addEventListener("click", (event) => {
@@ -597,7 +597,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     // Select the "Adopt Now" button
-    const adoptNowButton = document.querySelector(".adopt-now"); // Ensure this matches the button's class
+    const adoptNowButton = document.querySelector(".cta-now"); // Ensure this matches the button's class
 
     if (adoptNowButton) {
         adoptNowButton.addEventListener("click", () => {

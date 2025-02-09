@@ -49,8 +49,8 @@ A responsive single-page website for **Lilac Valley Farm Stay**, designed as par
 
 1. **Clone the Repository**:
    
-   git clone git@github.com:merceiato/lilac-valley.git
-   cd lilac-valley
+   git clone git@github.com:merceiato/good-dog.git
+   cd good-dog
    
 
 2. **Set Up a Virtual Environment**:
@@ -82,7 +82,7 @@ A responsive single-page website for **Lilac Valley Farm Stay**, designed as par
 
 
 plaintext
-lilac-valley/
+good-dog/
 ├── static/
 │   ├── css/
 │   │   └── style.css       # Website styling
@@ -163,7 +163,7 @@ To ensure Flask app starts automatically on boot using Gunicorn:
 
    [Service]
    User=ubuntu
-   WorkingDirectory=/home/ubuntu/lilac-valley
+   WorkingDirectory=/home/ubuntu/good-dog
    Environment="PATH=/home/ubuntu/myenv/bin"
    ExecStart=/home/ubuntu/myenv/bin/gunicorn -w 4 -b 0.0.0.0:8080 app:app
 
@@ -197,7 +197,7 @@ The service will now ensure Flask app runs in the background, restarts on boot, 
 - **S3 Bucket Structure**:
   
   plaintext
-  lilac-valley-images/
+  good-dog-images/
   ├── images/
   │   ├── hero/            # Hero section images
   │   └── gallery/         # Gallery images

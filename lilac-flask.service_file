@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 User=ubuntu
-WorkingDirectory=/home/ubuntu/lilac-valley
-Environment="PATH=/home/ubuntu/lilac-valley/myenv/bin"
+WorkingDirectory=/home/ubuntu/good-dog
+Environment="PATH=/home/ubuntu/good-dog/myenv/bin"
 ExecStart=/home/ubuntu/myenv/bin/gunicorn -w 4 -b 0.0.0.0:8080 app:app
 
 [Install]
