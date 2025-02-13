@@ -28,7 +28,7 @@ function initHeroSlider() {
 
     async function fetchHeroImages() {
         try {
-            const response = await fetch('http://ec2-34-232-108-31.compute-1.amazonaws.com/hero-images');
+            const response = await fetch('http://ec2-34-232-108-31.compute-1.amazonaws.com:8080/hero-images');
             heroImages = await response.json();
             if (heroImages.length > 0) {
                 shuffleArray(heroImages);
@@ -51,41 +51,6 @@ function initHeroSlider() {
     }, 5000);
 
     fetchHeroImages();
-}
-
-/** -------------------------------
- *  GALLERY: Load thumbnails dynamically
- *  -------------------------------- */
-function initGallery() {
-    async function fetchGalleryImages() {
-        try {
-            const response = await fetch('http://ec2-34-232-108-31.compute-1.amazonaws.com:8080/gallery-images');
-            return await response.json();
-        } catch (error) {
-            console.error("Error fetching gallery images:", error);
-            return [];
-        }
-    }
-
-    function populateGallery(images) {
-        const mainGallery = document.querySelector('.gallery-main');
-        const thumbnailContainer = document.querySelector('.gallery-thumbnails');
-
-        if (images.length > 0) {
-            mainGallery.style.backgroundImage = `url(${images[0]})`;
-
-            images.forEach((imageUrl) => {
-                const thumbnail = document.createElement('img');
-                thumbnail.src = imageUrl;
-                thumbnail.alt = "Thumbnail";
-                thumbnail.classList.add('thumbnail-image');
-                thumbnail.addEventListener('click', () => mainGallery.style.backgroundImage = `url(${imageUrl})`);
-                thumbnailContainer.appendChild(thumbnail);
-            });
-        }
-    }
-
-    fetchGalleryImages().then(populateGallery);
 }
 
 /** -------------------------------
@@ -377,7 +342,7 @@ window.addEventListener("scroll", () => {
 function initGallery() {
     async function fetchGalleryImages() {
         try {
-            const response = await fetch('http://ec2-98-80-34-138.compute-1.amazonaws.com:8080/gallery-images');
+            const response = await fetch('http://ec2-34-232-108-31.compute-1.amazonaws.com:8080/gallery-images');
             return await response.json();
         } catch (error) {
             console.error("Error fetching gallery images:", error);
