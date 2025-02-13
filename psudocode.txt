@@ -1,0 +1,135 @@
+// WEBSITE STRUCTURE
+Initialize HTML:
+  - <header> (Sticky Navigation with Shoelace UI)
+  - <section "hero"> (Rotating Hero Images from AWS S3)
+  - <section "about"> (About Us with Typing Effect)
+  - <section "adoptees"> (Pet Adoption Carousel with Click & Drag)
+  - <section "critter-cam"> (AWS S3 Video with Progress Bar)
+  - <section "success-stories"> (Dynamic Image Gallery with Captions)
+  - <section "volunteers"> (Volunteer Carousel)
+  - <section "bookings"> (Shoelace Tab Panel for Multi-Form Enquiries)
+  - <footer> (Contact & Legal Info)
+
+// STICKY HEADER & NAVIGATION
+Initialize Header:
+  - Logo, Navigation Links, Dark Mode Toggle (Shoelace Switch)
+  - Ensure Mobile & Desktop Responsiveness
+
+Dark Mode:
+  - Toggle .dark-mode class on body
+  - Adjust all site colors for better readability
+
+Navigation Click Events:
+  - “Adopt Now” → Scroll to Adoptees
+  - “Donate Now” → Scroll to Enquiry (Switch to Donation Tab)
+  - “Volunteer” → Scroll to Enquiry (Switch to Volunteer Tab)
+
+// HERO SECTION (ROTATING BACKGROUND IMAGES)
+Fetch Images from AWS S3:
+  - Store in an array, shuffle, set first image
+  - Rotate every 5s with smooth transitions
+
+Ensure:
+  - Images fill container properly
+  - Text overlays correctly
+
+// ABOUT SECTION (TEXT ANIMATION ON SCROLL)
+On Scroll Event:
+  - Detect when section enters viewport
+  - Apply letter-by-letter typing effect
+  - Fade-in text while animating
+
+Ensure:
+  - Text wraps properly
+  - Animation delay prevents instant pop-in
+
+// ADOPTEES SECTION (HORIZONTAL SCROLLING CAROUSEL)
+Initialize adopt-scroll:
+  - Click Left/Right Buttons → Move panels
+  - Dragging → Adjust scroll position
+  - Stop at first & last panel (No Infinite Loop)
+
+Click "Adopt" Button:
+  - Scroll to Enquiry Section
+  - Switch to Adoption Form Tab
+
+Ensure:
+  - Images stretch to same size
+  - Buttons remain accessible on mobile
+
+// CRITTER CAM (VIDEO FROM AWS S3 WITH PROGRESS BAR)
+Load Video:
+  - Fetch from S3 bucket
+  - Limit height to 30vh for responsiveness
+
+Shoelace Progress Bar:
+  - Start at 0%
+  - Updates dynamically over time
+  - Resets if it reaches 100% and a new donation is made
+
+“Donate Now” Click:
+  - Scrolls to Enquiry Section
+  - Switches to Donation Tab
+  - **Does NOT update progress bar**
+
+Ensure:
+  - Video scales properly across devices
+
+// SUCCESS STORIES (IMAGE GALLERY WITH CAPTIONS)
+Fetch Images from AWS S3:
+  - Display as a carousel
+  - Click → Show larger image with caption
+
+Caption Animation:
+  - Typing effect applied per image
+  - Positioned at the bottom of the image
+
+Ensure:
+  - Text remains readable
+  - Smooth transitions between images
+
+// VOLUNTEERS SECTION (SCROLLABLE CARDS)
+Showcase:
+  - Pet Trainer, Dog Walker, Kennel Attendant, Vet Nurse, Vet
+
+Click “Volunteer” Button:
+  - Scroll to Enquiry Section
+  - Switch to Volunteer Form Tab
+
+Ensure:
+  - Cards are evenly spaced
+  - Scrolls properly on Desktop & Mobile
+
+// BOOKINGS SECTION (SHOELACE TAB PANEL)
+Shoelace Tab Panel:
+  - "Adoption Enquiry"
+  - "Donation"
+  - "Volunteer Sign-Up"
+
+Tab Click Event:
+  - Changes form fields dynamically
+  - Adoption: Pet name, personal details
+  - Donation: Amount, method
+  - Volunteer: Availability, skills
+
+Ensure:
+  - File-tab style appearance
+  - Input fields are logically grouped
+  - Dark Mode applies properly
+
+// FOOTER (CONTACT & REFERENCES)
+Include:
+  - Contact info, Legal disclaimer
+  - Links to references & credits
+
+Ensure:
+  - Text contrast remains readable in all modes
+
+// ADDITIONAL VALIDATION & PERFORMANCE
+Ensure:
+  - Code modularity & reusability
+  - Remove unnecessary logs
+  - Accessibility: aria-labels, WCAG contrast
+  - Responsive Testing (Mobile/Desktop)
+  - Deployment (Netlify)
+
