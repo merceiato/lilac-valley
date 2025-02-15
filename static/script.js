@@ -603,7 +603,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (tabPanel) {
             // Set active tab to 'adoption'
-            tabPanel.show("adoption-form");
+            tabPanel.show("adoption");
         }
 
         if (enquirySection) {
@@ -618,6 +618,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+//nav adopt now
 document.addEventListener("DOMContentLoaded", () => {
     // Select the "Adopt Now" button
     const adoptNowButton = document.querySelector(".cta-now"); // Ensure this matches the button's class
@@ -632,4 +633,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
 

@@ -922,6 +922,17 @@ button[type="submit"]:hover {
     margin-left: 0.5vw;
 }
 
+.hamburger-menu .close-icon {
+    position: absolute;
+    top: 10px; /* Adjust this if needed */
+    right: 15px;
+    font-size: 24px;
+    color: #333; /* Adjust for contrast */
+    cursor: pointer;
+    display: block;
+    z-index: 9999; /* Ensure it's above other elements */
+}
+
 /* Hamburger Menu Spans (Dashes) */
 .hamburger-menu span {
     display: block;
@@ -1013,7 +1024,7 @@ button[type="submit"]:hover {
 /* Rotate and cross animation for the hamburger menu */
 .hamburger-menu.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
-    background-color: var(--wpeachy-orange);
+    background-color: rgba(85, 107, 47, 0.289);
 }
 
 .hamburger-menu.active span:nth-child(2) {
@@ -1023,7 +1034,7 @@ button[type="submit"]:hover {
 
 .hamburger-menu.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
-    background-color: var(--wpeachy-orange);
+    background-color: rgba(85, 107, 47, 0.289);
 }
 
 /* ======================== */
