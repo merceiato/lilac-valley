@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     initDonationProgress();
 });
 
-/** -------------------------------
+/** ----------------------------------------
  *  HERO SLIDER: Fetch and cycle hero images
- *  -------------------------------- */
+ *  ------------------------------------- */
 function initHeroSlider() {
     let slideIndex = 0;
     let heroImages = [];
@@ -53,9 +53,9 @@ function initHeroSlider() {
     fetchHeroImages();
 }
 
-/** -------------------------------
+/** ------------------------------------
  *  GALLERY: Load thumbnails dynamically
- *  -------------------------------- */
+ *  ----------------------------------- */
 function initGallery() {
     async function fetchGalleryImages() {
         try {
@@ -88,7 +88,7 @@ function initGallery() {
     fetchGalleryImages().then(populateGallery);
 }
 
-/** -------------------------------
+/** ----------------------------------
  *  NAVIGATION MENU: Toggle visibility
  *  -------------------------------- */
 function initNavigation() {
@@ -114,9 +114,9 @@ function initNavigation() {
     }
 }
 
-/** -------------------------------
+/** ------------------------------------------
  *  BOOK NOW BUTTON: Scroll to booking section
- *  -------------------------------- */
+ *  ---------------------------------------- */
 function initBookNow() {
     const bookNowButton = document.querySelector(".book-now");
     if (bookNowButton) {
@@ -209,7 +209,7 @@ function initCarousel(scrollContainerSelector, panelSelector, leftBtnSelector, r
     updateButtonState();
 }
 
-/** -------------------------------
+/** ----------------------------------
  *  VIDEO PLAYER: Change video source
  *  -------------------------------- */
 function initVideoPlayer() {
@@ -222,7 +222,7 @@ function initVideoPlayer() {
     });
 }
 
-/** -------------------------------
+/** ----------------------------------
  *  DONATION PROGRESS: Update on click
  *  -------------------------------- */
 function initDonationProgress() {
@@ -233,9 +233,9 @@ function initDonationProgress() {
     });
 }
 
-/** -------------------------------
+/** -------------------------------------
  *  PAW PRINTS: Appear randomly on scroll
- *  -------------------------------- */
+ *  ---------------------------------- */
 let lastScrollY = 0; // Track last scroll position
 let ticking = false; // Prevent excessive function calls
 
@@ -278,9 +278,9 @@ document.addEventListener("scroll", () => {
     }
 });
 
-/** -------------------------------
+/** ---------------------------------
  *  CTA ANIMATIONS: Appear as in view
- *  -------------------------------- */
+ *  ------------------------------ */
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".animated-text-section");
 
@@ -329,9 +329,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-/** -------------------------------
+/** --------------------------------------
  *  CTA ENLARGE ANIMATION:Enlarge on click
- *  -------------------------------- */
+ *  ----------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".animated-text-section");
 
@@ -354,7 +354,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-//prevent JS functions from affecting sticky header
+/** ----------------------------
+ *  SICKY HEADER:helper function
+ *  ------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector(".sticky-header");
 
@@ -377,7 +379,9 @@ window.addEventListener("scroll", () => {
 
 
 
-//gallery caption
+/** ---------------------------------------
+ *  CTA TEXT ANIMATION:Text print animation
+ *  ------------------------------------ */
 function initGallery() {
     async function fetchGalleryImages() {
         try {
@@ -423,6 +427,9 @@ function initGallery() {
         }
     }
 
+    /** ---------------------------------------------------
+ *  GALLERY TEXT ANIMATION:Animates text over gallery image
+ *  ---------------------------------------------------- */
     function updateGallery(imageUrl, text) {
         const mainGallery = document.querySelector('.gallery-main');
         const caption = document.querySelector('.gallery-caption');
@@ -459,7 +466,9 @@ function initGallery() {
 }
 
 
-//darkmode logic
+/** --------------------------------------
+ *  DARK MODE:logic for toggling dark mode
+ *  ----------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
     const darkModeToggle = document.getElementById("dark-mode-toggle");
 
@@ -501,7 +510,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-
+/** -----------------------------------------------------------------
+ *  DONATIONS UPDATE:Updates status bar as donation form is submitted
+ *  -------------------------------------------------------------- */
 function initDonationProgress() {
     let progress = 40; // Initial progress value
 
@@ -520,7 +531,9 @@ function initDonationProgress() {
     });
 }
 
-// Ensure the Donate Now button only scrolls and switches tabs, not affecting progress
+/** ----------------------------------------------------------------
+ *  DONATE NOW BUTTON:Ensures donate now scrolls and does not donate
+ *  -------------------------------------------------------------- */
 function initDonateNowButton() {
     document.querySelector(".donate-btn")?.addEventListener("click", () => {
         document.getElementById("enquire").scrollIntoView({ behavior: "smooth" });
@@ -557,6 +570,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+/** -----------------------------------------------------
+ *  VOLUNTEER CAROUSEL:initialises the volunteer carousel
+ *  --------------------------------------------------- */
+
 document.addEventListener("DOMContentLoaded", () => {
     initCarousel("#volunteers .card-carousel-scroll", "#volunteers .carousel-card", "#volunteers .carousel-btn.left", "#volunteers .carousel-btn.right");
 });
@@ -572,7 +589,9 @@ function scrollRight(selector) {
     scrollContainer.scrollBy({ left: 300, behavior: "smooth" });
 }
 
-
+/** -----------------------------------------------------
+ *  ADOPT NOW BUTTONS:Scroll to and select the adopt form
+ *  --------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
     // Select all adopt buttons in the adoptees carousel
     const adoptButtons = document.querySelectorAll("#adoptees .adopt-btn");
