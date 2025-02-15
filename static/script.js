@@ -278,7 +278,9 @@ document.addEventListener("scroll", () => {
     }
 });
 
-// Typewriter effect when animated-text-section scrolls into view
+/** -------------------------------
+ *  CTA ANIMATIONS: Appear as in view
+ *  -------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".animated-text-section");
 
@@ -327,7 +329,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-//enlarged sections
+/** -------------------------------
+ *  CTA ENLARGE ANIMATION:Enlarge on click
+ *  -------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".animated-text-section");
 

@@ -2,33 +2,34 @@
 <html lang="en">
 
 <head>
+    <!-- Metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Good Dog - Pet Adoption and Rehabilitation. Find your perfect furry companion today!">
+    <meta name="description" content="Good Dog - Pet Adoption and Rehabilitation. Find your perfect furry companion today!">
     <meta name="keywords" content="Pet Adoption, Dog Rescue, Animal Welfare, Rehoming Dogs">
     <meta name="author" content="Thomas Lambert">
     <title>Good~Dog</title>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/themes/light.css" />
-    <script type="module"
-        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/shoelace-autoloader.js"></script>
+
+    <!-- Shoelace Components -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/shoelace-autoloader.js"></script>
 </head>
 
 <body>
+    <!-- Sticky Header -->
     <header class="sticky-header">
         <div class="header-content">
             <button id="menu-toggle" class="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
 
             <div class="logo-container">
                 <a href="/" class="logo-link">
                     <img src="/images/branding/logo.gif" alt="Good Dog Logo" class="logo">
                 </a>
-                <p class="logo-subtext"></p>
             </div>
 
             <nav class="navigation">
@@ -37,33 +38,34 @@
                 <a href="#success-stories">Success Stories</a>
                 <a href="#volunteers">Volunteers</a>
                 <a href="#enquire">Enquire</a>
-                <sl-switch id="dark-mode-toggle" class="dark-mode-switch">
-                    Dark Mode
-                </sl-switch>
+                <sl-switch id="dark-mode-toggle" class="dark-mode-switch">Dark Mode</sl-switch>
             </nav>
 
             <button class="cta-now">Adopt Now</button>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <h1>Find Your Perfect Companion Today</h1>
     </section>
 
+    <!-- About Good Dog -->
     <section id="about-good-dog" class="animated-text-section-container about-section">
         <div class="animated-text-section">
             <h2>About Good Dog</h2>
-            <p>
-                "Good Dog is a nonprofit dedicated to rehabilitating and rehoming rescued dogs, providing them with
-                care, training, and medical attention to ensure a smooth transition into their forever homes."
-            </p>
+            <p>"Good Dog is a nonprofit dedicated to rehabilitating and rehoming rescued dogs, providing them with care, training, and medical attention to ensure a smooth transition into their forever homes."</p>
         </div>
     </section>
 
+    <!-- Adoptees Section (Carousel) -->
     <section id="adoptees" class="card-carousell-container">
         <h2 class="carousel-title">Meet Your New Best Friend</h2>
         <div class="carousel-wrapper">
+            <button class="carousel-btn left">&#9664;</button>
             <div class="card-carousel-scroll">
+                <!-- Dynamic Adoptee Cards -->
+                <!-- Dog 1 -->
                 <div class="carousel-card">
                     <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog1.png"
                         alt="Golden Retriever looking for a home">
@@ -72,6 +74,7 @@
                     <button class="card-carousell-btn">Adopt Bella</button>
                 </div>
 
+                <!-- Dog 2 -->
                 <div class="carousel-card">
                     <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog2.png"
                         alt="Small mixed breed puppy">
@@ -80,6 +83,7 @@
                     <button class="card-carousell-btn">Adopt Charlie</button>
                 </div>
 
+                <!-- Dog 3 -->
                 <div class="carousel-card">
                     <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/adoptee/dog3.png"
                         alt="Rescue dog ready for adoption">
@@ -105,114 +109,41 @@
                     <p>Daisy is an intelligent and energetic Border Collie who would thrive in an active home.</p>
                     <button class="card-carousell-btn">Adopt Daisy</button>
                 </div>
-
             </div>
+            <button class="carousel-btn right">&#9654;</button>
         </div>
     </section>
 
-    <section id="adopt-info" class="animated-text-section-container about-section">
-        <div class="animated-text-section">
-            <p>
-                <strong>Why Choose Good Dog?</strong>
-            </p>
-            <ul>
-                <p>We are committed to ethical and compassionate pet adoption, ensuring all dogs are vaccinated,
-                    microchipped, and health-checked. Our support extends beyond adoption, offering post-adoption care
-                    and working with animal behaviorists to rehabilitate rescue dogs.</p>
-            </ul>
-        </div>
-    </section>
-
+    <!-- Critter Cam Section -->
     <section id="critter-cam" class="critter-cam-section">
         <h2 class="critter-cam-title">Live Critter Cam</h2>
         <div class="critter-cam-container">
-            <!-- Left Thumbnails -->
             <div class="thumbnail-column left-thumbnails">
                 <img src="images/video-thumbnails/bowser.jpg" alt="Bowser" onclick="changeVideo('video1.mp4')">
                 <img src="images/video-thumbnails/toby.jpg" alt="Toby" onclick="changeVideo('video2.mp4')">
                 <img src="images/video-thumbnails/ziggy.jpg" alt="Ziggy" onclick="changeVideo('video3.mp4')">
             </div>
-
-            <!-- Main Video -->
-            <section id="critter-cam" class="critter-cam-section">
-
-                <!-- Video Container -->
-                <div class="video-container">
-                    <video id="s3-video" controls autoplay muted>
-                        <source src="https://good-dog-images.s3.us-east-1.amazonaws.com/videos/donate-videos/video1.mp4"
-                            type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </section>
-
-
-            <!-- Right Thumbnails -->
+            <div class="video-container">
+                <video id="s3-video" controls autoplay muted>
+                    <source src="https://good-dog-images.s3.us-east-1.amazonaws.com/videos/donate-videos/video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
             <div class="thumbnail-column right-thumbnails">
                 <img src="images/video-thumbnails/felix.jpg" alt="Felix" onclick="changeVideo('video4.mp4')">
                 <img src="images/video-thumbnails/ralph.jpg" alt="Ralph" onclick="changeVideo('video5.mp4')">
                 <img src="images/video-thumbnails/hugo.jpg" alt="Hugo" onclick="changeVideo('video6.mp4')">
             </div>
         </div>
-
-
-        <!-- Donation Progress Section -->
-        <div class="donation-section">
-
-            <button class="donate-btn">Donate Now</button>
-
-            <p class="progress-text">Obedience Training Fund</p>
-
-        </div>
-        <!-- Progress Bar Section -->
-        <div class="donation-progress-container">
-            <sl-progress-bar id="donation-progress" value="40"></sl-progress-bar>
-        </div>
     </section>
 
-    <section id="about-critter-cam" class="animated-text-section-container about-section">
-        <div class="animated-text-section">
-            <h2>About Critter cam</h2>
-            <p>
-                "Experience the joy of rescued pets in real time with Good Dog’s Critter Cam, where you can watch
-                adoptable animals play, learn, and prepare for their forever homes!"
-            </p>
-        </div>
-    </section>
-
-
-    <section id="success-stories" class="gallery-section">
-        <h2 class="gallery-title">Our Happy Adoptions</h2>
-        <div class="gallery-container">
-            <!-- Main Image -->
-            <div class="gallery-main">
-                <p class="gallery-caption"></p>
-            </div>
-
-            <!-- Thumbnails -->
-            <div class="thumbnail-box">
-                <div class="gallery-thumbnails">
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="about-success-stories" class="animated-text-section-container about-section">
-        <div class="animated-text-section">
-            <h2>Forever Homes</h2>
-            <p>
-                "Join the countless families who have given rescue pets a second chance, adopt today and become part of
-                Good Dog’s success stories, where every pet finds a loving forever home!"*
-            </p>
-        </div>
-    </section>
-
+    <!-- Volunteers Section (Carousel) -->
     <section id="volunteers" class="card-carousell-container">
         <h2 class="carousel-title">Our Volunteers</h2>
         <div class="carousel-wrapper">
             <button class="carousel-btn left" onclick="scrollLeft()">&#9664;</button>
             <div class="card-carousel-scroll">
+                <!-- Volunteer 1 -->
                 <div class="carousel-card">
                     <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/trainer.jpg"
                         alt="Pet Trainer">
@@ -221,6 +152,7 @@
                     </p>
                     <button class="volunteer-btn">Volunteer</button>
                 </div>
+                <!-- Volunteer 2 -->
                 <div class="carousel-card">
                     <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/walker.jpg"
                         alt="Dog Walker">
@@ -229,6 +161,7 @@
                     </p>
                     <button class="volunteer-btn">Volunteer</button>
                 </div>
+                <!-- Volunteer 3 -->
                 <div class="carousel-card">
                     <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/kennel.jpg"
                         alt="Kennel Attendant">
@@ -237,6 +170,7 @@
                         home.</p>
                     <button class="volunteer-btn">Volunteer</button>
                 </div>
+                <!-- Volunteer 4 -->
                 <div class="carousel-card">
                     <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/nurse.jpg"
                         alt="Vet Nurse">
@@ -244,6 +178,7 @@
                     <p>Sam provides medical care and assists with vaccinations and checkups for all rescued animals.</p>
                     <button class="volunteer-btn">Volunteer</button>
                 </div>
+                <!-- Volunteer 5 -->
                 <div class="carousel-card">
                     <img src="https://good-dog-images.s3.us-east-1.amazonaws.com/images/volunteers/vet.jpg" alt="Vet">
                     <h3>Dr. Taylor - Vet</h3>
@@ -255,131 +190,7 @@
         </div>
     </section>
 
-
-
-    <section id="about-volunteering" class="animated-text-section-container about-section">
-        <div class="animated-text-section">
-            <h2>Volunteering</h2>
-            <p>
-                *"Make a difference in a rescue pet’s journey, become a foster carer, trainer, walker, or shelter
-                volunteer with Good Dog and help give them the love and skills they need for a forever home!"*
-            </p>
-        </div>
-    </section>
-
-    <section id="enquire" class="animated-text-section-container equiry-section">
-        <div class="animated-text-section">
-            <h2>Enquire</h2>
-
-            <!-- Shoelace Tab Group -->
-            <sl-tab-group id="enquiry-tabs">
-                <!-- Tabs -->
-                <sl-tab slot="nav" panel="adoption">Adoption Booking</sl-tab>
-                <sl-tab slot="nav" panel="volunteer">Volunteer Signup</sl-tab>
-                <sl-tab slot="nav" panel="donation">Donation Pledge</sl-tab>
-
-                <!-- Adoption Booking Form -->
-                <sl-tab-panel name="adoption">
-                    <form id="adoption-form">
-                        <div class="form-group">
-                            <label for="adopter-name">Full Name:</label>
-                            <input type="text" id="adopter-name" name="adopter-name" required placeholder="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="adopter-email">Email:</label>
-                            <input type="email" id="adopter-email" name="adopter-email" required
-                                placeholder="john@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="pet-choice">Preferred Pet:</label>
-                            <select id="pet-choice" name="pet-choice">
-                                <option value="dog">Dog</option>
-                                <option value="cat">Cat</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="reason">Why do you want to adopt?</label>
-                            <textarea id="reason" name="reason" rows="3"
-                                placeholder="Tell us about your home, lifestyle, and why you want to adopt."></textarea>
-                        </div>
-                        <button type="submit">Submit Adoption Request</button>
-                    </form>
-                </sl-tab-panel>
-
-                <!-- Volunteer Signup Form -->
-                <sl-tab-panel name="volunteer">
-                    <form id="volunteer-form">
-                        <div class="form-group">
-                            <label for="volunteer-name">Full Name:</label>
-                            <input type="text" id="volunteer-name" name="volunteer-name" required
-                                placeholder="Jane Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="volunteer-email">Email:</label>
-                            <input type="email" id="volunteer-email" name="volunteer-email" required
-                                placeholder="jane@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="volunteer-role">Preferred Volunteer Role:</label>
-                            <select id="volunteer-role" name="volunteer-role">
-                                <option value="dog-walker">Dog Walker</option>
-                                <option value="foster-care">Foster Care</option>
-                                <option value="shelter-helper">Shelter Helper</option>
-                                <option value="event-support">Event Support</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="availability">Availability:</label>
-                            <input type="text" id="availability" name="availability" required
-                                placeholder="e.g., Weekends, Evenings, Flexible">
-                        </div>
-                        <button type="submit">Submit Volunteer Application</button>
-                    </form>
-                </sl-tab-panel>
-
-                <!-- Donation Pledge Form -->
-                <sl-tab-panel name="donation">
-                    <form id="donation-form">
-                        <div class="form-group">
-                            <label for="donor-name">Full Name:</label>
-                            <input type="text" id="donor-name" name="donor-name" required placeholder="Alice Smith">
-                        </div>
-                        <div class="form-group">
-                            <label for="donation-amount">Donation Amount ($):</label>
-                            <input type="number" id="donation-amount" name="donation-amount" required placeholder="50">
-                        </div>
-                        <div class="form-group">
-                            <label for="donation-type">Donation Type:</label>
-                            <select id="donation-type" name="donation-type">
-                                <option value="one-time">One-Time</option>
-                                <option value="monthly">Monthly</option>
-                                <option value="sponsorship">Pet Sponsorship</option>
-                            </select>
-                        </div>
-                        <button type="submit">Submit Donation</button>
-                    </form>
-                </sl-tab-panel>
-            </sl-tab-group>
-        </div>
-    </section>
-
-
-
-    <section id="contact" class="animated-text-section-container">
-        <div class="animated-text-section">
-            <h2>Contact Us</h2>
-            <div class="contact-item">
-                <p>Email: <a href="mailto:contact@gooddog.org">contact@gooddog.org</a></p>
-            </div>
-            <div class="contact-item">
-                <p>Phone: <a href="tel:02 5551234567">+02 5551234567</a></p>
-            </div>
-            <div class="contact-item">
-                <p>Address: 456 Rescue Lane, Sydney, NSW 2000, Australia</p>
-            </div>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer>
         <nav>
             <a href="#about">About Us</a>
@@ -388,13 +199,6 @@
             <a href="#contact">Contact</a>
         </nav>
         <p>&copy; 2024 Good Dog. All rights reserved.</p>
-        <p>
-            This website has been created as part of an assignment in an approved course of study for Curtin University
-            and contains copyright material not created by the author. All copyright material used remains copyright
-            of the respective owners and has been used here pursuant to Section 40 of the Copyright Act 1968
-            (Commonwealth of Australia). No part of this work may be reproduced without consent of the original
-            copyright owners.
-        </p>
     </footer>
 
     <script src="script.js"></script>
